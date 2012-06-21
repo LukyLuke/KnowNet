@@ -1,0 +1,4 @@
+[Project]
+Name=KnowNet
+Manager=KDevCMakeManager
+VersionControl=kdevgit
