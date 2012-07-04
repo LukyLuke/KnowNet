@@ -1,0 +1,322 @@
+﻿\documentclass[
+    11pt,
+    latin1,
+    a4paper,
+    %titelpage,
+    oneside
+]{scrreprt}
+\usepackage[latin1]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{lmodern}
+\usepackage{ngerman}
+\usepackage{scrpage2}
+\usepackage{pdfpages}
+\usepackage{lastpage}
+\usepackage{caption}
+\usepackage[noindentafter]{titlesec}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{booktabs}
+
+% Algorithms and Pseudocode
+%\usepackage{algorithmic}
+%\usepackage{algorithm}
+%\numberwithin{algorithm}{chapter}  % numbering is per chapter and not global over the whole document
+%\floatname{algorithm}{Pseudocode}
+%\renewcommand{\algorithmiccomment}[1]{\textit{// #1}}
+%%\renewcommand{\theHalgorithm}{\arabic{algorithm}}
+%%\listofalgorithms % Show the List of Algoritms
+
+% Codeblocks
+\usepackage{listings}
+\usepackage{color}
+\definecolor{listings}{RGB}{237,241,246}
+\lstloadlanguages{Clean,sh,bash,[ANSI]C,[ISO]C++,SQL,Pascal,Python,PHP,[gnu]awk,XML,XSLT,HTML}
+\lstset{language=Clean,frame=tb,numbers=left,captionpos=b,numberstyle=\tiny,basicstyle=\small,breaklines=true}
+\renewcommand*{\thelstnumber}{{\the\value{lstnumber}}{:}}
+\renewcommand*{\lstlistlistingname}{Codeblock-Verzeichnis}
+\renewcommand*{\lstlistingname}{Codeblock}
+
+%% Index
+\usepackage{makeidx}
+\renewcommand{\indexname}{Stichwortverzeichnis}
+\makeindex
+
+%% see http://blog.stefan-macke.com/2006/05/03/abkurzungsverzeichnis-mit-latex/
+%% and http://my.opera.com/timomeinen/blog/show.dml/68644
+\usepackage{nomencl}
+\let\abbrev\nomenclature
+\renewcommand{\nomname}{Abk\"urzungsverzeichnis}
+\setlength{\nomlabelwidth}{.25\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}
+\setlength{\nomitemsep}{-\parsep}
+\makeglossary
+
+%% Caption modifications
+\usepackage{caption}
+\captionsetup{margin=20pt,labelfont=bf,font=footnotesize,justification=justified,singlelinecheck=false}
+
+%% PDF Meta-Informationen
+\hypersetup{%
+        bookmarks=true, % Lesezeichen erzeugen
+        bookmarksopen=false, % Lesezeichen ausgeklappt
+        bookmarksnumbered=true, % Anzeige der Kapitelzahlen am Anfang der Namen der Lesezeichen
+        breaklinks=true, % ermöglicht einen Umbruch von URLs
+        colorlinks=true, % Einfärbung von Links
+        linkcolor=black, % Linkfarbe
+        anchorcolor=black, % Ankerfarbe
+        citecolor=blue, % Literaturlinks
+        filecolor=black, % Links zu lokalen Dateien
+        menucolor=black, % Acrobat Menü Einträge
+        urlcolor=blue, % URL-Farbe
+        %pdfpagemode=UseThumbs, % Anzeige der Piktogramme
+        pdfstartpage={1}, % Startseite
+        pdftitle = {Dokumentation zu KnowNet},
+        pdfsubject = {KnowNet ist eine Ontologie und darauf basierende Suchmaschine für Dokumente und Aussagen},
+        pdfauthor = {Lukas Zurschmiede},
+        pdfkeywords = {Knowledge, Network, Ontology, KnowNet, Pirateparty, search, searchengine, nowledgebase},
+        pdfcreator = {LaTeX to PDF-Creator},
+        pdfproducer = {LaTeX with hyperref}
+}
+
+%% Anzahl Unterverzeichnisse auf 4 - Standard auf 3
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+
+% Globale Definitionen
+\bibliographystyle{alphadin}
+\newcommand{\at}{\symbol{64}}
+\newcommand{\tld}{\symbol{126}}
+
+%% Dokument Meta-Informationen
+\author{Lukas Zurschmiede\\Bachelor of Science in Information technology}
+\date{Lommis, 21. Juni 2012}
+\publishers{Lukas Zurschmiede\\Pirateparty Switzerland}
+\titlehead{\includegraphics[scale=0.25]{images/knownet_logo}}
+\title{KnowNet, eine Ontologie und Suchmaschine f\"ur Dokumente und Statements}
+\subject{Idee f\"ur eine Software\\
+Piratenpartei Schweiz}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\singlespacing
+\tableofcontents
+
+\pagebreak
+\onehalfspacing
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\chapter{Ontologie f\"ur KnowNet} \label{ontology}
+
+\section{Klassen} \label{sec:class}
+
+Folgende Klassen und Spezialisierungen werden für die Ontologie gebraucht. In den nachfolgenden Kapiteln werden diese noch genauer beschrieben. Die Verlinkungen zwischen den einzelnen Klassen, also die ObjectProperties, werden im Kapitel \nameref{sec:property} auf Seite \pageref{sec:property} beschrieben. In den jeweiligen Detailbeschreibungen der Klassen wird jeweils darauf eingegangen und darauf verwiesen. Die Datenfelder, also die DataProperties, werden in den Detailbeschreibungen der Klassen beschrieben.
+
+\begin{tikzpicture}
+	\node (is-root) {Thing}
+		child { node{Word} }
+	child { node{Sentence} }
+	child { node{Translation} }
+	child { node{Synonym} }
+	child {
+		node{Document}
+			child { node{Paper} }
+		child { node{Statement} }
+		child { node{Journal} }
+	}
+	child {
+		node{Employee}
+			child { node{Blogger} }
+		child { node{Writer} }
+		child { node{Member} }
+	}
+	child { node{Organization} }
+	child { node{Association} }
+\end{tikzpicture}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{ | l | p{5cm} | l | l| }
+		\hline
+	\textbf{Class} & \textbf{Beschreibung} & \textbf{SubClass of} & \textbf{Details} \\ \hline
+	\textbf{Word} & Beschreibt ein einzelnes Wort in einer Sprache, es kann auch aus mehreren würtern zusammengesetzt sein; Anhand einer ID kann ein Link zu einer anderen Sprache oder einenmSynonym hergestellt werden; & Thing & \nameref{sec:class_word} auf Seite \pageref{sec:class_word} \\ \hline
+	\textbf{Translation} & Gruppiert die gleichen W\"örter aus verschiedenen Sprachen & Thing & \nameref{sec:class_translation} auf Seite \pageref{sec:class_translation} \\ \hline
+	\textbf{Synonym} & Gruppiert unterschiedliche W\"örter der gleichen Sprache mit der gleichen Bedeutung & Thing & \nameref{sec:class_synonym} auf Seite \pageref{sec:class_synonym} \\ \hline
+		\textbf{Sentence} & Ein Satz besteht aus verschiedenen Wörtern & Thing & \nameref{sec:class_sentence} auf Seite \pageref{sec:class_sentence} \\ \hline
+		\textbf{Document} & Ein Dokument ist eine Sammlung von Sätzen inkl. einigen weiteren Attributen & Thing & \nameref{sec:class_document} auf Seite \pageref{sec:class_document} \\ \hline
+		\textbf{Paper} & Ein Positionspapier oder eine andere Dokumentation einer Partei & Document & \nameref{sec:class_paper} auf Seite \pageref{sec:class_paper} \\ \hline
+		\textbf{Statement} & Eine Aussage, welche ein Mitglied einer Partei gemacht hat und welche so vertreten wird & Document & \nameref{sec:class_statement} auf Seite \pageref{sec:class_statement} \\ \hline
+		\textbf{Journal} & Ein Zeitungsbericht & Document & \nameref{sec:class_journal} auf Seite \pageref{sec:class_journal} \\ \hline
+		\textbf{Employee} & Ein Angestellter & Thing & \nameref{sec:class_employee} auf Seite \pageref{sec:class_employee} \\ \hline
+		\textbf{Blogger} & Jemand der Blogs verfasst und dort seine Meinung offen Kund gibt & Employee & \nameref{sec:class_blogger} auf Seite \pageref{sec:class_blogger} \\ \hline
+		\textbf{Writer} & Ein Angestellter eines Medienhauses welcher nicht immer seine eigene Meinung vertritt & Employee & \nameref{sec:class_writer} auf Seite \pageref{sec:class_writer} \\ \hline
+		\textbf{Member} & ein Angestellter oder Mitglied einer Partei, welcher die Meinung der Partei vertritt & Employee & \nameref{sec:class_member} auf Seite \pageref{sec:class_member} \\ \hline
+		\textbf{Organization} & Eine Organisation/Medienhaus welches Zeitungen etc. herstellt, Arbeitgeber eines Journalisten & Thing & \nameref{sec:class_organization} auf Seite \pageref{sec:class_organization} \\ \hline
+		\textbf{Association} & Eine (politische) Partei, welche Mitglieder und Angestellte hat & Thing & \nameref{sec:class_association} auf Seite \pageref{sec:class_association} \\ \hline
+	\end{tabular}
+	\caption{Kurze Beschreibung der Klassen in der Ontologie}
+	\label{tbl:classes}
+\end{table}
+
+
+\subsection{Klasse: Word} \label{sec:class_word}
+
+Die Klasse \emph{Word} wird verwendet, um ein einzelnes Wort, welches innerhalb eines Dokumentes gefunden werden soll, zu definieren. Einzelne W\"orter k\"onnen mit der Relation \nameref{sec:rel_wordcombo} (siehe Seite \pageref{sec:rel_wordcombo}) zu Wortkombinationen zusammengesetzt werden. Durch das Datenfeld \emph{language} wird die Sprache des jeweiligen Wortes in iso639-1 (zwei Zeichen) definiert. Um \"Ubersetzungen miteinander zu verknüpfen, wird die Klasse \nameref{sec:class_translation} (siehe Seite \pageref{sec:class_translation}) verwendet. Durch die Relation \nameref{sec:rel_wordtype} wird die Art des Wortes definiert, also ob es sich um ein Nomen, ein Adjektiv oder ein Verb handelt.
+
+\subsubsection{Code}  \label{sec:class_word_code}
+
+\texttt{<owl:Class IDI="#Word"> \\
+	\\
+</owl:Class> }
+
+\subsection{Klasse: Translation} \label{sec:class_translation}
+
+Die Klasse \emph{Translation} ist eine Vereinigung aller W\"orter verschiedener Sprachen mit der selben Bedeutung. Dies geschieht durch das Konstrukt \texttt{owl:oneOf} und der Angabe aller Individuen innerhalb dieses Bereiches. Durch dieses Konstrukt können neue Wörter einfach und schnell eingepflegt und \"ubersetzt werden und bei einer Abfrage kann jeweils eines aus der Liste gesucht werden.
+
+\subsubsection{Code}  \label{sec:class_translation_code}
+
+\texttt{<owl:Class IDI="#Translation"> \\
+	<owl:oneOf rdf:parseType="Collection"> \\
+		<Word rdf:about="#Word_Instance_IDI" /> \\
+	<Word rdf:about="#Word_Instance_IDI" /> \\
+	... \\
+	</owl:oneOf> \\
+</owl:Class> }
+
+
+\subsection{Klasse: Synonym} \label{sec:class_synonym}
+
+Die Klasse \emph{Synonym} dient zur Verkettung von W\"ortern mit der gleichen Bedeutung. Dies geschieht durch das Konstrukt \texttt{owl:oneOf} und der Angabe aller Individuen innerhalb dieses Bereiches. Durch dieses Konstrukt können neue Wörter einfach und schnell eingepflegt und als Synonyme definiert werden, sowie bei einer Abfrage in der Liste gesucht werden.
+
+
+\subsubsection{Code}  \label{sec:class_synonym_code}
+
+\texttt{ <owl:Class IDI="#Synonym"> \\
+	<owl:oneOf rdf:parseType="Collection"> \\
+		<Word rdf:about="#Word_Instance_IDI" /> \\
+	<Word rdf:about="#Word_Instance_IDI" /> \\
+	... \\
+	</owl:oneOf> \\
+</owl:Class> }
+
+
+\subsection{Klasse: Sentence} \label{sec:class_sentence}
+
+Ein Satz, welcher durch die Klasse \emph{Sentence} definiert wird, ist eine Vereinigung von W\"ortern zu einer Gruppe von solchen. Die Reihenfolge der Wörter ist hierbei egal, es geht nur um das Zusammenspiel und den Zusammenhang einzelner Wörter. Dieses Konstrukt wird bei der Instanz im Property \nameref{sec:rel_has-word} durch eine anonyme Klasse mit \texttt{owl:unionOf} definiert werden.
+
+\subsubsection{Code}  \label{sec:class_sentence_code}
+
+\texttt{ <owl:Class IDI="#Sentence"> \\
+	<rdfs:subClassOf> \\
+		<owl:Restriction> \\
+		<owl:onProperty rdf:resource="#has-word" /> \\
+		<owl:someValuesFrom ref:resource="#Word" /> \\
+	</owl:Restriction> \\
+	</rdfs:subClassOf> \\
+</owl:Class> }
+
+
+\subsection{Klasse: Document} \label{sec:class_document}
+
+Die Klasse \emph{Document} ist, \"ahnlich wie \nameref{sec:class_sentence}, eine Kombination von verschiedenen S\"atzen. Die Reihenfolge dieser spielt keine Rolle, es geht rein um den Logischen Zusammenhang der einzelnen S\"atze und somit der verschiedenen W\"orter.
+
+\textit{Anmerkung:} Eventuell macht es hier Sinn, ein Dokument noch durch Kapitel zu strukturieren. Dies kann durch die Relation "ein Dokument aus Dokumenten" gemacht werden.
+
+\subsubsection{Code}  \label{sec:class_sentence_code}
+
+\texttt{ <owl:Class IDI="#Document"> \\
+	<rdfs:subClassOf> \\
+		<owl:Restriction> \\
+		<owl:onProperty rdf:resource="#has-sentence" /> \\
+		<owl:someValuesFrom ref:resource="#Sentence" /> \\
+	</owl:Restriction> \\
+	</rdfs:subClassOf> \\
+</owl:Class> }
+
+
+\subsection{Klasse: Paper} \label{sec:class_paper}
+
+Die Klasse \emph{Paper} definiert ein Dokument, welches im Zusammenhang zu einem Verein, also der Klasse \nameref{sec:class_association} steht. Durch diese Unterklasse kann am ende besser nach Dokumenten gesucht werden, welche zum Beispiel von einer bestimmten politischen Partei, oder einer Sektion von dieser, verfasst wurden.
+
+\subsubsection{Code}  \label{sec:class_paper_code}
+
+\texttt{ <owl:Class IDI="#Paper"> \\
+	<rdfs:subClassOf rdf:resurce="#Document" /> \\
+</owl:Class> }
+
+
+\subsection{Klasse: Statement} \label{sec:class_statement}
+
+\subsection{Klasse: JournalText} \label{sec:class_journaltext}
+
+\subsection{Klasse: Employee} \label{sec:class_employee}
+
+\subsection{Klasse: Blogger} \label{sec:class_blogger}
+
+\subsection{Klasse: Journalist} \label{sec:class_journalist}
+
+\subsection{Klasse: PartyMember} \label{sec:class_partymember}
+
+\subsection{Klasse: Newspaper} \label{sec:class_newspaper}
+
+\subsection{Klasse: Party} \label{sec:class_party}
+
+
+
+
+\newpage
+\setcounter{page}{1}
+\pagenumbering{Alph}
+
+% Glossary
+\abbrev[prefix]{IP}{Internet Protocol}
+
+\addcontentsline{toc}{chapter}{Abk\"urzungsverzeichnis}
+\printglossary
+
+%% Abbildungs und Tabellenverzeichnis
+%\newpage
+%\addcontentsline {toc}{chapter}{Abbildungsverzeichnis}
+%\listoffigures
+%\addcontentsline {toc}{chapter}{Tabellenverzeichnis}
+%\listoftables
+%\addcontentsline {toc}{chapter}{Codeverzeichnis}
+%%\listofalgorithms
+%\lstlistoflistings
+
+%% Literaturverzeichniss
+\newpage
+\addcontentsline {toc}{chapter}{Literaturverzeichnis}
+
+\bibliographystyle{plainnat}
+\begin{thebibliography}{99}
+\bibitem{W3COWL}
+	W3C,
+	\emph{OWL Web Ontology Language Reference},
+	10. Februar 2004,
+	\url{http://www.w3.org/TR/owl-ref/}
+	
+\bibitem{OntDevel}
+	Natalya F. Noy \and Deborah L. McGuinness,
+	\emph{Ontology Development 101: A Guide to Creating Your First Ontology},
+	2002,
+	\url{http://protege.stanford.edu/publications/ontology_development/ontology101.pdf}
+	
+
+
+\end{thebibliography}
+
+\end{document}
