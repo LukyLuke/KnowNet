@@ -16,14 +16,18 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      ontologyIRI="http://www.pirateparty.ch/ontologies/2012/5/knownet">
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <Literal datatypeIRI="&xsd;string">KnowNet is a Project for the PirateParty Switzerland to gather all politically interresting information and make them searchable through a modern search engine</Literal>
     </Annotation>
+    <Declaration>
+        <Class IRI="#Association"/>
+    </Declaration>
     <Declaration>
         <Class IRI="#Blogger"/>
     </Declaration>
@@ -34,22 +38,16 @@
         <Class IRI="#Employee"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#JournalText"/>
+        <Class IRI="#Journal"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Journalist"/>
+        <Class IRI="#Member"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Newspaper"/>
+        <Class IRI="#Organization"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Party"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#PartyMember"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#PartyPaper"/>
+        <Class IRI="#Paper"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Person"/>
@@ -61,7 +59,16 @@
         <Class IRI="#Statement"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Synonym"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Translation"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Word"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Writer"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#document-of"/>
@@ -85,9 +92,6 @@
         <ObjectProperty IRI="#has-subregion"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#has-text"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#has-word"/>
     </Declaration>
     <Declaration>
@@ -106,13 +110,13 @@
         <ObjectProperty IRI="#refers-to"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#sentence-of"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#subregion-of"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#text-of"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#working-as"/>
+        <ObjectProperty IRI="#word-of"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#writer-of"/>
@@ -137,48 +141,48 @@
         <Class IRI="#Employee"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#JournalText"/>
+        <Class IRI="#Employee"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Journal"/>
         <Class IRI="#Document"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Journalist"/>
-        <Class IRI="#Employee"/>
+        <Class IRI="#Member"/>
+        <Class IRI="#Person"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#PartyMember"/>
-        <Class IRI="#Employee"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#PartyPaper"/>
+        <Class IRI="#Paper"/>
         <Class IRI="#Document"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Statement"/>
         <Class IRI="#Document"/>
     </SubClassOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#is-about"/>
-        <ObjectProperty IRI="#document-of"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#mentioned-in"/>
-        <ObjectProperty IRI="#has-document"/>
-    </SubObjectPropertyOf>
+    <SubClassOf>
+        <Class IRI="#Writer"/>
+        <Class IRI="#Employee"/>
+    </SubClassOf>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#has-employee"/>
         <ObjectProperty IRI="#employee-of"/>
+        <ObjectProperty IRI="#has-employee"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#member-of"/>
         <ObjectProperty IRI="#has-member"/>
+        <ObjectProperty IRI="#member-of"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#subregion-of"/>
+        <ObjectProperty IRI="#sentence-of"/>
+        <ObjectProperty IRI="#has-sentence"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
         <ObjectProperty IRI="#has-subregion"/>
+        <ObjectProperty IRI="#subregion-of"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#has-text"/>
-        <ObjectProperty IRI="#text-of"/>
+        <ObjectProperty IRI="#word-of"/>
+        <ObjectProperty IRI="#has-word"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#has-writer"/>
@@ -214,16 +218,25 @@
         <ObjectProperty IRI="#has-word"/>
     </TransitiveObjectProperty>
     <TransitiveObjectProperty>
+        <ObjectProperty IRI="#is-about"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
         <ObjectProperty IRI="#member-of"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#mentioned-in"/>
     </TransitiveObjectProperty>
     <TransitiveObjectProperty>
         <ObjectProperty IRI="#refers-to"/>
     </TransitiveObjectProperty>
     <TransitiveObjectProperty>
+        <ObjectProperty IRI="#sentence-of"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
         <ObjectProperty IRI="#subregion-of"/>
     </TransitiveObjectProperty>
     <TransitiveObjectProperty>
-        <ObjectProperty IRI="#working-as"/>
+        <ObjectProperty IRI="#word-of"/>
     </TransitiveObjectProperty>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#document-of"/>
@@ -235,19 +248,23 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#has-document"/>
-        <Class IRI="#Party"/>
+        <Class IRI="#Association"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has-document"/>
+        <Class IRI="#Organization"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#has-employee"/>
-        <Class IRI="#Newspaper"/>
+        <Class IRI="#Association"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#has-employee"/>
-        <Class IRI="#Party"/>
+        <Class IRI="#Organization"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#has-member"/>
-        <Class IRI="#Party"/>
+        <Class IRI="#Association"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#has-sentence"/>
@@ -255,11 +272,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#has-subregion"/>
-        <Class IRI="#Party"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has-text"/>
-        <Class IRI="#Newspaper"/>
+        <Class IRI="#Association"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#has-word"/>
@@ -271,7 +284,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#is-about"/>
-        <Class IRI="#JournalText"/>
+        <Class IRI="#Document"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#member-of"/>
@@ -279,27 +292,23 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#mentioned-in"/>
-        <Class IRI="#Party"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#mentioned-in"/>
-        <Class IRI="#Person"/>
+        <Class IRI="#Association"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#refers-to"/>
         <Class IRI="#Document"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#sentence-of"/>
+        <Class IRI="#Sentence"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#subregion-of"/>
-        <Class IRI="#Party"/>
+        <Class IRI="#Association"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#text-of"/>
-        <Class IRI="#JournalText"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#working-as"/>
-        <Class IRI="#Person"/>
+        <ObjectProperty IRI="#word-of"/>
+        <Class IRI="#Word"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#writer-of"/>
@@ -307,15 +316,19 @@
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#document-of"/>
-        <Class IRI="#Party"/>
+        <Class IRI="#Association"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#document-of"/>
+        <Class IRI="#Organization"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#employee-of"/>
-        <Class IRI="#Newspaper"/>
+        <Class IRI="#Association"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#employee-of"/>
-        <Class IRI="#Party"/>
+        <Class IRI="#Organization"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#has-document"/>
@@ -335,11 +348,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#has-subregion"/>
-        <Class IRI="#Party"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#has-text"/>
-        <Class IRI="#JournalText"/>
+        <Class IRI="#Association"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#has-word"/>
@@ -351,35 +360,31 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#is-about"/>
-        <Class IRI="#Party"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#is-about"/>
-        <Class IRI="#Person"/>
+        <Class IRI="#Association"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#member-of"/>
-        <Class IRI="#Party"/>
+        <Class IRI="#Association"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#mentioned-in"/>
-        <Class IRI="#JournalText"/>
+        <Class IRI="#Document"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#refers-to"/>
         <Class IRI="#Document"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#sentence-of"/>
+        <Class IRI="#Document"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#subregion-of"/>
-        <Class IRI="#Party"/>
+        <Class IRI="#Association"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#text-of"/>
-        <Class IRI="#Newspaper"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#working-as"/>
-        <Class IRI="#Employee"/>
+        <ObjectProperty IRI="#word-of"/>
+        <Class IRI="#Sentence"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#writer-of"/>

@@ -36,7 +36,7 @@
 %%\renewcommand{\theHalgorithm}{\arabic{algorithm}}
 %%\listofalgorithms % Show the List of Algoritms
 
-% Codeblocks
+% ========== CODEBLOCKS FORMATTING ==========
 \usepackage{listings}
 \usepackage{color}
 \definecolor{listings}{RGB}{237,241,246}
@@ -46,11 +46,12 @@
 \renewcommand*{\lstlistlistingname}{Codeblock-Verzeichnis}
 \renewcommand*{\lstlistingname}{Codeblock}
 
-%% Index
+% ========== INDEX ==========
 \usepackage{makeidx}
 \renewcommand{\indexname}{Stichwortverzeichnis}
 \makeindex
 
+% ========== SPECIAL NOMENCLATURE ==========
 %% see http://blog.stefan-macke.com/2006/05/03/abkurzungsverzeichnis-mit-latex/
 %% and http://my.opera.com/timomeinen/blog/show.dml/68644
 \usepackage{nomencl}
@@ -61,11 +62,11 @@
 \setlength{\nomitemsep}{-\parsep}
 \makeglossary
 
-%% Caption modifications
+% ========== Caption modifications ==========
 \usepackage{caption}
 \captionsetup{margin=20pt,labelfont=bf,font=footnotesize,justification=justified,singlelinecheck=false}
 
-%% PDF Meta-Informationen
+% ========== PDF META-INFORMATION ==========
 \hypersetup{%
         bookmarks=true, % Lesezeichen erzeugen
         bookmarksopen=false, % Lesezeichen ausgeklappt
@@ -88,16 +89,14 @@
         pdfproducer = {LaTeX with hyperref}
 }
 
-%% Anzahl Unterverzeichnisse auf 4 - Standard auf 3
+% ========== GLOBALS ==========
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{2}
-
-% Globale Definitionen
 \bibliographystyle{alphadin}
 \newcommand{\at}{\symbol{64}}
 \newcommand{\tld}{\symbol{126}}
 
-%% Dokument Meta-Informationen
+% ========== META-INFORMATION ==========
 \author{Lukas Zurschmiede\\Bachelor of Science in Information technology}
 \date{Lommis, 21. Juni 2012}
 \publishers{Lukas Zurschmiede\\Pirateparty Switzerland}
@@ -121,6 +120,8 @@ Piratenpartei Schweiz}
 
 \chapter{Ontologie f\"ur KnowNet} \label{ontology}
 
+% ========== CLASSES ==========
+
 \section{Klassen} \label{sec:class}
 
 Folgende Klassen und Spezialisierungen werden für die Ontologie gebraucht. In den nachfolgenden Kapiteln werden diese noch genauer beschrieben. Die Verlinkungen zwischen den einzelnen Klassen, also die ObjectProperties, werden im Kapitel \nameref{sec:property} auf Seite \pageref{sec:property} beschrieben. In den jeweiligen Detailbeschreibungen der Klassen wird jeweils darauf eingegangen und darauf verwiesen. Die Datenfelder, also die DataProperties, werden in den Detailbeschreibungen der Klassen beschrieben.
@@ -138,9 +139,12 @@ Folgende Klassen und Spezialisierungen werden für die Ontologie gebraucht. In d
 		child { node{Journal} }
 	}
 	child {
-		node{Employee}
-			child { node{Blogger} }
-		child { node{Writer} }
+		node{Person}
+		child {
+			node{Employee}
+				child { node{Blogger} }
+				child { node{Writer} }
+		}
 		child { node{Member} }
 	}
 	child { node{Organization} }
@@ -151,19 +155,20 @@ Folgende Klassen und Spezialisierungen werden für die Ontologie gebraucht. In d
 	\centering
 	\begin{tabular}{ | l | p{5cm} | l | l| }
 		\hline
-	\textbf{Class} & \textbf{Beschreibung} & \textbf{SubClass of} & \textbf{Details} \\ \hline
-	\textbf{Word} & Beschreibt ein einzelnes Wort in einer Sprache, es kann auch aus mehreren würtern zusammengesetzt sein; Anhand einer ID kann ein Link zu einer anderen Sprache oder einenmSynonym hergestellt werden; & Thing & \nameref{sec:class_word} auf Seite \pageref{sec:class_word} \\ \hline
-	\textbf{Translation} & Gruppiert die gleichen W\"örter aus verschiedenen Sprachen & Thing & \nameref{sec:class_translation} auf Seite \pageref{sec:class_translation} \\ \hline
-	\textbf{Synonym} & Gruppiert unterschiedliche W\"örter der gleichen Sprache mit der gleichen Bedeutung & Thing & \nameref{sec:class_synonym} auf Seite \pageref{sec:class_synonym} \\ \hline
+		\textbf{Class} & \textbf{Beschreibung} & \textbf{SubClass of} & \textbf{Details} \\ \hline
+		\textbf{Word} & Beschreibt ein einzelnes Wort in einer Sprache, es kann auch aus mehreren würtern zusammengesetzt sein; Anhand einer ID kann ein Link zu einer anderen Sprache oder einenmSynonym hergestellt werden; & Thing & \nameref{sec:class_word} auf Seite \pageref{sec:class_word} \\ \hline
+		\textbf{Translation} & Gruppiert die gleichen W\"örter aus verschiedenen Sprachen & Thing & \nameref{sec:class_translation} auf Seite \pageref{sec:class_translation} \\ \hline
+		\textbf{Synonym} & Gruppiert unterschiedliche W\"örter der gleichen Sprache mit der gleichen Bedeutung & Thing & \nameref{sec:class_synonym} auf Seite \pageref{sec:class_synonym} \\ \hline
 		\textbf{Sentence} & Ein Satz besteht aus verschiedenen Wörtern & Thing & \nameref{sec:class_sentence} auf Seite \pageref{sec:class_sentence} \\ \hline
 		\textbf{Document} & Ein Dokument ist eine Sammlung von Sätzen inkl. einigen weiteren Attributen & Thing & \nameref{sec:class_document} auf Seite \pageref{sec:class_document} \\ \hline
 		\textbf{Paper} & Ein Positionspapier oder eine andere Dokumentation einer Partei & Document & \nameref{sec:class_paper} auf Seite \pageref{sec:class_paper} \\ \hline
 		\textbf{Statement} & Eine Aussage, welche ein Mitglied einer Partei gemacht hat und welche so vertreten wird & Document & \nameref{sec:class_statement} auf Seite \pageref{sec:class_statement} \\ \hline
 		\textbf{Journal} & Ein Zeitungsbericht & Document & \nameref{sec:class_journal} auf Seite \pageref{sec:class_journal} \\ \hline
-		\textbf{Employee} & Ein Angestellter & Thing & \nameref{sec:class_employee} auf Seite \pageref{sec:class_employee} \\ \hline
+		\textbf{Person} & Eine Person im Allgemeinen & Thing & \nameref{sec:class_person} auf Seite \pageref{sec:class_person} \\ \hline
+		\textbf{Employee} & Ein Angestellter einer Organisation & Person & \nameref{sec:class_employee} auf Seite \pageref{sec:class_employee} \\ \hline
 		\textbf{Blogger} & Jemand der Blogs verfasst und dort seine Meinung offen Kund gibt & Employee & \nameref{sec:class_blogger} auf Seite \pageref{sec:class_blogger} \\ \hline
 		\textbf{Writer} & Ein Angestellter eines Medienhauses welcher nicht immer seine eigene Meinung vertritt & Employee & \nameref{sec:class_writer} auf Seite \pageref{sec:class_writer} \\ \hline
-		\textbf{Member} & ein Angestellter oder Mitglied einer Partei, welcher die Meinung der Partei vertritt & Employee & \nameref{sec:class_member} auf Seite \pageref{sec:class_member} \\ \hline
+		\textbf{Member} & ein Angestellter oder Mitglied einer Partei, welcher die Meinung der Partei vertritt & Person & \nameref{sec:class_member} auf Seite \pageref{sec:class_member} \\ \hline
 		\textbf{Organization} & Eine Organisation/Medienhaus welches Zeitungen etc. herstellt, Arbeitgeber eines Journalisten & Thing & \nameref{sec:class_organization} auf Seite \pageref{sec:class_organization} \\ \hline
 		\textbf{Association} & Eine (politische) Partei, welche Mitglieder und Angestellte hat & Thing & \nameref{sec:class_association} auf Seite \pageref{sec:class_association} \\ \hline
 	\end{tabular}
@@ -174,11 +179,11 @@ Folgende Klassen und Spezialisierungen werden für die Ontologie gebraucht. In d
 
 \subsection{Klasse: Word} \label{sec:class_word}
 
-Die Klasse \emph{Word} wird verwendet, um ein einzelnes Wort, welches innerhalb eines Dokumentes gefunden werden soll, zu definieren. Einzelne W\"orter k\"onnen mit der Relation \nameref{sec:rel_wordcombo} (siehe Seite \pageref{sec:rel_wordcombo}) zu Wortkombinationen zusammengesetzt werden. Durch das Datenfeld \emph{language} wird die Sprache des jeweiligen Wortes in iso639-1 (zwei Zeichen) definiert. Um \"Ubersetzungen miteinander zu verknüpfen, wird die Klasse \nameref{sec:class_translation} (siehe Seite \pageref{sec:class_translation}) verwendet. Durch die Relation \nameref{sec:rel_wordtype} wird die Art des Wortes definiert, also ob es sich um ein Nomen, ein Adjektiv oder ein Verb handelt.
+Die Klasse \emph{Word} wird verwendet, um ein einzelnes Wort, welches innerhalb eines Dokumentes gefunden werden soll, zu definieren. Einzelne W\"orter k\"onnen mit der Relation \emph{wordcombo} (siehe \nameref{sec:rel_wordcombo} Seite \pageref{sec:rel_wordcombo}) zu Wortkombinationen zusammengesetzt werden. Durch das Datenfeld \emph{language} wird die Sprache des jeweiligen Wortes in iso639-1 (zwei Zeichen) definiert. Um \"Ubersetzungen miteinander zu verknüpfen, wird die Klasse \emph{Translation} (siehe \nameref{sec:class_translation} Seite \pageref{sec:class_translation}) verwendet. Durch die Relation \emph{wordtype} wird die Art des Wortes definiert, also ob es sich um ein Nomen, ein Adjektiv oder ein Verb handelt.
 
 \subsubsection{Code}  \label{sec:class_word_code}
 
-\texttt{<owl:Class IDI="#Word"> \\
+\texttt{<owl:Class rdf:ID="#Word"> \\
 	\\
 </owl:Class> }
 
@@ -188,11 +193,11 @@ Die Klasse \emph{Translation} ist eine Vereinigung aller W\"orter verschiedener 
 
 \subsubsection{Code}  \label{sec:class_translation_code}
 
-\texttt{<owl:Class IDI="#Translation"> \\
+\texttt{<owl:Class rdf:ID="#Translation"> \\
 	<owl:oneOf rdf:parseType="Collection"> \\
 		<Word rdf:about="#Word_Instance_IDI" /> \\
-	<Word rdf:about="#Word_Instance_IDI" /> \\
-	... \\
+		<Word rdf:about="#Word_Instance_IDI" /> \\
+		... \\
 	</owl:oneOf> \\
 </owl:Class> }
 
@@ -204,22 +209,22 @@ Die Klasse \emph{Synonym} dient zur Verkettung von W\"ortern mit der gleichen Be
 
 \subsubsection{Code}  \label{sec:class_synonym_code}
 
-\texttt{ <owl:Class IDI="#Synonym"> \\
+\texttt{ <owl:Class rdf:ID="#Synonym"> \\
 	<owl:oneOf rdf:parseType="Collection"> \\
 		<Word rdf:about="#Word_Instance_IDI" /> \\
-	<Word rdf:about="#Word_Instance_IDI" /> \\
-	... \\
+		<Word rdf:about="#Word_Instance_IDI" /> \\
+		... \\
 	</owl:oneOf> \\
 </owl:Class> }
 
 
 \subsection{Klasse: Sentence} \label{sec:class_sentence}
 
-Ein Satz, welcher durch die Klasse \emph{Sentence} definiert wird, ist eine Vereinigung von W\"ortern zu einer Gruppe von solchen. Die Reihenfolge der Wörter ist hierbei egal, es geht nur um das Zusammenspiel und den Zusammenhang einzelner Wörter. Dieses Konstrukt wird bei der Instanz im Property \nameref{sec:rel_has-word} durch eine anonyme Klasse mit \texttt{owl:unionOf} definiert werden.
+Ein Satz, welcher durch die Klasse \emph{Sentence} definiert wird, ist eine Vereinigung von W\"ortern zu einer Gruppe von solchen. Die Reihenfolge der Wörter ist hierbei egal, es geht nur um das Zusammenspiel und den Zusammenhang einzelner Wörter. Dieses Konstrukt wird bei der Instanz im Property \emph{has-word} (siehe \nameref{sec:rel_hasword} Seite \pageref{sec:rel_hasword}) durch eine anonyme Klasse mit \texttt{owl:unionOf} definiert werden.
 
 \subsubsection{Code}  \label{sec:class_sentence_code}
 
-\texttt{ <owl:Class IDI="#Sentence"> \\
+\texttt{ <owl:Class rdf:ID="#Sentence"> \\
 	<rdfs:subClassOf> \\
 		<owl:Restriction> \\
 		<owl:onProperty rdf:resource="#has-word" /> \\
@@ -231,49 +236,431 @@ Ein Satz, welcher durch die Klasse \emph{Sentence} definiert wird, ist eine Vere
 
 \subsection{Klasse: Document} \label{sec:class_document}
 
-Die Klasse \emph{Document} ist, \"ahnlich wie \nameref{sec:class_sentence}, eine Kombination von verschiedenen S\"atzen. Die Reihenfolge dieser spielt keine Rolle, es geht rein um den Logischen Zusammenhang der einzelnen S\"atze und somit der verschiedenen W\"orter.
+Die Klasse \emph{Document} ist, \"ahnlich wie \emph{Sentence}, eine Kombination von verschiedenen S\"atzen. Die Reihenfolge dieser spielt keine Rolle, es geht rein um den Logischen Zusammenhang der einzelnen S\"atze und somit der verschiedenen W\"orter.
 
-\textit{Anmerkung:} Eventuell macht es hier Sinn, ein Dokument noch durch Kapitel zu strukturieren. Dies kann durch die Relation "ein Dokument aus Dokumenten" gemacht werden.
+\textit{Anmerkung:} Eventuell macht es hier Sinn, ein Dokument noch durch Kapitel zu strukturieren. Dies kann durch die Relation ''ein Dokument aus Dokumenten'' gemacht werden.
 
 \subsubsection{Code}  \label{sec:class_sentence_code}
 
-\texttt{ <owl:Class IDI="#Document"> \\
+\texttt{ <owl:Class rdf:ID="#Document"> \\
 	<rdfs:subClassOf> \\
 		<owl:Restriction> \\
-		<owl:onProperty rdf:resource="#has-sentence" /> \\
-		<owl:someValuesFrom ref:resource="#Sentence" /> \\
-	</owl:Restriction> \\
+			<owl:onProperty rdf:resource="#has-sentence" /> \\
+			<owl:someValuesFrom ref:resource="#Sentence" /> \\
+		</owl:Restriction> \\
 	</rdfs:subClassOf> \\
 </owl:Class> }
 
 
 \subsection{Klasse: Paper} \label{sec:class_paper}
 
-Die Klasse \emph{Paper} definiert ein Dokument, welches im Zusammenhang zu einem Verein, also der Klasse \nameref{sec:class_association} steht. Durch diese Unterklasse kann am ende besser nach Dokumenten gesucht werden, welche zum Beispiel von einer bestimmten politischen Partei, oder einer Sektion von dieser, verfasst wurden.
+Die Klasse \emph{Paper} definiert ein Dokument, welches im Zusammenhang zu einem Verein, also der Klasse \emph{Association} steht. Durch diese Unterklasse kann am ende besser nach Dokumenten gesucht werden, welche zum Beispiel von einer bestimmten politischen Partei, oder einer Sektion von dieser, verfasst wurden.
 
 \subsubsection{Code}  \label{sec:class_paper_code}
 
-\texttt{ <owl:Class IDI="#Paper"> \\
+\texttt{ <owl:Class rdf:ID="#Paper"> \\
 	<rdfs:subClassOf rdf:resurce="#Document" /> \\
 </owl:Class> }
 
 
 \subsection{Klasse: Statement} \label{sec:class_statement}
 
-\subsection{Klasse: JournalText} \label{sec:class_journaltext}
+Die Klasse \emph{Statement} wird verwendet, um ein Statement einer Person zu definieren. Bei einem Statement muss bei der Suche unterschieden werden, ob dieses von einer Person aus der Klasse \emph{Association} stammt, oder von einer beliebigen anderen Person. Ein Statement von einer beliebigen Person kann genutzt werden, um sich ein Bild von Aussen zu machen, w\"ahrend eines von einer Person aus \emph{Association} genutzt werden kann, um sich ein Bild von innen zu machen.
+
+Durch das Property \emph{from-text} kann ein Statement einem beliebigen anderen \emph{Document} zugeordnet werden.
+
+\subsubsection{Code} \label{sec:class_statement_code}
+
+\texttt{ <owl:Class rdf:ID="#Statement"> \\
+    <rdfs:subClassOf rdf:resource="#Document" /> \\
+</owl:Class> }
+
+
+\subsection{Klasse: Journal} \label{sec:class_journal}
+
+Ein \emph{Journal} definiert einen Text, welcher von einem \emph{Writer} oder \emph{Blogger} geschrieben und Veröffentlicht worden ist. Er stellt nicht eine Meinung der \emph{Association} dar, sondern diejenige eines Aussenstehenden. Ist der Author ebenfalls Mitglied der Klasse \emph{Member}, kann der Text als Pers\"onliche Meinung und somit indirekt als Parteimeinung gedeutet werden.
+
+\subsubsection{Code} \label{sec:class_journal_code}
+
+\texttt{ <owl:Class rdf:ID="#Journal"> \\
+    <rdfs:subClassOf rdf:resource="#Document" /> \\
+</owl:Class> }
+
+
+\subsection{Klasse: Person} \label{sec:class_person}
+
+Eine \emph{Person} wird verwendet, um einem \emph{Dokument} einen Autoren zuzuordnen.
+
+\subsubsection{Code} \label{sec:class_person_code}
+
+\texttt{ <owl:Class rdf:ID="#Person"> \\
+     \\
+</owl:Class> }
+
+
+\subsection{Klasse: Member} \label{sec:class_member}
+
+Ein \emph{Member} ist eine \emph{Person}, welche Mitglied einer \emph{Association} ist. Dies zeichnet eine Person aus, ein \emph{Document} - inkl. aller Unterklassen - als \"offentliche Meinung zu schreiben und publizieren.
+
+\subsubsection{Code} \label{sec:class_member_code}
+
+\texttt{ <owl:Class rdf:ID="#Member"> \\
+    <rdfs:subClassOf rdf:resource="#Person" /> \\
+</owl:Class> }
+
 
 \subsection{Klasse: Employee} \label{sec:class_employee}
 
+Die Klasse \emph{Employee} wird verwendet, um einer \emph{Person} einem Beruf/Anstellung zuzuweisen. Es können also nur \emph{Person} Instanzen als \emph{Employee} agieren.
+
+\subsubsection{Code} \label{sec:class_employee_code}
+
+\texttt{ <owl:Class rdf:ID="#Employee"> \\
+	<rdfs:subClassOf rdf:resource="#Person" />
+	<rdfs:subClassOf> \\
+		<owl:Restriction> \\
+			<owl:onProperty rdf:resource="#writer-of" /> \\
+			<owl:someValuesFrom ref:resource="#Journal" /> \\
+		</owl:Restriction> \\
+	</rdfs:subClassOf> \\
+</owl:Class> }
+
+
 \subsection{Klasse: Blogger} \label{sec:class_blogger}
 
-\subsection{Klasse: Journalist} \label{sec:class_journalist}
+Ein \emph{Blogger} ist ein \emph{Employee}, welcher einen Blog schreibt oder Artikel f\"ur einen Blog verfasst. Die Klasse \emph{Blogger} dient lediglich zur Kategorisierung einer Person. Ein \emph{Blogger} ist eine Person, welche einen oder mehrere \emph{Journal} verfasst hat.
 
-\subsection{Klasse: PartyMember} \label{sec:class_partymember}
+\subsubsection{Code} \label{sec:class_blogger_code}
 
-\subsection{Klasse: Newspaper} \label{sec:class_newspaper}
+\texttt{ <owl:Class rdf:ID="#Blogger"> \\
+    <rdfs:subClassOf rdf:resource="#Employee" /> \\
+</owl:Class> }
 
-\subsection{Klasse: Party} \label{sec:class_party}
 
+\subsection{Klasse: Writer} \label{sec:class_writer}
+
+Ein \emph{Writer} ist ein \emph{Employee}, welcher Artikel für eine Zeitung schreib. Ein \emph{Writer} steht also immer in Verbindung mit der Klasse \emph{Organization}. Die Klasse \emph{Writer} dient lediglich zur Kategorisierung einer Person. Ein \emph{Writer} ist eine Person, welche einen oder mehrere \emph{Journal} verfasst hat.
+
+Ein \emph{Writer} kann bei mehreren \emph{Organization}'s angestellt sein. Diese Zuweisung bedarf der besonderen Beachtung bei bestimmten Abfragen und gestalltung von Meinungsbildern \"uber oder von eine Person.
+
+\subsubsection{Code} \label{sec:class_writer_code}
+
+\texttt{ <owl:Class rdf:ID="#Writer"> \\
+    <rdfs:subClassOf rdf:resource="#Employee" /> \\
+	<rdfs:subClassOf> \\
+		<owl:Restriction> \\
+			<owl:onProperty rdf:resource="#employee-of" /> \\
+			<owl:someValuesFrom ref:resource="#Newspaper" /> \\
+		</owl:Restriction> \\
+	</rdfs:subClassOf> \\
+</owl:Class> }
+
+
+\subsection{Klasse: Organization} \label{sec:class_organization}
+
+Die Klasse \emph{Organization} definiert den Arbeitgeber von einem \emph{Writer} respektive auch von jeder anderen beliebigen \emph{Person}. Durch diese Zuweisung k\"onnen Aussagen und Meinungen, welche eine Zeitung von der Partei hat, eruiert werden. Eine \emph{Organization} kann mehrere Angestellte haben, welche nicht zwingendermassen nur bei der einen Organisation angestellt sind.
+
+\subsubsection{Code} \label{sec:class_organization_code}
+
+\texttt{ <owl:Class rdf:ID="#Organization"> \\
+	<rdfs:subClassOf> \\
+		<owl:Restriction> \\
+			<owl:onProperty rdf:resource="#has-employee" /> \\
+			<owl:someValuesFrom ref:resource="#Employee" /> \\
+		</owl:Restriction> \\
+	</rdfs:subClassOf> \\
+</owl:Class> }
+
+
+\subsection{Klasse: Association} \label{sec:class_association}
+
+Eine \emph{Association} definiert eine Politische oder andere Partei, über welche man sich durch diese Ontologie ein Bild verschaffen k\"onnen soll.
+
+\subsubsection{Code} \label{sec:class_association_code}
+
+\texttt{ <owl:Class rdf:ID="#Association"> \\
+	<rdfs:subClassOf> \\
+		<owl:Restriction> \\
+			<owl:onProperty rdf:resource="#has-member" /> \\
+			<owl:someValuesFrom ref:resource="#Member" /> \\
+		</owl:Restriction> \\
+	</rdfs:subClassOf> \\
+</owl:Class> }
+
+% ========== RELATIONS ==========
+
+\section{Relationen} \label{\sec:reltations}
+
+Die Relationen beschreiben die Abh\"angigkeiten wie auch die Verkn\"upfungen unter den Klassen. Relationen, welche klassenspezifisch sind, also direkt gebraucht werden um eine Klasse beschreiben, sind als anonyme Subklassen bereits in den Klassen selber definiert worden. Hier werden nur diejenigen Relationen beschrieben, welche verwendet werden zur direkten dynamischen und individuellen Verknüpfung verschiedener Instanzen.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{ | l | p{5cm} | l | l| l | }
+		\hline
+		\textbf{Relation} & \textbf{Beschreibung} & \textbf{Domain} & \textbf{Range} & \textbf{Details} \\ \hline
+		
+		\textbf{refers-to} & Beziehung zwischen einzenlnen Dokumenten & \emph{Document} & \emph{Document} & \nameref{sec:rel_refersto} auf Seite \pageref{sec:rel_refersto} \\ \hline
+		\textbf{has-sentence} & Gibt an, aus welchen S\"atzen ein Dokument besteht & \emph{Document} & \emph{Sentence} & \nameref{sec:rel_hassentence} auf Seite \pageref{sec:rel_hassentence} \\ \hline
+		\textbf{sentence-of} & Gibt an, in welchem Dokuemnt dieser Satz vorhanden ist & \emph{Sentence} & \emph{Document} & \nameref{sec:rel_sentenceof} auf Seite \pageref{sec:rel_sentenceof} \\ \hline
+		\textbf{has-word} & Gibt an, aus welchen W\"ortern ein Satz besteht & \emph{Sentence} & \emph{Word} & \nameref{sec:rel_hasword} auf Seite \pageref{sec:rel_hasword} \\ \hline
+		\textbf{word-of} & gibt an, in welchem Satz ein Wort vorhanden ist & \emph{Word} & \emph{Sentence} & \nameref{sec:rel_wordof} auf Seite \pageref{sec:rel_wordof} \\ \hline
+		
+		\textbf{has-writer} & Definiert einen oder mehrere Autoren eines Dokuments & \emph{Document} & \emph{Person} & \nameref{sec:rel_haswriter} auf Seite \pageref{sec:rel_haswriter} \\ \hline
+		\textbf{writer-of} & Definiert die Dokumente, an welchen eine Person mitgearbeitet hat & \emph{Person} & \emph{Document} & \nameref{sec:rel_writerof} auf Seite \pageref{sec:rel_writerof} \\ \hline
+		
+		\textbf{has-subregion} & Definiert die Sub-Associations der aktuellen & \emph{Association} & \emph{Association} & \nameref{sec:rel_hassubregion} auf Seite \pageref{sec:rel_hassubregion} \\ \hline
+		\textbf{subregion-of} & Definiert, dass diese Association eine Sub-Association der angegebenen ist & \emph{Association} & \emph{Association} & \nameref{sec:rel_subregionof} auf Seite \pageref{sec:rel_subregionof} \\ \hline
+		
+		\textbf{has-employee} & Gibt alle Employees der Organization an & \emph{Organization} \\ \emph{Association} & \emph{Employee} & \nameref{sec:rel_hasemployee} auf Seite \pageref{sec:rel_hasemployee} \\ \hline
+		\textbf{employee-of} & Gibt an, bei welchen Organizations der Employee angestellt ist & \emph{Employee} & \emph{Organization} \\ \emph{Association} & \nameref{sec:rel_employeeof} auf Seite \pageref{sec:rel_employeeof} \\ \hline
+		
+		\textbf{has-member} & Definiert alle Mitglieder einer Association & \emph{Association} & \emph{Member} & \nameref{sec:rel_hasmember} auf Seite \pageref{sec:rel_hasmember} \\ \hline
+		\textbf{member-of} & Definiert in welcher Association der Member Mitglied ist & \emph{Member} & \emph{Association} & \nameref{sec:rel_memberof} auf Seite \pageref{sec:rel_memberof} \\ \hline
+		
+		\textbf{has-document} & gibt an, welche Associaton oder Organization ein dokument verfasst hat & \emph{Association} \\ \emph{Organization} & \emph{Document} & \nameref{sec:rel_hasdocument} auf Seite \pageref{sec:rel_hasdocument} \\ \hline
+		\textbf{document-of} & gibt an, zu welcher Association oder Organization ein Dokument geh\"ort & \emph{Document} & \emph{Association} \\ \emph{Organization} & \nameref{sec:rel_documentof} auf Seite \pageref{sec:rel_documentof} \\ \hline
+		
+		\textbf{is-about} & Definiert, dass das aktuelle Dokument etwas \"uber die angegebene Assoiciation aussagt & \emph{Document} & \emph{Association} & \nameref{sec:rel_isabout} auf Seite \pageref{sec:rel_isabout} \\ \hline
+		\textbf{mentioned-in} & Gibt an, in welchem Dokument auf die Association referenziert wird & \emph{Association} & \emph{Document} & \nameref{sec:rel_mentionedin} auf Seite \pageref{sec:rel_mentionedin} \\ \hline
+		
+	\end{tabular}
+	\caption{Kurze Beschreibung der Relationen in der Ontologie}
+	\label{tbl:classes}
+\end{table}
+
+\subsubsection{M\"ogliche Eigenschaften} \label{sec:relations_settings}
+
+Relationen k\"onnen folgende Charakteristiken aufweisen:
+
+\begin{description}
+	\item[Funktional] Eine funktionale Relation \texttt{P} impliziert: \\
+		wenn \texttt{P(u, v)} und \texttt{P(u, w)} dann \texttt{v == w}
+	\item[Invers Funktional] Eine inverse funktionale Relation \texttt{P} impliziert: \\
+		wenn \texttt{P(v, u)} und \texttt{P(w, u)} dann \texttt{v == w}
+	\item[Transitiv] Wenn eine Relation \texttt{P} \emph{transitiv} definiert ist f\"ur \texttt{u, v, w}: \\
+		wenn \texttt{P(u, v)} und \texttt{P(v, w)} impliziert \texttt{P(u, w)}
+	\item[Symmetrisch] Wenn eine Relation \texttt{P} symmetrisch definiert ist: \\
+		wenn \texttt{P(u, v)} dann \texttt{P(v, u)}
+	\item[InverseOf] Wenn bei der Relation \texttt{P1} eine Inverse Relation \texttt{P2} definiert ist:\\
+		wenn \texttt{P1(u, v)} dann \texttt{P2(v, u)}
+\end{description}
+
+\textbf{Wichtig}: Die Eigenschaften \emph{Reflexiv}, \emph{Irreflexiv} und \emph{Asymmetrisch} aus der OWL-2 Definition werden nicht verwendet.
+
+
+\subsection{Relation: refers-to} \label{sec:rel_refersto}
+
+Die Relation \emph{refers-to} beschreibt die Beziehungen zwischen den einzelnen Dokumenten. Wird zum Beispiel in einem Blog, was ja als \emph{Document} interpertiert ist, auf einen Artikel uas einer Zeitung verwiesen, so kann dies durch diese Relation definiert werden. Die Relation ist sowohl \emph{symmetrisch} als auch \emph{transitiv} und das inverse von sich selbst.
+
+\subsubsection{Eigenschaften} \label{sec:rel_refersto_settings}
+
+\begin{itemize}
+	\item Transitiv
+	\item Symmetrisch
+	\item inverseOf \emph{refers-to}
+\end{itemize}
+
+\subsubsection{Code} \label{sec:rel_refersto_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#refers-to"> \\
+	<rdf:type rdf:resource="&owl;TransitiveProperty" /> \\
+	<rdf:type rdf:resource="&owl;SymmetricProperty" /> \\
+	<owl:inverseOf rdf:resource="#refers-to" /> \\
+	<rdfs:domain rdf:resource="#Document" /> \\
+	<rdfs:range rdf:resource="#Document" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: has-sentence} \label{sec:rel_hassentence}
+
+Die Relation \emph{has-sentence} ...
+
+\subsubsection{Code} \label{sec:rel_hassentence_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#has-sentence"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: sentence-of} \label{sec:rel_sentenceof}
+
+Die Relation \emph{sentence-of} ...
+
+\subsubsection{Code} \label{sec:rel_sentenceof_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#sentence-of"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: has-word} \label{sec:rel_hasword}
+
+Die Relation \emph{has-word} ...
+
+\subsubsection{Code} \label{sec:rel_hasword_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#has-word"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: word-of} \label{sec:rel_wordof}
+
+Die Relation \emph{word-of} ...
+
+\subsubsection{Code} \label{sec:rel_wordof_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#word-of"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: has-writer} \label{sec:rel_haswriter}
+
+Die Relation \emph{has-writer} ...
+
+\subsubsection{Code} \label{sec:rel_haswriter_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#has-writer"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: writer-of} \label{sec:rel_writerof}
+
+Die Relation \emph{writer-of} ...
+
+\subsubsection{Code} \label{sec:rel_writerof_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#writer-of"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: has-subregion} \label{sec:rel_hassubregion}
+
+Die Relation \emph{has-subregion} ...
+
+\subsubsection{Code} \label{sec:rel_hassubregion_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#has-subregion"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: subregion-of} \label{sec:rel_subregionof}
+
+Die Relation \emph{subregion-of} ...
+
+\subsubsection{Code} \label{sec:rel_subregionof_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#subregion-of"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: has-employee} \label{sec:rel_hasemployee}
+
+Die Relation \emph{has-employee} ...
+
+\subsubsection{Code} \label{sec:rel_hasemployee_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#has-employee"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: employee-of} \label{sec:rel_employeeof}
+
+Die Relation \emph{employee-of} ...
+
+\subsubsection{Code} \label{sec:rel_employeeof_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#employee-of"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: has-member} \label{sec:rel_hasmember}
+
+Die Relation \emph{has-member} ...
+
+\subsubsection{Code} \label{sec:rel_hasmember_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#has-member"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: member-of} \label{sec:rel_memberof}
+
+Die Relation \emph{member-of} ...
+
+\subsubsection{Code} \label{sec:rel_memberof_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#member-of"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: has-document} \label{sec:rel_hasdocument}
+
+Die Relation \emph{has-document} ...
+
+\subsubsection{Code} \label{sec:rel_hasdocument_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#has-document"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: document-of} \label{sec:rel_documentof}
+
+Die Relation \emph{document-of} ...
+
+\subsubsection{Code} \label{sec:rel_documentof_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#document-of"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: is-about} \label{sec:rel_isabout}
+
+Die Relation \emph{is-about} ...
+
+\subsubsection{Code} \label{sec:rel_isabout_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#is-about"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
+
+
+\subsection{Relation: mentioned-in} \label{sec:rel_mentionedin}
+
+Die Relation \emph{mentioned-in} ...
+
+\subsubsection{Code} \label{sec:rel_mentionedin_code}
+
+\texttt{ <owl:ObjectProperty rdf:ID="#mentioned-in"> \\
+	<rdfs:domain rdf:resource="#" /> \\
+	<rdfs:range rdf:resource="#" /> \\
+</owl:ObjectProperty> }
 
 
 
@@ -281,13 +668,13 @@ Die Klasse \emph{Paper} definiert ein Dokument, welches im Zusammenhang zu einem
 \setcounter{page}{1}
 \pagenumbering{Alph}
 
-% Glossary
+% ========== Glossary ==========
 \abbrev[prefix]{IP}{Internet Protocol}
 
 \addcontentsline{toc}{chapter}{Abk\"urzungsverzeichnis}
 \printglossary
 
-%% Abbildungs und Tabellenverzeichnis
+%% ========== Abbildungs und Tabellenverzeichnis ==========
 %\newpage
 %\addcontentsline {toc}{chapter}{Abbildungsverzeichnis}
 %\listoffigures
@@ -297,7 +684,7 @@ Die Klasse \emph{Paper} definiert ein Dokument, welches im Zusammenhang zu einem
 %%\listofalgorithms
 %\lstlistoflistings
 
-%% Literaturverzeichniss
+%% ========== Literaturverzeichniss ==========
 \newpage
 \addcontentsline {toc}{chapter}{Literaturverzeichnis}
 
