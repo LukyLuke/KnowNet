@@ -14,4 +14,16 @@
 # AutoSave, Build
 *~
 build/*
-.kdev/*
+.kdev4/*
+
+# LaTex builds
+doc/*/*.aux
+doc/*/*.glo
+doc/*/*.idx
+doc/*/*.ilg
+doc/*/*.ind
+doc/*/*.lof
+doc/*/*.log
+doc/*/*.lol
+doc/*/*.out
+doc/*/*.toc

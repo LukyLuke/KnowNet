@@ -1,4 +1,4 @@
-﻿\documentclass[
+\documentclass[
     11pt,
     latin1,
     a4paper,
@@ -8,7 +8,7 @@
 \usepackage[latin1]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
-\usepackage{tikz}
+%\usepackage{tikz}
 \usepackage{lmodern}
 \usepackage{ngerman}
 \usepackage{scrpage2}
@@ -100,7 +100,7 @@
 \author{Lukas Zurschmiede\\Bachelor of Science in Information technology}
 \date{Lommis, 21. Juni 2012}
 \publishers{Lukas Zurschmiede\\Pirateparty Switzerland}
-\titlehead{\includegraphics[scale=0.25]{images/knownet_logo}}
+%\titlehead{\includegraphics[scale=0.25]{images/knownet_logo}}
 \title{KnowNet, eine Ontologie und Suchmaschine f\"ur Dokumente und Statements}
 \subject{Idee f\"ur eine Software\\
 Piratenpartei Schweiz}
@@ -124,43 +124,45 @@ Piratenpartei Schweiz}
 
 \section{Klassen} \label{sec:class}
 
-Folgende Klassen und Spezialisierungen werden für die Ontologie gebraucht. In den nachfolgenden Kapiteln werden diese noch genauer beschrieben. Die Verlinkungen zwischen den einzelnen Klassen, also die ObjectProperties, werden im Kapitel \nameref{sec:property} auf Seite \pageref{sec:property} beschrieben. In den jeweiligen Detailbeschreibungen der Klassen wird jeweils darauf eingegangen und darauf verwiesen. Die Datenfelder, also die DataProperties, werden in den Detailbeschreibungen der Klassen beschrieben.
+Folgende Klassen und Spezialisierungen werden f\"ur die Ontologie gebraucht. In den nachfolgenden Kapiteln werden diese noch genauer beschrieben. Die Verlinkungen zwischen den einzelnen Klassen, also die ObjectProperties, werden im Kapitel \nameref{sec:relations} auf Seite \pageref{sec:relations} beschrieben. In den jeweiligen Detailbeschreibungen der Klassen wird jeweils darauf eingegangen und darauf verwiesen. Die Datenfelder, also die DataProperties, werden in den Detailbeschreibungen der Klassen beschrieben.
 
-\begin{tikzpicture}
-	\node (is-root) {Thing}
-		child { node{Word} }
-	child { node{Sentence} }
-	child { node{Translation} }
-	child { node{Synonym} }
-	child {
-		node{Document}
-			child { node{Paper} }
-		child { node{Statement} }
-		child { node{Journal} }
-	}
-	child {
-		node{Person}
-		child {
-			node{Employee}
-				child { node{Blogger} }
-				child { node{Writer} }
-		}
-		child { node{Member} }
-	}
-	child { node{Organization} }
-	child { node{Association} }
-\end{tikzpicture}
+\begin{itemize}
+	\item Thing
+		\begin{itemize}
+			\item Word
+			\item Sentence
+			\item Translation
+			\item Synonym
+			\item Document
+			\begin{itemize}
+				\item Paper
+				\item Statement
+				\item Journal
+			\end{itemize}
+			\item Person
+			\begin{itemize}
+				\item Employee
+				\begin{itemize}
+					\item Blogger
+					\item Writer
+				\end{itemize}
+				\item Member
+			\end{itemize}
+		\item Organization
+		\item Association
+	\end{itemize}
+\end{itemize}
 
 \begin{table}[h]
 	\centering
-	\begin{tabular}{ | l | p{5cm} | l | l| }
+	\begin{tabular}{ | l | p{4cm} | l | l| }
 		\hline
 		\textbf{Class} & \textbf{Beschreibung} & \textbf{SubClass of} & \textbf{Details} \\ \hline
-		\textbf{Word} & Beschreibt ein einzelnes Wort in einer Sprache, es kann auch aus mehreren würtern zusammengesetzt sein; Anhand einer ID kann ein Link zu einer anderen Sprache oder einenmSynonym hergestellt werden; & Thing & \nameref{sec:class_word} auf Seite \pageref{sec:class_word} \\ \hline
-		\textbf{Translation} & Gruppiert die gleichen W\"örter aus verschiedenen Sprachen & Thing & \nameref{sec:class_translation} auf Seite \pageref{sec:class_translation} \\ \hline
-		\textbf{Synonym} & Gruppiert unterschiedliche W\"örter der gleichen Sprache mit der gleichen Bedeutung & Thing & \nameref{sec:class_synonym} auf Seite \pageref{sec:class_synonym} \\ \hline
-		\textbf{Sentence} & Ein Satz besteht aus verschiedenen Wörtern & Thing & \nameref{sec:class_sentence} auf Seite \pageref{sec:class_sentence} \\ \hline
-		\textbf{Document} & Ein Dokument ist eine Sammlung von Sätzen inkl. einigen weiteren Attributen & Thing & \nameref{sec:class_document} auf Seite \pageref{sec:class_document} \\ \hline
+		\textbf{Word} & Beschreibt ein einzelnes Wort in einer Sprache, es kann auch aus mehreren w\"ortern zusammengesetzt sein; Anhand einer ID kann ein Link zu einer anderen Sprache oder einenmSynonym hergestellt werden; & Thing & \nameref{sec:class_word} auf Seite \pageref{sec:class_word} \\ \hline
+		\textbf{Translation} & Gruppiert die gleichen W\"orter aus verschiedenen Sprachen & Thing & \nameref{sec:class_translation} auf Seite \pageref{sec:class_translation} \\ \hline
+		\textbf{Synonym} & Gruppiert unterschiedliche W\"orter der gleichen Sprache mit der gleichen Bedeutung & Thing & \nameref{sec:class_synonym} auf Seite \pageref{sec:class_synonym} \\ \hline
+		\textbf{Sentence} & Ein Satz besteht aus verschiedenen W\"ortern & Thing & \nameref{sec:class_sentence} auf Seite \pageref{sec:class_sentence} \\ \hline
+		\textbf{Document} & Ein Dokument ist eine Sammlung von S\"atzen inkl. einigen weiteren Attributen & Thing & \nameref{sec:class_document} auf Seite \pageref{sec:class_document} \\ \hline
 		\textbf{Paper} & Ein Positionspapier oder eine andere Dokumentation einer Partei & Document & \nameref{sec:class_paper} auf Seite \pageref{sec:class_paper} \\ \hline
 		\textbf{Statement} & Eine Aussage, welche ein Mitglied einer Partei gemacht hat und welche so vertreten wird & Document & \nameref{sec:class_statement} auf Seite \pageref{sec:class_statement} \\ \hline
 		\textbf{Journal} & Ein Zeitungsbericht & Document & \nameref{sec:class_journal} auf Seite \pageref{sec:class_journal} \\ \hline
@@ -183,56 +185,72 @@ Die Klasse \emph{Word} wird verwendet, um ein einzelnes Wort, welches innerhalb 
 
 \subsubsection{Code}  \label{sec:class_word_code}
 
-\texttt{<owl:Class rdf:ID="#Word"> \\
-	\\
-</owl:Class> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Word">
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
 
 \subsection{Klasse: Translation} \label{sec:class_translation}
 
-Die Klasse \emph{Translation} ist eine Vereinigung aller W\"orter verschiedener Sprachen mit der selben Bedeutung. Dies geschieht durch das Konstrukt \texttt{owl:oneOf} und der Angabe aller Individuen innerhalb dieses Bereiches. Durch dieses Konstrukt können neue Wörter einfach und schnell eingepflegt und \"ubersetzt werden und bei einer Abfrage kann jeweils eines aus der Liste gesucht werden.
+Die Klasse \emph{Translation} ist eine Vereinigung aller W\"orter verschiedener Sprachen mit der selben Bedeutung. Dies geschieht durch das Konstrukt \texttt{owl:oneOf} und der Angabe aller Individuen innerhalb dieses Bereiches. Durch dieses Konstrukt k\"onnen neue W\"orter einfach und schnell eingepflegt und \"ubersetzt werden und bei einer Abfrage kann jeweils eines aus der Liste gesucht werden.
 
 \subsubsection{Code}  \label{sec:class_translation_code}
 
-\texttt{<owl:Class rdf:ID="#Translation"> \\
-	<owl:oneOf rdf:parseType="Collection"> \\
-		<Word rdf:about="#Word_Instance_IDI" /> \\
-		<Word rdf:about="#Word_Instance_IDI" /> \\
-		... \\
-	</owl:oneOf> \\
-</owl:Class> }
-
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Translation">
+	<owl:oneOf rdf:parseType="Collection">
+		<Word rdf:about="#Word_Instance_IDI" />
+		<Word rdf:about="#Word_Instance_IDI" />
+		...
+	</owl:oneOf>
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
 
 \subsection{Klasse: Synonym} \label{sec:class_synonym}
 
-Die Klasse \emph{Synonym} dient zur Verkettung von W\"ortern mit der gleichen Bedeutung. Dies geschieht durch das Konstrukt \texttt{owl:oneOf} und der Angabe aller Individuen innerhalb dieses Bereiches. Durch dieses Konstrukt können neue Wörter einfach und schnell eingepflegt und als Synonyme definiert werden, sowie bei einer Abfrage in der Liste gesucht werden.
+Die Klasse \emph{Synonym} dient zur Verkettung von W\"ortern mit der gleichen Bedeutung. Dies geschieht durch das Konstrukt \texttt{owl:oneOf} und der Angabe aller Individuen innerhalb dieses Bereiches. Durch dieses Konstrukt k\"onnen neue W\"orter einfach und schnell eingepflegt und als Synonyme definiert werden, sowie bei einer Abfrage in der Liste gesucht werden.
 
 
 \subsubsection{Code}  \label{sec:class_synonym_code}
 
-\texttt{ <owl:Class rdf:ID="#Synonym"> \\
-	<owl:oneOf rdf:parseType="Collection"> \\
-		<Word rdf:about="#Word_Instance_IDI" /> \\
-		<Word rdf:about="#Word_Instance_IDI" /> \\
-		... \\
-	</owl:oneOf> \\
-</owl:Class> }
-
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Synonym">
+	<owl:oneOf rdf:parseType="Collection">
+		<Word rdf:about="#Word_Instance_IDI" />
+		<Word rdf:about="#Word_Instance_IDI" />
+		...
+	</owl:oneOf>
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
 
 \subsection{Klasse: Sentence} \label{sec:class_sentence}
 
-Ein Satz, welcher durch die Klasse \emph{Sentence} definiert wird, ist eine Vereinigung von W\"ortern zu einer Gruppe von solchen. Die Reihenfolge der Wörter ist hierbei egal, es geht nur um das Zusammenspiel und den Zusammenhang einzelner Wörter. Dieses Konstrukt wird bei der Instanz im Property \emph{has-word} (siehe \nameref{sec:rel_hasword} Seite \pageref{sec:rel_hasword}) durch eine anonyme Klasse mit \texttt{owl:unionOf} definiert werden.
+Ein Satz, welcher durch die Klasse \emph{Sentence} definiert wird, ist eine Vereinigung von W\"ortern zu einer Gruppe von solchen. Die Reihenfolge der W\"orter ist hierbei egal, es geht nur um das Zusammenspiel und den Zusammenhang einzelner W\"orter. Dieses Konstrukt wird bei der Instanz im Property \emph{has-word} (siehe \nameref{sec:rel_hasword} Seite \pageref{sec:rel_hasword}) durch eine anonyme Klasse mit \texttt{owl:unionOf} definiert werden.
 
 \subsubsection{Code}  \label{sec:class_sentence_code}
 
-\texttt{ <owl:Class rdf:ID="#Sentence"> \\
-	<rdfs:subClassOf> \\
-		<owl:Restriction> \\
-		<owl:onProperty rdf:resource="#has-word" /> \\
-		<owl:someValuesFrom ref:resource="#Word" /> \\
-	</owl:Restriction> \\
-	</rdfs:subClassOf> \\
-</owl:Class> }
-
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Sentence">
+	<rdfs:subClassOf>
+		<owl:Restriction>
+		<owl:onProperty rdf:resource="#has-word" />
+		<owl:someValuesFrom ref:resource="#Word" />
+	</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
 
 \subsection{Klasse: Document} \label{sec:class_document}
 
@@ -242,25 +260,35 @@ Die Klasse \emph{Document} ist, \"ahnlich wie \emph{Sentence}, eine Kombination 
 
 \subsubsection{Code}  \label{sec:class_sentence_code}
 
-\texttt{ <owl:Class rdf:ID="#Document"> \\
-	<rdfs:subClassOf> \\
-		<owl:Restriction> \\
-			<owl:onProperty rdf:resource="#has-sentence" /> \\
-			<owl:someValuesFrom ref:resource="#Sentence" /> \\
-		</owl:Restriction> \\
-	</rdfs:subClassOf> \\
-</owl:Class> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Document">
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#has-sentence" />
+			<owl:someValuesFrom ref:resource="#Sentence" />
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Klasse: Paper} \label{sec:class_paper}
 
 Die Klasse \emph{Paper} definiert ein Dokument, welches im Zusammenhang zu einem Verein, also der Klasse \emph{Association} steht. Durch diese Unterklasse kann am ende besser nach Dokumenten gesucht werden, welche zum Beispiel von einer bestimmten politischen Partei, oder einer Sektion von dieser, verfasst wurden.
 
-\subsubsection{Code}  \label{sec:class_paper_code}
+\subsubsection{Code} \label{sec:class_paper_code}
 
-\texttt{ <owl:Class rdf:ID="#Paper"> \\
-	<rdfs:subClassOf rdf:resurce="#Document" /> \\
-</owl:Class> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Paper">
+	<rdfs:subClassOf rdf:resurce="#Document" />
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Klasse: Statement} \label{sec:class_statement}
@@ -271,21 +299,29 @@ Durch das Property \emph{from-text} kann ein Statement einem beliebigen anderen 
 
 \subsubsection{Code} \label{sec:class_statement_code}
 
-\texttt{ <owl:Class rdf:ID="#Statement"> \\
-    <rdfs:subClassOf rdf:resource="#Document" /> \\
-</owl:Class> }
-
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Statement">
+    <rdfs:subClassOf rdf:resource="#Document" />
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
 
 \subsection{Klasse: Journal} \label{sec:class_journal}
 
-Ein \emph{Journal} definiert einen Text, welcher von einem \emph{Writer} oder \emph{Blogger} geschrieben und Veröffentlicht worden ist. Er stellt nicht eine Meinung der \emph{Association} dar, sondern diejenige eines Aussenstehenden. Ist der Author ebenfalls Mitglied der Klasse \emph{Member}, kann der Text als Pers\"onliche Meinung und somit indirekt als Parteimeinung gedeutet werden.
+Ein \emph{Journal} definiert einen Text, welcher von einem \emph{Writer} oder \emph{Blogger} geschrieben und Ver\"offentlicht worden ist. Er stellt nicht eine Meinung der \emph{Association} dar, sondern diejenige eines Aussenstehenden. Ist der Author ebenfalls Mitglied der Klasse \emph{Member}, kann der Text als Pers\"onliche Meinung und somit indirekt als Parteimeinung gedeutet werden.
 
 \subsubsection{Code} \label{sec:class_journal_code}
 
-\texttt{ <owl:Class rdf:ID="#Journal"> \\
-    <rdfs:subClassOf rdf:resource="#Document" /> \\
-</owl:Class> }
-
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Journal">
+	<rdfs:subClassOf rdf:resource="#Document" />
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
 
 \subsection{Klasse: Person} \label{sec:class_person}
 
@@ -293,10 +329,13 @@ Eine \emph{Person} wird verwendet, um einem \emph{Dokument} einen Autoren zuzuor
 
 \subsubsection{Code} \label{sec:class_person_code}
 
-\texttt{ <owl:Class rdf:ID="#Person"> \\
-     \\
-</owl:Class> }
-
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Person">
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
 
 \subsection{Klasse: Member} \label{sec:class_member}
 
@@ -304,26 +343,36 @@ Ein \emph{Member} ist eine \emph{Person}, welche Mitglied einer \emph{Associatio
 
 \subsubsection{Code} \label{sec:class_member_code}
 
-\texttt{ <owl:Class rdf:ID="#Member"> \\
-    <rdfs:subClassOf rdf:resource="#Person" /> \\
-</owl:Class> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Member">
+    <rdfs:subClassOf rdf:resource="#Person" />
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Klasse: Employee} \label{sec:class_employee}
 
-Die Klasse \emph{Employee} wird verwendet, um einer \emph{Person} einem Beruf/Anstellung zuzuweisen. Es können also nur \emph{Person} Instanzen als \emph{Employee} agieren.
+Die Klasse \emph{Employee} wird verwendet, um einer \emph{Person} einem Beruf/Anstellung zuzuweisen. Es k\"onnen also nur \emph{Person} Instanzen als \emph{Employee} agieren.
 
 \subsubsection{Code} \label{sec:class_employee_code}
 
-\texttt{ <owl:Class rdf:ID="#Employee"> \\
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Employee">
 	<rdfs:subClassOf rdf:resource="#Person" />
-	<rdfs:subClassOf> \\
-		<owl:Restriction> \\
-			<owl:onProperty rdf:resource="#writer-of" /> \\
-			<owl:someValuesFrom ref:resource="#Journal" /> \\
-		</owl:Restriction> \\
-	</rdfs:subClassOf> \\
-</owl:Class> }
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#writer-of" />
+			<owl:someValuesFrom ref:resource="#Journal" />
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Klasse: Blogger} \label{sec:class_blogger}
@@ -332,28 +381,38 @@ Ein \emph{Blogger} ist ein \emph{Employee}, welcher einen Blog schreibt oder Art
 
 \subsubsection{Code} \label{sec:class_blogger_code}
 
-\texttt{ <owl:Class rdf:ID="#Blogger"> \\
-    <rdfs:subClassOf rdf:resource="#Employee" /> \\
-</owl:Class> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Blogger">
+    <rdfs:subClassOf rdf:resource="#Employee" />
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Klasse: Writer} \label{sec:class_writer}
 
-Ein \emph{Writer} ist ein \emph{Employee}, welcher Artikel für eine Zeitung schreib. Ein \emph{Writer} steht also immer in Verbindung mit der Klasse \emph{Organization}. Die Klasse \emph{Writer} dient lediglich zur Kategorisierung einer Person. Ein \emph{Writer} ist eine Person, welche einen oder mehrere \emph{Journal} verfasst hat.
+Ein \emph{Writer} ist ein \emph{Employee}, welcher Artikel f\"ur eine Zeitung schreib. Ein \emph{Writer} steht also immer in Verbindung mit der Klasse \emph{Organization}. Die Klasse \emph{Writer} dient lediglich zur Kategorisierung einer Person. Ein \emph{Writer} ist eine Person, welche einen oder mehrere \emph{Journal} verfasst hat.
 
 Ein \emph{Writer} kann bei mehreren \emph{Organization}'s angestellt sein. Diese Zuweisung bedarf der besonderen Beachtung bei bestimmten Abfragen und gestalltung von Meinungsbildern \"uber oder von eine Person.
 
 \subsubsection{Code} \label{sec:class_writer_code}
 
-\texttt{ <owl:Class rdf:ID="#Writer"> \\
-    <rdfs:subClassOf rdf:resource="#Employee" /> \\
-	<rdfs:subClassOf> \\
-		<owl:Restriction> \\
-			<owl:onProperty rdf:resource="#employee-of" /> \\
-			<owl:someValuesFrom ref:resource="#Newspaper" /> \\
-		</owl:Restriction> \\
-	</rdfs:subClassOf> \\
-</owl:Class> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Writer">
+    <rdfs:subClassOf rdf:resource="#Employee" />
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#employee-of" />
+			<owl:someValuesFrom ref:resource="#Newspaper" />
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Klasse: Organization} \label{sec:class_organization}
@@ -362,14 +421,19 @@ Die Klasse \emph{Organization} definiert den Arbeitgeber von einem \emph{Writer}
 
 \subsubsection{Code} \label{sec:class_organization_code}
 
-\texttt{ <owl:Class rdf:ID="#Organization"> \\
-	<rdfs:subClassOf> \\
-		<owl:Restriction> \\
-			<owl:onProperty rdf:resource="#has-employee" /> \\
-			<owl:someValuesFrom ref:resource="#Employee" /> \\
-		</owl:Restriction> \\
-	</rdfs:subClassOf> \\
-</owl:Class> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Organization">
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#has-employee" />
+			<owl:someValuesFrom ref:resource="#Employee" />
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Klasse: Association} \label{sec:class_association}
@@ -378,24 +442,30 @@ Eine \emph{Association} definiert eine Politische oder andere Partei, über welc
 
 \subsubsection{Code} \label{sec:class_association_code}
 
-\texttt{ <owl:Class rdf:ID="#Association"> \\
-	<rdfs:subClassOf> \\
-		<owl:Restriction> \\
-			<owl:onProperty rdf:resource="#has-member" /> \\
-			<owl:someValuesFrom ref:resource="#Member" /> \\
-		</owl:Restriction> \\
-	</rdfs:subClassOf> \\
-</owl:Class> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:Class rdf:ID="#Association">
+	<rdfs:subClassOf>
+		<owl:Restriction>
+			<owl:onProperty rdf:resource="#has-member" />
+			<owl:someValuesFrom ref:resource="#Member" />
+		</owl:Restriction>
+	</rdfs:subClassOf>
+</owl:Class>
+ \end{lstlisting}
+\end{figure}
+
 
 % ========== RELATIONS ==========
 
-\section{Relationen} \label{\sec:reltations}
+\section{Relationen} \label{sec:reltations}
 
-Die Relationen beschreiben die Abh\"angigkeiten wie auch die Verkn\"upfungen unter den Klassen. Relationen, welche klassenspezifisch sind, also direkt gebraucht werden um eine Klasse beschreiben, sind als anonyme Subklassen bereits in den Klassen selber definiert worden. Hier werden nur diejenigen Relationen beschrieben, welche verwendet werden zur direkten dynamischen und individuellen Verknüpfung verschiedener Instanzen.
+Die Relationen beschreiben die Abh\"angigkeiten wie auch die Verkn\"upfungen unter den Klassen. Relationen, welche klassenspezifisch sind, also direkt gebraucht werden um eine Klasse beschreiben, sind als anonyme Subklassen bereits in den Klassen selber definiert worden. Hier werden nur diejenigen Relationen beschrieben, welche verwendet werden zur direkten dynamischen und individuellen Verkn\"upfung verschiedener Instanzen.
 
 \begin{table}[h]
 	\centering
-	\begin{tabular}{ | l | p{5cm} | l | l| l | }
+	\begin{tabular}{ | l | p{4cm} | p{3cm} | l | p{3cm} | }
 		\hline
 		\textbf{Relation} & \textbf{Beschreibung} & \textbf{Domain} & \textbf{Range} & \textbf{Details} \\ \hline
 		
@@ -462,13 +532,18 @@ Die Relation \emph{refers-to} beschreibt die Beziehungen zwischen den einzelnen 
 
 \subsubsection{Code} \label{sec:rel_refersto_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#refers-to"> \\
-	<rdf:type rdf:resource="&owl;TransitiveProperty" /> \\
-	<rdf:type rdf:resource="&owl;SymmetricProperty" /> \\
-	<owl:inverseOf rdf:resource="#refers-to" /> \\
-	<rdfs:domain rdf:resource="#Document" /> \\
-	<rdfs:range rdf:resource="#Document" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#refers-to">
+	<rdf:type rdf:resource="&owl;TransitiveProperty" />
+	<rdf:type rdf:resource="&owl;SymmetricProperty" />
+	<owl:inverseOf rdf:resource="#refers-to" />
+	<rdfs:domain rdf:resource="#Document" />
+	<rdfs:range rdf:resource="#Document" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: has-sentence} \label{sec:rel_hassentence}
@@ -477,10 +552,15 @@ Die Relation \emph{has-sentence} ...
 
 \subsubsection{Code} \label{sec:rel_hassentence_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#has-sentence"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#has-sentence">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: sentence-of} \label{sec:rel_sentenceof}
@@ -489,10 +569,15 @@ Die Relation \emph{sentence-of} ...
 
 \subsubsection{Code} \label{sec:rel_sentenceof_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#sentence-of"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#sentence-of">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: has-word} \label{sec:rel_hasword}
@@ -501,10 +586,15 @@ Die Relation \emph{has-word} ...
 
 \subsubsection{Code} \label{sec:rel_hasword_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#has-word"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#has-word">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: word-of} \label{sec:rel_wordof}
@@ -513,10 +603,15 @@ Die Relation \emph{word-of} ...
 
 \subsubsection{Code} \label{sec:rel_wordof_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#word-of"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#word-of">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: has-writer} \label{sec:rel_haswriter}
@@ -525,10 +620,15 @@ Die Relation \emph{has-writer} ...
 
 \subsubsection{Code} \label{sec:rel_haswriter_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#has-writer"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#has-writer">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: writer-of} \label{sec:rel_writerof}
@@ -537,10 +637,15 @@ Die Relation \emph{writer-of} ...
 
 \subsubsection{Code} \label{sec:rel_writerof_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#writer-of"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#writer-of">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: has-subregion} \label{sec:rel_hassubregion}
@@ -549,10 +654,15 @@ Die Relation \emph{has-subregion} ...
 
 \subsubsection{Code} \label{sec:rel_hassubregion_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#has-subregion"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#has-subregion">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: subregion-of} \label{sec:rel_subregionof}
@@ -561,10 +671,15 @@ Die Relation \emph{subregion-of} ...
 
 \subsubsection{Code} \label{sec:rel_subregionof_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#subregion-of"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#subregion-of">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: has-employee} \label{sec:rel_hasemployee}
@@ -573,10 +688,15 @@ Die Relation \emph{has-employee} ...
 
 \subsubsection{Code} \label{sec:rel_hasemployee_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#has-employee"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#has-employee">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: employee-of} \label{sec:rel_employeeof}
@@ -585,10 +705,15 @@ Die Relation \emph{employee-of} ...
 
 \subsubsection{Code} \label{sec:rel_employeeof_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#employee-of"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#employee-of">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: has-member} \label{sec:rel_hasmember}
@@ -597,10 +722,15 @@ Die Relation \emph{has-member} ...
 
 \subsubsection{Code} \label{sec:rel_hasmember_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#has-member"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#has-member">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: member-of} \label{sec:rel_memberof}
@@ -609,10 +739,15 @@ Die Relation \emph{member-of} ...
 
 \subsubsection{Code} \label{sec:rel_memberof_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#member-of"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#member-of">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: has-document} \label{sec:rel_hasdocument}
@@ -621,10 +756,15 @@ Die Relation \emph{has-document} ...
 
 \subsubsection{Code} \label{sec:rel_hasdocument_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#has-document"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#has-document">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: document-of} \label{sec:rel_documentof}
@@ -633,10 +773,15 @@ Die Relation \emph{document-of} ...
 
 \subsubsection{Code} \label{sec:rel_documentof_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#document-of"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#document-of">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: is-about} \label{sec:rel_isabout}
@@ -645,10 +790,15 @@ Die Relation \emph{is-about} ...
 
 \subsubsection{Code} \label{sec:rel_isabout_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#is-about"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#is-about">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 \subsection{Relation: mentioned-in} \label{sec:rel_mentionedin}
@@ -657,10 +807,15 @@ Die Relation \emph{mentioned-in} ...
 
 \subsubsection{Code} \label{sec:rel_mentionedin_code}
 
-\texttt{ <owl:ObjectProperty rdf:ID="#mentioned-in"> \\
-	<rdfs:domain rdf:resource="#" /> \\
-	<rdfs:range rdf:resource="#" /> \\
-</owl:ObjectProperty> }
+\begin{figure}[h]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word]
+<owl:ObjectProperty rdf:ID="#mentioned-in">
+	<rdfs:domain rdf:resource="#" />
+	<rdfs:range rdf:resource="#" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
 
 
 
@@ -675,14 +830,13 @@ Die Relation \emph{mentioned-in} ...
 \printglossary
 
 %% ========== Abbildungs und Tabellenverzeichnis ==========
-%\newpage
-%\addcontentsline {toc}{chapter}{Abbildungsverzeichnis}
-%\listoffigures
+\newpage
+\addcontentsline {toc}{chapter}{Abbildungsverzeichnis}
+\listoffigures
 %\addcontentsline {toc}{chapter}{Tabellenverzeichnis}
 %\listoftables
-%\addcontentsline {toc}{chapter}{Codeverzeichnis}
-%%\listofalgorithms
-%\lstlistoflistings
+\addcontentsline {toc}{chapter}{Codeverzeichnis}
+\lstlistoflistings
 
 %% ========== Literaturverzeichniss ==========
 \newpage
