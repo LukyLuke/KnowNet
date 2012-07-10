@@ -29,19 +29,10 @@
         <Class IRI="#Association"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Blogger"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Document"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Employee"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Journal"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Member"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Organization"/>
@@ -51,6 +42,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Profession"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Sentence"/>
@@ -66,9 +60,6 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Word"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Writer"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#document-of"/>
@@ -137,20 +128,8 @@
         <DataProperty IRI="#word"/>
     </Declaration>
     <SubClassOf>
-        <Class IRI="#Blogger"/>
-        <Class IRI="#Employee"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Employee"/>
-        <Class IRI="#Person"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Journal"/>
         <Class IRI="#Document"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Member"/>
-        <Class IRI="#Person"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Paper"/>
@@ -159,10 +138,6 @@
     <SubClassOf>
         <Class IRI="#Statement"/>
         <Class IRI="#Document"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Writer"/>
-        <Class IRI="#Employee"/>
     </SubClassOf>
     <InverseObjectProperties>
         <ObjectProperty IRI="#employee-of"/>
@@ -173,8 +148,8 @@
         <ObjectProperty IRI="#member-of"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#sentence-of"/>
         <ObjectProperty IRI="#has-sentence"/>
+        <ObjectProperty IRI="#sentence-of"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#has-subregion"/>
@@ -189,22 +164,31 @@
         <ObjectProperty IRI="#writer-of"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#mentioned-in"/>
         <ObjectProperty IRI="#is-about"/>
+        <ObjectProperty IRI="#mentioned-in"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#refers-to"/>
         <ObjectProperty IRI="#refers-to"/>
     </InverseObjectProperties>
-    <FunctionalObjectProperty>
-        <ObjectProperty IRI="#subregion-of"/>
-    </FunctionalObjectProperty>
     <InverseFunctionalObjectProperty>
         <ObjectProperty IRI="#has-subregion"/>
     </InverseFunctionalObjectProperty>
     <SymmetricObjectProperty>
         <ObjectProperty IRI="#refers-to"/>
     </SymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#document-of"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#employee-of"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#has-document"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#has-employee"/>
+    </TransitiveObjectProperty>
     <TransitiveObjectProperty>
         <ObjectProperty IRI="#has-member"/>
     </TransitiveObjectProperty>
@@ -216,6 +200,9 @@
     </TransitiveObjectProperty>
     <TransitiveObjectProperty>
         <ObjectProperty IRI="#has-word"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#has-writer"/>
     </TransitiveObjectProperty>
     <TransitiveObjectProperty>
         <ObjectProperty IRI="#is-about"/>
@@ -238,13 +225,16 @@
     <TransitiveObjectProperty>
         <ObjectProperty IRI="#word-of"/>
     </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#writer-of"/>
+    </TransitiveObjectProperty>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#document-of"/>
         <Class IRI="#Document"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#employee-of"/>
-        <Class IRI="#Employee"/>
+        <Class IRI="#Person"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#has-document"/>
@@ -336,7 +326,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#has-employee"/>
-        <Class IRI="#Employee"/>
+        <Class IRI="#Person"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#has-member"/>
