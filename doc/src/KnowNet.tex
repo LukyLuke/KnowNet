@@ -153,15 +153,15 @@ Es werden Folgende Technologien und Standards verwendet:
 
 Folgende Klassen und Spezialisierungen werden f\"ur die Ontologie gebraucht. In den nachfolgenden Kapiteln werden diese noch genauer beschrieben. Die Verlinkungen zwischen den einzelnen Klassen, also die ObjectProperties, werden im Kapitel \nameref{sec:relations} auf Seite \pageref{sec:relations} beschrieben. In den jeweiligen Detailbeschreibungen der Klassen wird jeweils darauf eingegangen und darauf verwiesen. Die Datenfelder, also die DataProperties, werden in den Detailbeschreibungen der Klassen beschrieben.
 
-\begin{itemize}[\labelitemi][$\bullet$]
+\begin{itemize}
   \item Thing
-  \begin{itemize}[\labelitemi][$\bullet$]
+  \begin{itemize}
     \item Word
     \item Sentence
     \item Translation
     \item Synonym
     \item Document
-    \begin{itemize}[\labelitemi][$\bullet$]
+    \begin{itemize}
       \item Paper
       \item Statement
       \item Journal
@@ -434,35 +434,37 @@ Die Relationen, resp. Properties, beschreiben die Abh\"angigkeiten wie auch die 
 
 \begin{table}[H]
   \centering
-  \begin{tabular}{ | l | p{4cm} | p{3cm} | l | p{3cm} | }
+  \begin{tabular}{ | l | p{4cm} | p{3cm} | p{2cm} | p{2cm} | }
     \hline
     \textbf{Relation} & \textbf{Beschreibung} & \textbf{Domain} & \textbf{Range} & \textbf{Details} \\ \hline
-    
     \textbf{refers-to} & Beziehung zwischen einzenlnen Dokumenten & \emph{Document} & \emph{Document} & \nameref{sec:rel_refersto} auf Seite \pageref{sec:rel_refersto} \\ \hline
     \textbf{has-sentence} & Gibt an, aus welchen S\"atzen ein Dokument besteht & \emph{Document} & \emph{Sentence} & \nameref{sec:rel_hassentence} auf Seite \pageref{sec:rel_hassentence} \\ \hline
     \textbf{sentence-of} & Gibt an, in welchem Dokuemnt dieser Satz vorhanden ist & \emph{Sentence} & \emph{Document} & \nameref{sec:rel_sentenceof} auf Seite \pageref{sec:rel_sentenceof} \\ \hline
     \textbf{has-word} & Gibt an, aus welchen W\"ortern ein Satz besteht & \emph{Sentence} & \emph{Word} & \nameref{sec:rel_hasword} auf Seite \pageref{sec:rel_hasword} \\ \hline
     \textbf{word-of} & Gibt an, in welchem Satz ein Wort vorhanden ist & \emph{Word} & \emph{Sentence} & \nameref{sec:rel_wordof} auf Seite \pageref{sec:rel_wordof} \\ \hline
     \textbf{combined-in} & Gibt an, dass ein Wort mit einem anderen verkn\"upft werden kann & \emph{Word} & \emph{Word} & \nameref{sec:rel_wordcombo} auf Seite \pageref{sec:rel_wordcombo} \\ \hline
-    
     \textbf{has-writer} & Definiert einen oder mehrere Autoren eines Dokuments & \emph{Document} & \emph{Person} & \nameref{sec:rel_haswriter} auf Seite \pageref{sec:rel_haswriter} \\ \hline
     \textbf{writer-of} & Definiert die Dokumente, an welchen eine Person mitgearbeitet hat & \emph{Person} & \emph{Document} & \nameref{sec:rel_writerof} auf Seite \pageref{sec:rel_writerof} \\ \hline
-    
     \textbf{has-subregion} & Definiert die Sub-Associations der aktuellen & \emph{Association} & \emph{Association} & \nameref{sec:rel_hassubregion} auf Seite \pageref{sec:rel_hassubregion} \\ \hline
     \textbf{subregion-of} & Definiert, dass diese Association eine Sub-Association der angegebenen ist & \emph{Association} & \emph{Association} & \nameref{sec:rel_subregionof} auf Seite \pageref{sec:rel_subregionof} \\ \hline
-    
-    \textbf{has-employee} & Gibt alle Employees der Organization an & \emph{Organization} \\ \emph{Association} & \emph{Employee} & \nameref{sec:rel_hasemployee} auf Seite \pageref{sec:rel_hasemployee} \\ \hline
-    \textbf{employee-of} & Gibt an, bei welchen Organizations der Employee angestellt ist & \emph{Employee} & \emph{Organization} \\ \emph{Association} & \nameref{sec:rel_employeeof} auf Seite \pageref{sec:rel_employeeof} \\ \hline
-    
+  \end{tabular}
+  \caption{Kurze Beschreibung der Relationen in der Ontologie}
+  \label{tbl:classes}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ | l | p{4cm} | p{3cm} | p{2cm} | p{2cm} | }
+    \hline
+    \textbf{Relation} & \textbf{Beschreibung} & \textbf{Domain} & \textbf{Range} & \textbf{Details} \\ \hline
+    \textbf{has-employee} & Gibt alle Employees der Organization an & \emph{Organization}, \emph{Association} & \emph{Employee} & \nameref{sec:rel_hasemployee} auf Seite \pageref{sec:rel_hasemployee} \\ \hline
+    \textbf{employee-of} & Gibt an, bei welchen Organizations der Employee angestellt ist & \emph{Employee} & \emph{Organization}, \emph{Association} & \nameref{sec:rel_employeeof} auf Seite \pageref{sec:rel_employeeof} \\ \hline
     \textbf{has-member} & Definiert alle Mitglieder einer Association & \emph{Association} & \emph{Member} & \nameref{sec:rel_hasmember} auf Seite \pageref{sec:rel_hasmember} \\ \hline
     \textbf{member-of} & Definiert in welcher Association der Member Mitglied ist & \emph{Member} & \emph{Association} & \nameref{sec:rel_memberof} auf Seite \pageref{sec:rel_memberof} \\ \hline
-    
-    \textbf{has-document} & gibt an, welche Associaton oder Organization ein dokument verfasst hat & \emph{Association} \\ \emph{Organization} & \emph{Document} & \nameref{sec:rel_hasdocument} auf Seite \pageref{sec:rel_hasdocument} \\ \hline
-    \textbf{document-of} & gibt an, zu welcher Association oder Organization ein Dokument geh\"ort & \emph{Document} & \emph{Association} \\ \emph{Organization} & \nameref{sec:rel_documentof} auf Seite \pageref{sec:rel_documentof} \\ \hline
-    
+    \textbf{has-document} & gibt an, welche Associaton oder Organization ein dokument verfasst hat & \emph{Association}, \emph{Organization} & \emph{Document} & \nameref{sec:rel_hasdocument} auf Seite \pageref{sec:rel_hasdocument} \\ \hline
+    \textbf{document-of} & gibt an, zu welcher Association oder Organization ein Dokument geh\"ort & \emph{Document} & \emph{Association}, \emph{Organization} & \nameref{sec:rel_documentof} auf Seite \pageref{sec:rel_documentof} \\ \hline
     \textbf{is-about} & Definiert, dass das aktuelle Dokument etwas \"uber die angegebene Assoiciation aussagt & \emph{Document} & \emph{Association} & \nameref{sec:rel_isabout} auf Seite \pageref{sec:rel_isabout} \\ \hline
     \textbf{mentioned-in} & Gibt an, in welchem Dokument auf die Association referenziert wird & \emph{Association} & \emph{Document} & \nameref{sec:rel_mentionedin} auf Seite \pageref{sec:rel_mentionedin} \\ \hline
-    
   \end{tabular}
   \caption{Kurze Beschreibung der Relationen in der Ontologie}
   \label{tbl:classes}

@@ -25,5 +25,6 @@ doc/*/*.ind
 doc/*/*.lof
 doc/*/*.log
 doc/*/*.lol
+doc/*/*.lot
 doc/*/*.out
 doc/*/*.toc
