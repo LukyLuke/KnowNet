@@ -100,7 +100,7 @@
 \author{Lukas Zurschmiede\\Bachelor of Science in Information technology}
 \date{Lommis, 21. Juni 2012}
 \publishers{Lukas Zurschmiede\\Pirateparty Switzerland}
-%\titlehead{\includegraphics[scale=0.25]{images/knownet_logo}}
+\titlehead{\includegraphics[scale=0.25]{images/knownet_logo}}
 \title{KnowNet, eine Ontologie und Suchmaschine f\"ur Dokumente und Statements}
 \subject{Idee f\"ur eine Software\\
 Piratenpartei Schweiz}
@@ -118,7 +118,34 @@ Piratenpartei Schweiz}
 \setcounter{page}{1}
 \pagenumbering{arabic}
 
-\chapter{Ontologie f\"ur KnowNet} \label{ontology}
+\chapter{Einleitung} \label{sec:introduction}
+
+\section{Die Idee \emph{KnowNet}}
+
+\emph{KnowNet} - Knowledge Network - ist prim\"ar eine Ontologie, welche Dokumente von und \"uber ein politische Partei sammelt und entsprechend aufbereitet anbietet. Die Idee dahinter ist, dass man durch eine einfache, eventuell neuartige Suchoberfl\"ache, Aussagen und Meinungen aber auch Dokumente von einer Partei, respektive \"uber eine Partei finden kann. Eine Partei kann rekursiv Untersektionen beinhalten, welche somit bei einem lokalen Thema die Ontologie abfragen k\"onnen, ob zu diesem Thema schon ein Statement oder Dokument vorhanden ist, welche andere Sektion schon etwas dar\"uber gesagt hat, aber auch, ob es eventuell andere Organisatinen wie Medienh\"auser gibt, welche eine Aussage diesbez\"uglich der Partei unterstellt haben.
+
+Die Ontologie soll schlussendlich eine einfache M\"oglichkeit bieten, Dinge \"uber eine komplexe Struktur zu erfahren um daraus Schlussfolgerungen und Thesen auf zu stellen, jedoch auch um heraus zu finden, ob denn schon eine der Sektione eine Meinung oder Uassage \"uber ein gewisses Thema gemacht hat.
+
+\section{Struktur und Aufbau} \label{sec:structure}
+
+Es bietet sich an, \emph{KnowNet} durch eine Ontologie ab zu bilden. Ontologien die auf dem OWL-Standard basieren, bieten die M\"oglichkeit an, mittels einer in den Grundz\"ugen einfachen Sprache eine Wissensdatenbank komplex verkn\"upft zu speichern und darauf Abfragen aus zu f\"uhren. OWL ist eine Erweiterung von RDF/S und ist wie dieses durch die zwei Syntaxen \emph{Turtle} und \emph{XML} definiert. Obwohl \emph{XML} im Vergleich zu \emph{Turtle} einiges mehr ''drum herum'' hat, ist es dennoch einfacher zu erstellen und auch zu pflegen denn \emph{Turtle}. Auch kann die Ontologie in dieser Syntak durch andere Programme einfacher gelesen werden und ist auch einfacher wartbar, da Syntaxfehler durch gute Editoren schneller erkennt werden.
+
+OWL ist aktuell als OWL (Version 1) und OWL-2 definiert. Der OWL-2 Standard ist eine totale Entkoppelung von RDF/S und enth\"allt Erweiterungen die in der Ursprungsversion fehlen. Die Aktuelle Ontologie wird noch mit OWL-1 implementiert, da ich diese Syntax und deren Eigenschaften vom Studium her kenne. Auch weiss ich nicht, inwieweit die vorhandenen Libraries für OWL schon auf OWL-2 angepasst sind.
+
+\subsection{Technologien} \label{sec:technologies}
+
+Es werden Folgende Technologien und Standards verwendet:
+
+\begin{description}
+  \item[Ontologie] OWL in Version 1, also mit RDF/S Elementen
+  \item[Abfrage] SPARQL
+  \item[Programmierung] C/C++ mit Qt4
+  \item[Eventuell] HTML, Javascript, ...
+  \item[Libraries] Wahrscheinlich ''Redland RDF Libraries'' \url{http://librdf.org/} oder ''RDFStore'' von \url{http://rdfstore.sourceforge.net/}
+\end{description}
+
+
+\chapter{Aufbau der Ontologie} \label{sec:ontology}
 
 % ========== CLASSES ==========
 
@@ -126,15 +153,15 @@ Piratenpartei Schweiz}
 
 Folgende Klassen und Spezialisierungen werden f\"ur die Ontologie gebraucht. In den nachfolgenden Kapiteln werden diese noch genauer beschrieben. Die Verlinkungen zwischen den einzelnen Klassen, also die ObjectProperties, werden im Kapitel \nameref{sec:relations} auf Seite \pageref{sec:relations} beschrieben. In den jeweiligen Detailbeschreibungen der Klassen wird jeweils darauf eingegangen und darauf verwiesen. Die Datenfelder, also die DataProperties, werden in den Detailbeschreibungen der Klassen beschrieben.
 
-\begin{itemize}
+\begin{itemize}[\labelitemi][$\bullet$]
   \item Thing
-  \begin{itemize}
+  \begin{itemize}[\labelitemi][$\bullet$]
     \item Word
     \item Sentence
     \item Translation
     \item Synonym
     \item Document
-    \begin{itemize}
+    \begin{itemize}[\labelitemi][$\bullet$]
       \item Paper
       \item Statement
       \item Journal
@@ -143,10 +170,10 @@ Folgende Klassen und Spezialisierungen werden f\"ur die Ontologie gebraucht. In 
     \item Profession
     \item Organization
     \item Association
-  \end{itemize} % Thing
+  \end{itemize}
 \end{itemize}
 
-\begin{table}[h]
+\begin{table}[H]
   \centering
   \begin{tabular}{ | l | p{4cm} | l | l| }
     \hline
@@ -175,7 +202,7 @@ Die Klasse \emph{Word} wird verwendet, um ein einzelnes Wort, welches innerhalb 
 
 \subsubsection{Code}  \label{sec:class_word_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:word,caption={Die Klasse \emph{Word} beschreibt ein einzelnes Wort}]
 <owl:Class rdf:ID="#Word">
@@ -189,7 +216,7 @@ Die Klasse \emph{Translation} ist eine Vereinigung aller W\"orter verschiedener 
 
 \subsubsection{Code}  \label{sec:class_translation_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:translation,caption={Die Klasse \emph{Translation} beinhaltet alle \"Ubersetzungen eines Wortes}]
 <owl:Class rdf:ID="#Translation">
@@ -209,7 +236,7 @@ Die Klasse \emph{Synonym} dient zur Verkettung von W\"ortern mit der gleichen Be
 
 \subsubsection{Code}  \label{sec:class_synonym_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:synonym,caption={Die Klasse \emph{Synonym} beinhaltet alle W\"orter dir etwas \"ahnliches bedeuten}]
 <owl:Class rdf:ID="#Synonym">
@@ -228,7 +255,7 @@ Ein Satz, welcher durch die Klasse \emph{Sentence} definiert wird, ist eine Vere
 
 \subsubsection{Code}  \label{sec:class_sentence_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:sentence,caption={Die Klasse \emph{Sentence} f\"ugt einzelne W\"orter zu einem Satz zusammen}]
 <owl:Class rdf:ID="#Sentence">
@@ -250,7 +277,7 @@ Die Klasse \emph{Document} ist, \"ahnlich wie \emph{Sentence}, eine Kombination 
 
 \subsubsection{Code}  \label{sec:class_sentence_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:document,caption={Die Klasse \emph{Document} f\"ugt einzelne S\"atze zu einem Dokument zusammen}]
 <owl:Class rdf:ID="#Document">
@@ -271,7 +298,7 @@ Die Klasse \emph{Paper} ist eine Unterklasse von \emph{Document} und definiert e
 
 \subsubsection{Code} \label{sec:class_paper_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:paper,caption={Die Klasse \emph{Paper} ist ein Dokument einer \emph{Association}, also eines partei/Gesellschaft}]
 <owl:Class rdf:ID="#Paper">
@@ -289,7 +316,7 @@ Durch das Property \emph{from-text} (siehe \nameref{sec:res_fromtext} auf Seite 
 
 \subsubsection{Code} \label{sec:class_statement_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:statement,caption={Ein \emph{Statement} beschreibt eine Aussage einer Person}]
 <owl:Class rdf:ID="#Statement">
@@ -304,7 +331,7 @@ Ein \emph{Journal} ist eine Unterklasse von \emph{Document} und definiert einen 
 
 \subsubsection{Code} \label{sec:class_journal_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:journal,caption={Ein \emph{Journal} ist ein Bericht \"uber eine \emph{Association}, welcher von einer \emph{Organization} herausgegeben wurde}]
 <owl:Class rdf:ID="#Journal">
@@ -319,7 +346,7 @@ Die Klasse \emph{Person} wird verwendet, um irgend eine Person zu definieren. Di
 
 \subsubsection{Code} \label{sec:class_person_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:person,caption={Die Klasse \emph{Person} definiert alle Personen}]
 <owl:Class rdf:ID="#Person">
@@ -336,7 +363,7 @@ Die Zuweisung erfolgt durch die Relation \emph{working-as} (siehe \nameref{sec:r
 
 \subsubsection{Code} \label{sec:class_profession_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:profession,caption={Die Klasse \emph{Caption} beschreibt jegliche Berufe}]
 <owl:Class rdf:ID="#Profession">
@@ -359,7 +386,7 @@ Eine Instanz kann nie gleichzeitig eine \emph{Organization} und eine \emph{Assoc
 
 \subsubsection{Code} \label{sec:class_organization_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:organization,caption={Die Klasse \emph{Organization} definiert einen Arbeitgeben, meistens ein Medienhaus}]
 <owl:Class rdf:ID="#Organization">
@@ -383,7 +410,7 @@ Eine Instanz kann nie gleichzeitig eine \emph{Organization} und eine \emph{Assoc
 
 \subsubsection{Code} \label{sec:class_association_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:association,caption={Eine \emph{Association} ist eine politische Partei oder eine andere Gesellschaft}]
 <owl:Class rdf:ID="#Association">
@@ -405,7 +432,7 @@ Eine Instanz kann nie gleichzeitig eine \emph{Organization} und eine \emph{Assoc
 
 Die Relationen, resp. Properties, beschreiben die Abh\"angigkeiten wie auch die Verkn\"upfungen unter den Klassen. Relationen, welche klassenspezifisch sind, also direkt gebraucht werden um eine Klasse zu beschreiben, sind als anonyme Unterklassen bereits in diesen definiert worden. Hier werden nur diejenigen Relationen beschrieben, welche verwendet werden zur direkten dynamischen und individuellen Verkn\"upfung verschiedener Instanzen.
 
-\begin{table}[h]
+\begin{table}[H]
   \centering
   \begin{tabular}{ | l | p{4cm} | p{3cm} | l | p{3cm} | }
     \hline
@@ -475,7 +502,7 @@ Die Relation \emph{refers-to} beschreibt die Beziehungen zwischen den einzelnen 
 
 \subsubsection{Code} \label{sec:rel_refersto_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:refersto,caption={Die Relation \emph{refers-to} beschreibt die Abh\"angigkeiten unter Dokumenten}]
 <owl:ObjectProperty rdf:ID="#refers-to">
@@ -501,7 +528,7 @@ Die Relation \emph{has-sentence} gibt an, welche \emph{Sentence} Instanzen in ei
 
 \subsubsection{Code} \label{sec:rel_hassentence_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hassentence,caption={Die Relation \emph{has-sentence} gibt an, welches Dokuemnt aus welchen S\"atzen besteht}]
 <owl:ObjectProperty rdf:ID="#has-sentence">
@@ -525,7 +552,7 @@ Die Relation \emph{sentence-of} gibt an, in welchem \emph{Document} ein \emph{Se
 
 \subsubsection{Code} \label{sec:rel_sentenceof_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:sentenceof,caption={Die Relation \emph{sentenceof} gibt an, in welchem Dokument ein Satz vorkommt}]
 <owl:ObjectProperty rdf:ID="#sentence-of">
@@ -549,7 +576,7 @@ Die Relation \emph{has-word} gibt an, welche \emph{Word} Instanz in der \emph{Se
 
 \subsubsection{Code} \label{sec:rel_hasword_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hasword,caption={Die Relation \emph{has-word} gibt an, welches Wort in einem Satz vorkommt}]
 <owl:ObjectProperty rdf:ID="#has-word">
@@ -573,7 +600,7 @@ Die Relation \emph{word-of} gibt an, in welchen \emph{Sentence} Instanzen ein \e
 
 \subsubsection{Code} \label{sec:rel_wordof_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:wordof,caption={Die Relation \emph{word-of} gibt an, in welchem Satz das Wort vorkommt}]
 <owl:ObjectProperty rdf:ID="#word-of">
@@ -597,7 +624,7 @@ Die Relation \emph{has-writer} definiert alle \emph{Person} Instanzen, welche an
 
 \subsubsection{Code} \label{sec:rel_haswriter_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:haswriter,caption={Die Relation \emph{has-writer} gibt an, welche \emph{Person} an dem \emph{Document} geschrieben hat}]
 <owl:ObjectProperty rdf:ID="#has-writer">
@@ -621,7 +648,7 @@ Die Relation \emph{writer-of} definiert die Verlinkung einer \emph{Person} mit e
 
 \subsubsection{Code} \label{sec:rel_writerof_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:writerof,caption={Die Relation \emph{writer-of} gibt an, welche \emph{Person} an welchem \emph{Document} gearbeitet hat}]
 <owl:ObjectProperty rdf:ID="#writer-of">
@@ -646,7 +673,7 @@ Die Relation \emph{has-subregion} definiert alle \emph{Association} Instanzen, w
 
 \subsubsection{Code} \label{sec:rel_hassubregion_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hassubregion,caption={Die Relation \emph{has-subregion} definiert, welche Untersektionen eine \emph{Association} hat}]
 <owl:ObjectProperty rdf:ID="#has-subregion">
@@ -670,7 +697,7 @@ Die Relation \emph{subregion-of} definiert die Eltern-Instanz der aktiven \emph{
 
 \subsubsection{Code} \label{sec:rel_subregionof_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:subregionof,caption={Die Relation \emph{subregion-of} definiert die \"ubergeordnete \emph{Association}}]
 <owl:ObjectProperty rdf:ID="#subregion-of">
@@ -694,7 +721,7 @@ Die Relation \emph{has-employee} definiert alle \emph{Person} Instanzen, welche 
 
 \subsubsection{Code} \label{sec:rel_hasemployee_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hasemployee,caption={Die Relation \emph{has-employee} gibt an, welche \emph{Person} bei der \emph{Organization} oder \emph{Association} angestellt sind}]
 <owl:ObjectProperty rdf:ID="#has-employee">
@@ -727,7 +754,7 @@ Der Arbeitgeber kann entweder eine \emph{Organization} oder aber eine \emph{Asso
 
 \subsubsection{Code} \label{sec:rel_employeeof_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:employeeof,caption={Die Relation \emph{employee-of} gibt an, bei welcher \emph{Organization} oder \emph{Association} die Person angestellt ist}]
 <owl:ObjectProperty rdf:ID="#employee-of">
@@ -758,7 +785,7 @@ Die Relation \emph{working-as} weisst einer \emph{Person} einen oder mehrere Ber
 
 \subsubsection{Code} \label{sec:rel_workingas_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:workingas,caption={Die Relation \emph{working-as} gibt an, welchen Beruf eine Person aus\"ubt}]
 <owl:ObjectProperty rdf:ID="#working-as">
@@ -782,7 +809,7 @@ Die Relation \emph{has-member} enth\"allt alle \emph{Person} Instanzen, welche M
 
 \subsubsection{Code} \label{sec:rel_hasmember_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:ahsmember,caption={Die Relation \emph{has-member} enth\"allt alle Mitglieder der \emph{Association}}]
 <owl:ObjectProperty rdf:ID="#has-member">
@@ -806,7 +833,7 @@ Die Relation \emph{member-of} weisst eine \emph{Person} einer \emph{Association}
 
 \subsubsection{Code} \label{sec:rel_memberof_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:memberof,caption={Die Relation \emph{member-of} gibt alle \emph{Association} an, bei welcher die Person Mitglied ist}]
 <owl:ObjectProperty rdf:ID="#member-of">
@@ -830,7 +857,7 @@ Die Relation \emph{has-document} gibt an, welche \emph{Organization} oder \emph{
 
 \subsubsection{Code} \label{sec:rel_hasdocument_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hasdocument,caption={Die Relation \emph{has-document} verkn\"upft eine \emph{Organization} mit einem \emph{Document}}]
 <owl:ObjectProperty rdf:ID="#has-document">
@@ -861,7 +888,7 @@ Die Relation \emph{document-of} gibt an, welche \emph{Organization} oder \emph{A
 
 \subsubsection{Code} \label{sec:rel_documentof_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:documentof,caption={Die Relation \emph{document-of} gibt an, welche \emph{Organization} oder \emph{Association} das \emph{Document} ver\"offentlicht hat}]
 <owl:ObjectProperty rdf:ID="#document-of">
@@ -892,7 +919,7 @@ Die Relation \emph{is-about} beschreibt, welche \emph{Association} Instanzen im 
 
 \subsubsection{Code} \label{sec:rel_isabout_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:isabout,caption={Die Relation \emph{is-about} gibt an, \"uber welche \emph{Association} ein Dokument ist}]
 <owl:ObjectProperty rdf:ID="#is-about">
@@ -916,7 +943,7 @@ Die Relation \emph{mentioned-in} gibt an, in welchen \emph{Document} Instanzen d
 
 \subsubsection{Code} \label{sec:rel_mentionedin_code}
 
-\begin{figure}[h]
+\begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:mentionedin,caption={Die Relation \emph{mentioned-in} gibt alle \emph{Document} an, in welcher eine \emph{Association} erw\"ahnt wird}]
 <owl:ObjectProperty rdf:ID="#mentioned-in">
