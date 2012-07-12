@@ -128,22 +128,24 @@ Die Ontologie soll schlussendlich eine einfache M\"oglichkeit bieten, Dinge \"ub
 
 \section{Struktur und Aufbau} \label{sec:structure}
 
-Es bietet sich an, \emph{KnowNet} durch eine Ontologie ab zu bilden. Ontologien die auf dem OWL-Standard basieren, bieten die M\"oglichkeit an, mittels einer in den Grundz\"ugen einfachen Sprache eine Wissensdatenbank komplex verkn\"upft zu speichern und darauf Abfragen aus zu f\"uhren. OWL ist eine Erweiterung von RDF/S und ist wie dieses durch die zwei Syntaxen \emph{Turtle} und \emph{XML} definiert. Obwohl \emph{XML} im Vergleich zu \emph{Turtle} einiges mehr ''drum herum'' hat, ist es dennoch einfacher zu erstellen und auch zu pflegen denn \emph{Turtle}. Auch kann die Ontologie in dieser Syntak durch andere Programme einfacher gelesen werden und ist auch einfacher wartbar, da Syntaxfehler durch gute Editoren schneller erkennt werden.
+Es bietet sich an, \emph{KnowNet} durch eine Ontologie ab zu bilden. Ontologien die auf dem OWL-Standard\cite{W3COWL} basieren, bieten die M\"oglichkeit an, mittels einer in den Grundz\"ugen einfachen Sprache eine Wissensdatenbank komplex verkn\"upft zu speichern und darauf Abfragen aus zu f\"uhren. OWL ist eine Erweiterung von RDF/S und ist wie dieses durch die zwei Syntaxen \emph{Turtle} respektive \emph{N3} und \emph{XML} definiert. Obwohl \emph{XML} im Vergleich zu \emph{Turtle} einiges mehr ''drum herum'' hat, ist es dennoch einfacher zu erstellen und auch zu pflegen denn \emph{Turtle}. Auch kann die Ontologie in dieser Syntak durch andere Programme einfacher gelesen werden und ist auch einfacher wartbar, da Syntaxfehler durch gute Editoren schneller erkennt werden.
 
-OWL ist aktuell als OWL (Version 1) und OWL-2 definiert. Der OWL-2 Standard ist eine totale Entkoppelung von RDF/S und enth\"allt Erweiterungen die in der Ursprungsversion fehlen. Die Aktuelle Ontologie wird noch mit OWL-1 implementiert, da ich diese Syntax und deren Eigenschaften vom Studium her kenne. Auch weiss ich nicht, inwieweit die vorhandenen Libraries für OWL schon auf OWL-2 angepasst sind.
+OWL ist zur Zeit in Version 1 und in Version 2 definiert. Der OWL 2 Standard\cite{W3COWL2} ist komplett R\"uckw\"artskompatibel zu OWL 1, enth\"allt jedoch Erweiterungen, welche in der Ursprungsversion schlicht gefehlt haben. Einige der Neuerungen sind schlicht syntaktischer Natur, andere sind funktionen und Features welche bislang gefehlt haben. Die Ontologie f\"ur \emph{KnowNet} wird noch mit OWL 1 implementiert, wenn jedoch die verwendeten Libraries (siehe \nameref{sec:technologies} auf Seite \pageref{sec:technologies}) kann diese auch nach OWL 2 konvertiert, respektive deren Neuerungen verwendet werden.
 
 \subsection{Technologien} \label{sec:technologies}
 
 Es werden Folgende Technologien und Standards verwendet:
 
 \begin{description}
-  \item[Ontologie] OWL in Version 1, also mit RDF/S Elementen
-  \item[Abfrage] SPARQL
-  \item[Programmierung] C/C++ mit Qt4
-  \item[Eventuell] HTML, Javascript, ...
-  \item[Libraries] Wahrscheinlich ''Redland RDF Libraries'' \url{http://librdf.org/} oder ''RDFStore'' von \url{http://rdfstore.sourceforge.net/}
+  \item[Ontologie] OWL 1, Subsprache OWL DL (Description Logic), als Ontologiebeschreibungssprache
+  \item[Abfrage] SPARQL\cite{SPARQL} zur Abfrage
+  \item[Programmierung] C/C++ mit Qt4\cite{QT}
+  \item[Eventuell] HTML 5, Javascript als Client oder zur Abfrage mittels REST
+  \item[Libraries] Redland RDF Libraries\cite{LIBRDF}
+  \item[Datenbank] PostgreSQL und MySQL Serverseitig, SQLite zum Entwickeln und eventuell auf dem Client wenn notwendig
 \end{description}
 
+Die Liste ist offen und wird entsprechend angepasst wenn bei der Entwicklung und/oder Planung gemerkt wird, dass andere Dinge und Libraries eingesetzt oder nicht verwendet werden.
 
 \chapter{Aufbau der Ontologie} \label{sec:ontology}
 
@@ -154,6 +156,10 @@ Es werden Folgende Technologien und Standards verwendet:
 Folgende Klassen und Spezialisierungen werden f\"ur die Ontologie gebraucht. In den nachfolgenden Kapiteln werden diese noch genauer beschrieben. Die Verlinkungen zwischen den einzelnen Klassen, also die ObjectProperties, werden im Kapitel \nameref{sec:relations} auf Seite \pageref{sec:relations} beschrieben. In den jeweiligen Detailbeschreibungen der Klassen wird jeweils darauf eingegangen und darauf verwiesen. Die Datenfelder, also die DataProperties, werden in den Detailbeschreibungen der Klassen beschrieben.
 
 \begin{itemize}
+  \renewcommand{\labelitemi}{$\bullet$}
+  \renewcommand{\labelitemii}{$\bullet$}
+  \renewcommand{\labelitemiii}{$\bullet$}
+  \renewcommand{\labelitemiiii}{$\bullet$}
   \item Thing
   \begin{itemize}
     \item Word
@@ -956,6 +962,22 @@ Die Relation \emph{mentioned-in} gibt an, in welchen \emph{Document} Instanzen d
 \end{figure}
 
 
+% ========== IMPLEMENTATION ==========
+
+\chapter{Implementation} \label{sec:implementation}
+
+\section{Architektur} \label{sec:design}
+
+
+\section{Server} \label{sec:impl_server}
+
+
+\section{Client: Datenerfassung} \label{sec:impl_client}
+
+
+\section{Client: Suche und Abfragen} \label{sec:impl_search}
+
+
 
 \newpage
 \setcounter{page}{1}
@@ -987,13 +1009,30 @@ Die Relation \emph{mentioned-in} gibt an, in welchen \emph{Document} Instanzen d
   \emph{OWL Web Ontology Language Reference},
   10. Februar 2004,
   \url{http://www.w3.org/TR/owl-ref/}
-  
-\bibitem{OntDevel}
-  Natalya F. Noy \and Deborah L. McGuinness,
-  \emph{Ontology Development 101: A Guide to Creating Your First Ontology},
-  2002,
-  \url{http://protege.stanford.edu/publications/ontology_development/ontology101.pdf}
-  
+
+\bibitem{W3COWL2}
+  W3C,
+  \emph{OWL 2 Web Ontology Language Primer},
+  27. Oktober 2009,
+  \url{http://www.w3.org/TR/owl2-primer/}
+
+\bibitem{SPARQL}
+  W3C,
+  \emph{SPARQL Query Language for RDF},
+  15. Januar 2008,
+  \url{http://www.w3.org/TR/rdf-sparql-query/}
+
+\bibitem{LIBRDF}
+  Dave Beckett, Redland,
+  \emph{Redland RDF Libraries},
+  2012,
+  \url{http://librdf.org/}
+
+\bibitem{QT}
+  Nokia, OpenSource,
+  \emph{Qt-Cross-Platform application and UI framework},
+  2012,
+  \url{http://qt.nokia.com/}
 
 
 \end{thebibliography}
