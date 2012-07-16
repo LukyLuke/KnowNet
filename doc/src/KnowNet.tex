@@ -8,7 +8,6 @@
 \usepackage[latin1]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
-%\usepackage{tikz}
 \usepackage{lmodern}
 \usepackage{ngerman}
 \usepackage{scrpage2}
@@ -26,6 +25,8 @@
 \usepackage{setspace}
 \usepackage{amsmath}
 \usepackage{booktabs}
+\usepackage{ifthen}
+\usepackage{pst-uml}
 
 % Algorithms and Pseudocode
 %\usepackage{algorithmic}
@@ -35,6 +36,37 @@
 %\renewcommand{\algorithmiccomment}[1]{\textit{// #1}}
 %%\renewcommand{\theHalgorithm}{\arabic{algorithm}}
 %%\listofalgorithms % Show the List of Algoritms
+
+% ========== UML-Classes Simplify ==========
+%\def\OwlClass(#1){#2}{%
+%  \rput[l](#1){
+%    \rnode{#2}{
+%      \umlClass{#2}{}
+%    }
+%  }%
+%}
+%\def\OwlParent{#1=#2}{%
+%  \ncSE{#2}{#1}
+%  \ncputicon{umlHerit}%
+%}
+%\newcommand{\owlroot}[2] {%
+%  \rput[l](#1){%
+%    \rnode{#2}{%
+%      \umlClass{#2}{}%
+%    }%
+%  }%
+%}
+\newcommand{\owlclass}[3] {%
+  \rput[l](#1){%
+    \rnode{#2}{%
+      \umlClass{#2}{}%
+    }%
+  }%
+  \ifthenelse{\lengthtest{#3 > 0}} {%
+    \ncSE{#3}{#2}%
+    \ncputicon{umlHerit}%
+  }%
+}
 
 % ========== CODEBLOCKS FORMATTING ==========
 \usepackage{listings}
@@ -155,25 +187,54 @@ Die Liste ist offen und wird entsprechend angepasst wenn bei der Entwicklung und
 
 Folgende Klassen und Spezialisierungen werden f\"ur die Ontologie gebraucht. In den nachfolgenden Kapiteln werden diese noch genauer beschrieben. Die Verlinkungen zwischen den einzelnen Klassen, also die ObjectProperties, werden im Kapitel \nameref{sec:relations} auf Seite \pageref{sec:relations} beschrieben. In den jeweiligen Detailbeschreibungen der Klassen wird jeweils darauf eingegangen und darauf verwiesen. Die Datenfelder, also die DataProperties, werden in den Detailbeschreibungen der Klassen beschrieben.
 
-\begin{itemize}
-  \item Thing
-  \begin{itemize}
-    \item Word
-    \item Sentence
-    \item Translation
-    \item Synonym
-    \item Document
-    \begin{itemize}
-      \item Paper
-      \item Statement
-      \item Journal
-    \end{itemize}
-    \item Person
-    \item Profession
-    \item Organization
-    \item Association
-  \end{itemize}
-\end{itemize}
+\begin{center}
+\begin{pspicture}(10,14)
+
+%\OwlClass(0,1){Thing}
+%\OwlClass(2,2){Word}
+%\OwlClass(2,3){Sentence}
+%\OwlClass(2,4){Translation}
+%\OwlClass(2,5){Synonym}
+%\OwlClass(2,6){Document}
+%\OwlClass(4,7){Paper}
+%\OwlClass(4,8){Statement}
+%\OwlClass(4,9){Journal}
+%\OwlClass(2,10){Person}
+%\OwlClass(2,11){Profession}
+%\OwlClass(2,12){Organization}
+%\OwlClass(2,13){Association}
+
+%\OwlParent{Word=Thing}
+%\OwlParent{Sentence=Thing}
+%\OwlParent{Translation=Thing}
+%\OwlParent{Synonym=Thing}
+%\OwlParent{Document=Thing}
+%\OwlParent{Paper=Document}
+%\OwlParent{Statement=Document}
+%\OwlParent{Journal=Document}
+%\OwlParent{Person=Thing}
+%\OwlParent{Profession=Thing}
+%\OwlParent{Organization=Thing}
+%\OwlParent{Association=Thing}
+
+%\owlroot{0,1}{Thing}
+\owlclass{0,1}{Thing}{}
+\owlclass{2,2}{Word}{Thing}
+\owlclass{2,3}{Sentence}{Thing}
+\owlclass{2,4}{Translation}{Thing}
+\owlclass{2,5}{Synonym}{Thing}
+\owlclass{2,6}{Document}{Thing}
+\owlclass{4,7}{Paper}{Document}
+\owlclass{4,8}{Statement}{Document}
+\owlclass{4,9}{Journal}{Document}
+\owlclass{2,10}{Person}{Thing}
+\owlclass{2,11}{Profession}{Thing}
+\owlclass{2,12}{Organization}{Thing}
+\owlclass{2,13}{Association}{Thing}
+
+\end{pspicture}
+\end{center}
+
 
 \begin{table}[H]
   \centering
