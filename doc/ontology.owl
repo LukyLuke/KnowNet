@@ -1,432 +1,284 @@
 <?xml version="1.0"?>
 
-
-<!DOCTYPE Ontology [
-    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+<!DOCTYPE rdf:RDF [
+    <!ENTITY xsd "http://www.w3.org/2008/XMLSchema#" >
     <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
 ]>
 
-
-<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+<rdf:RDF
+     xmlns="http://www.pirateparty.ch/ontologies/2012/5/knownet#"
      xml:base="http://www.pirateparty.ch/ontologies/2012/5/knownet"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     ontologyIRI="http://www.pirateparty.ch/ontologies/2012/5/knownet">
-    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <Literal datatypeIRI="&xsd;string">KnowNet is a Project for the PirateParty Switzerland to gather all politically interresting information and make them searchable through a modern search engine</Literal>
-    </Annotation>
-    <Declaration>
-        <Class IRI="#Association"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Document"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Journal"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Organization"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Paper"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Person"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Profession"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Sentence"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Statement"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Synonym"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Translation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Word"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#document-of"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#employee-of"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#has-document"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#has-employee"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#has-member"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#has-sentence"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#has-subregion"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#has-word"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#has-writer"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#is-about"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#member-of"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#mentioned-in"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#refers-to"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#sentence-of"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#subregion-of"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#word-of"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#writer-of"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#firstName"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#lastName"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#personal"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#shortName"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#word"/>
-    </Declaration>
-    <SubClassOf>
-        <Class IRI="#Journal"/>
-        <Class IRI="#Document"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Paper"/>
-        <Class IRI="#Document"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Statement"/>
-        <Class IRI="#Document"/>
-    </SubClassOf>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#employee-of"/>
-        <ObjectProperty IRI="#has-employee"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#has-member"/>
-        <ObjectProperty IRI="#member-of"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#has-sentence"/>
-        <ObjectProperty IRI="#sentence-of"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#has-subregion"/>
-        <ObjectProperty IRI="#subregion-of"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#word-of"/>
-        <ObjectProperty IRI="#has-word"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#has-writer"/>
-        <ObjectProperty IRI="#writer-of"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#is-about"/>
-        <ObjectProperty IRI="#mentioned-in"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#refers-to"/>
-        <ObjectProperty IRI="#refers-to"/>
-    </InverseObjectProperties>
-    <InverseFunctionalObjectProperty>
-        <ObjectProperty IRI="#has-subregion"/>
-    </InverseFunctionalObjectProperty>
-    <SymmetricObjectProperty>
-        <ObjectProperty IRI="#refers-to"/>
-    </SymmetricObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#document-of"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#employee-of"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#has-document"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#has-employee"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#has-member"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#has-sentence"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#has-subregion"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#has-word"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#has-writer"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#is-about"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#member-of"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#mentioned-in"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#refers-to"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#sentence-of"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#subregion-of"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#word-of"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#writer-of"/>
-    </TransitiveObjectProperty>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#document-of"/>
-        <Class IRI="#Document"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#employee-of"/>
-        <Class IRI="#Person"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has-document"/>
-        <Class IRI="#Association"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has-document"/>
-        <Class IRI="#Organization"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has-employee"/>
-        <Class IRI="#Association"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has-employee"/>
-        <Class IRI="#Organization"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has-member"/>
-        <Class IRI="#Association"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has-sentence"/>
-        <Class IRI="#Document"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has-subregion"/>
-        <Class IRI="#Association"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has-word"/>
-        <Class IRI="#Sentence"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#has-writer"/>
-        <Class IRI="#Document"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#is-about"/>
-        <Class IRI="#Document"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#member-of"/>
-        <Class IRI="#Person"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#mentioned-in"/>
-        <Class IRI="#Association"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#refers-to"/>
-        <Class IRI="#Document"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#sentence-of"/>
-        <Class IRI="#Sentence"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#subregion-of"/>
-        <Class IRI="#Association"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#word-of"/>
-        <Class IRI="#Word"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#writer-of"/>
-        <Class IRI="#Person"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#document-of"/>
-        <Class IRI="#Association"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#document-of"/>
-        <Class IRI="#Organization"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#employee-of"/>
-        <Class IRI="#Association"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#employee-of"/>
-        <Class IRI="#Organization"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#has-document"/>
-        <Class IRI="#Document"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#has-employee"/>
-        <Class IRI="#Person"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#has-member"/>
-        <Class IRI="#Person"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#has-sentence"/>
-        <Class IRI="#Sentence"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#has-subregion"/>
-        <Class IRI="#Association"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#has-word"/>
-        <Class IRI="#Word"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#has-writer"/>
-        <Class IRI="#Person"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#is-about"/>
-        <Class IRI="#Association"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#member-of"/>
-        <Class IRI="#Association"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#mentioned-in"/>
-        <Class IRI="#Document"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#refers-to"/>
-        <Class IRI="#Document"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#sentence-of"/>
-        <Class IRI="#Document"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#subregion-of"/>
-        <Class IRI="#Association"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#word-of"/>
-        <Class IRI="#Sentence"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#writer-of"/>
-        <Class IRI="#Document"/>
-    </ObjectPropertyRange>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#firstName"/>
-        <DataProperty IRI="#personal"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#lastName"/>
-        <DataProperty IRI="#personal"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#shortName"/>
-        <DataProperty IRI="#personal"/>
-    </SubDataPropertyOf>
-    <DataPropertyDomain>
-        <DataProperty IRI="#firstName"/>
-        <Class IRI="#Person"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#lastName"/>
-        <Class IRI="#Person"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#shortName"/>
-        <Class IRI="#Person"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#word"/>
-        <Class IRI="#Word"/>
-    </DataPropertyDomain>
-    <DataPropertyRange>
-        <DataProperty IRI="#firstName"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#lastName"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#shortName"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#word"/>
-        <Datatype abbreviatedIRI="xsd:string"/>
-    </DataPropertyRange>
-</Ontology>
+     xmlns:xml="http://www.w3.org/XML/1998/namespace">
 
+  <owl:Ontology rdf:about="">
+    <rdfs:comment>KnowNet is a Project for the PirateParty Switzerland to gather all politically interresting information and make them searchable through a modern search engine</rdfs:comment>
+    <rdfs:label>KnowNet Ontology</rdfs:label>
+    <owl:versionInfo>v 0.0.1 2012/07/17 13:37:00 lukyluke</owl:versionInfo>
+  </owl:Ontology>
 
+  <owl:Class rdf:ID="Word"></owl:Class>
+  
+  <owl:Class rdf:ID="Translation">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#is-same" />
+        <owl:someValuesFrom rdf:resource="#Word" />
+        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
 
-<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+  <owl:Class rdf:ID="Synonym">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#means-same" />
+        <owl:someValuesFrom rdf:resource="#Word" />
+        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Sentence">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#has-word" />
+        <owl:someValuesFrom rdf:resource="#Word" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Document">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#has-sentence" />
+        <owl:someValuesFrom rdf:resource="#Sentence" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Paper">
+    <rdfs:subClassOf rdf:resurce="#Document" />
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Statement">
+    <rdfs:subClassOf rdf:resource="#Document" />
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Journal">
+    <rdfs:subClassOf rdf:resource="#Document" />
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Person"></owl:Class>
+  
+  <owl:Class rdf:ID="Profession">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#has-workers" />
+        <owl:someValuesFrom rdf:resource="#Person" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Organization">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#has-employee" />
+        <owl:someValuesFrom rdf:resource="#Person" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Association" />
+  </owl:Class>
+  
+  <owl:Class rdf:ID="Association">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#has-member" />
+        <owl:someValuesFrom rdf:resource="#Person" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Organization" />
+  </owl:Class>
+  
+  <owl:ObjectProperty rdf:ID="means-same">
+    <rdf:type rdf:resource="&owl;TransitiveProperty" />
+    <rdfs:domain rdf:resource="#Synonym" />
+    <rdfs:range rdf:resource="#Word" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="is-same">
+    <rdf:type rdf:resource="&owl;TransitiveProperty" />
+    <rdfs:domain rdf:resource="#Translation" />
+    <rdfs:range rdf:resource="#Word" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="refers-to">
+    <rdf:type rdf:resource="&owl;TransitiveProperty" />
+    <rdf:type rdf:resource="&owl;SymmetricProperty" />
+    <owl:inverseOf rdf:resource="#refers-to" />
+    <rdfs:domain rdf:resource="#Document" />
+    <rdfs:range rdf:resource="#Document" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="has-sentence">
+    <rdfs:domain rdf:resource="#Document" />
+    <rdfs:range rdf:resource="#Sentence" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="sentence-of">
+    <rdfs:domain rdf:resource="#Sentence" />
+    <rdfs:range rdf:resource="#Document" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="has-word">
+    <rdfs:domain rdf:resource="#Sentence" />
+    <rdfs:range rdf:resource="#Word" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="word-of">
+    <rdfs:domain rdf:resource="#Word" />
+    <rdfs:range rdf:resource="#Sentence" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="has-writer">
+    <rdfs:domain rdf:resource="#Document" />
+    <rdfs:range rdf:resource="#Person" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="writer-of">
+    <rdfs:domain rdf:resource="#Person" />
+    <rdfs:range rdf:resource="#Document" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="has-subregion">
+    <rdfs:domain rdf:resource="#Association" />
+    <rdfs:range rdf:resource="#Association" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="subregion-of">
+    <rdfs:domain rdf:resource="#Association" />
+    <rdfs:range rdf:resource="#Association" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="has-workers">
+    <rdfs:domain rdf:resource="#Profession" />
+    <rdfs:range rdf:resource="#Person" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="has-employee">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Organization" />
+          <owl:Class rdf:about="#Association" />
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Person" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="employee-of">
+    <rdfs:domain rdf:resource="#Person" />
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Organization" />
+          <owl:Class rdf:about="#Association" />
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="working-as">
+    <rdfs:domain rdf:resource="#Person" />
+    <rdfs:range rdf:resource="#Profession" />
+  </owl:ObjectProperty>
 
+  <owl:ObjectProperty rdf:ID="has-member">
+    <rdfs:domain rdf:resource="#Association" />
+    <rdfs:range rdf:resource="#Person" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="member-of">
+    <rdfs:domain rdf:resource="#Person" />
+    <rdfs:range rdf:resource="#Association" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="has-document">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Organization" />
+          <owl:Class rdf:about="#Association" />
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Document" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="document-of">
+    <rdfs:domain rdf:resource="#Document" />
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Organization" />
+          <owl:Class rdf:about="#Association" />
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="is-about">
+    <rdfs:domain rdf:resource="#Document" />
+    <rdfs:range rdf:resource="#Association" />
+  </owl:ObjectProperty>
+  
+  <owl:ObjectProperty rdf:ID="mentioned-in">
+    <rdfs:domain rdf:resource="#Association" />
+    <rdfs:range rdf:resource="#Document" />
+  </owl:ObjectProperty>
+  
+  <owl:DatatypeProperty rdf:ID="firstName">
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdf:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+  
+  <owl:DatatypeProperty rdf:ID="lastName">
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdf:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+  
+  <owl:DatatypeProperty rdf:ID="shortName">
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdf:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+  
+  <owl:DatatypeProperty rdf:ID="speaks">
+    <rdfs:domain rdf:resource="#Person"/>
+    <rdf:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+  
+  <owl:DatatypeProperty rdf:ID="lang">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Word" />
+          <owl:Class rdf:about="#Document" />
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:range rdf:resource="&xsd;string" />
+  </owl:DatatypeProperty>
+  
+  <owl:DatatypeProperty rdf:ID="word">
+    <rdfs:domain rdf:resource="#Word"/>
+    <rdf:range rdf:resource="&xsd;string"/>
+  </owl:DatatypeProperty>
+
+</rdf:RDF>
