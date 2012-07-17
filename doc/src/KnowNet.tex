@@ -154,15 +154,15 @@ Piratenpartei Schweiz}
 
 \section{Die Idee \emph{KnowNet}}
 
-\emph{KnowNet} - Knowledge Network - ist prim\"ar eine Ontologie, welche Dokumente von und \"uber ein politische Partei sammelt und entsprechend aufbereitet anbietet. Die Idee dahinter ist, dass man durch eine einfache, eventuell neuartige Suchoberfl\"ache, Aussagen und Meinungen aber auch Dokumente von einer Partei, respektive \"uber eine Partei finden kann. Eine Partei kann rekursiv Untersektionen beinhalten, welche somit bei einem lokalen Thema die Ontologie abfragen k\"onnen, ob zu diesem Thema schon ein Statement oder Dokument vorhanden ist, welche andere Sektion schon etwas dar\"uber gesagt hat, aber auch, ob es eventuell andere Organisatinen wie Medienh\"auser gibt, welche eine Aussage diesbez\"uglich der Partei unterstellt haben.
+\emph{KnowNet} - Knowledge Network - ist prim\"ar eine Ontologie, welche Dokumente von und \"uber ein politische Partei sammelt und entsprechend aufbereitet anbietet. Die Idee dahinter ist, dass man durch eine einfache, eventuell neuartige Suchoberfl\"ache, Aussagen und Meinungen aber auch Dokumente von einer Partei, respektive \"uber eine Partei finden kann. Eine Partei kann Unterparteien (Sektionen) beinhalten, welche somit bei einem lokalen Thema die Ontologie abfragen k\"onnen, ob zu diesem Thema schon ein Statement oder Dokument vorhanden ist oder ob eine andere Sektion schon etwas dar\"uber gesagt hat, aber auch, ob es eventuell andere Organisatinen wie Medienh\"auser gibt, welche der Partei eine Aussage diesbez\"uglich unterstellt haben.
 
-Die Ontologie soll schlussendlich eine einfache M\"oglichkeit bieten, Dinge \"uber eine komplexe Struktur zu erfahren um daraus Schlussfolgerungen und Thesen auf zu stellen, jedoch auch um heraus zu finden, ob denn schon eine der Sektione eine Meinung oder Uassage \"uber ein gewisses Thema gemacht hat.
+Die Ontologie soll schlussendlich eine einfache M\"oglichkeit bieten, Dinge \"uber eine komplexe Struktur zu erfahren um daraus Schlussfolgerungen und Thesen auf zu stellen, jedoch auch um heraus zu finden, ob denn schon eine der Sektionen eine Meinung oder Aussage \"uber ein gewisses Thema gemacht hat.
 
 \section{Struktur und Aufbau} \label{sec:structure}
 
-Es bietet sich an, \emph{KnowNet} durch eine Ontologie ab zu bilden. Ontologien die auf dem OWL-Standard\cite{W3COWL} basieren, bieten die M\"oglichkeit an, mittels einer in den Grundz\"ugen einfachen Sprache eine Wissensdatenbank komplex verkn\"upft zu speichern und darauf Abfragen aus zu f\"uhren. OWL ist eine Erweiterung von RDF/S und ist wie dieses durch die zwei Syntaxen \emph{Turtle} respektive \emph{N3} und \emph{XML} definiert. Obwohl \emph{XML} im Vergleich zu \emph{Turtle} einiges mehr ''drum herum'' hat, ist es dennoch einfacher zu erstellen und auch zu pflegen denn \emph{Turtle}. Auch kann die Ontologie in dieser Syntak durch andere Programme einfacher gelesen werden und ist auch einfacher wartbar, da Syntaxfehler durch gute Editoren schneller erkennt werden.
+Es bietet sich an, \emph{KnowNet} durch eine Ontologie ab zu bilden. Ontologien die auf dem OWL-Standard\cite{W3COWL} basieren, bieten die M\"oglichkeit, mittels einer in den Grundz\"ugen einfachen Sprache eine Wissensdatenbank komplex verkn\"upft zu speichern und managen. OWL ist eine Erweiterung von RDF/S und ist, wie RDF auch, durch die zwei Syntaxen \emph{Turtle} respektive \emph{N3} und \emph{XML} definiert. Obwohl \emph{XML} im Vergleich zu \emph{Turtle} einiges mehr ''drum herum'' hat, ist es dennoch einfacher zu erstellen und auch zu pflegen als \emph{Turtle}. Auch kann die Ontologie in dieser Syntax durch andere Programme einfacher gelesen werden und ist auch einfacher wartbar, da Syntaxfehler durch gute Editoren schneller erkannt werden respektive das ganze in enem Browser betrachtet werden kann.
 
-OWL ist zur Zeit in Version 1 und in Version 2 definiert. Der OWL 2 Standard\cite{W3COWL2} ist komplett R\"uckw\"artskompatibel zu OWL 1, enth\"allt jedoch Erweiterungen, welche in der Ursprungsversion schlicht gefehlt haben. Einige der Neuerungen sind schlicht syntaktischer Natur, andere sind funktionen und Features welche bislang gefehlt haben. Die Ontologie f\"ur \emph{KnowNet} wird noch mit OWL 1 implementiert, wenn jedoch die verwendeten Libraries (siehe \nameref{sec:technologies} auf Seite \pageref{sec:technologies}) kann diese auch nach OWL 2 konvertiert, respektive deren Neuerungen verwendet werden.
+OWL ist zur Zeit in Version 1 und in Version 2 definiert. Der OWL 2 Standard\cite{W3COWL2} ist komplett R\"uckw\"artskompatibel zu OWL 1, enth\"allt jedoch Erweiterungen, welche in der Ursprungsversion schlicht gefehlt haben. Einige der Neuerungen sind rein syntaktischer Natur, andere sind Funktionen und Features, welche bislang gefehlt haben. Die Ontologie f\"ur \emph{KnowNet} wird noch mit OWL 1 implementiert, da nicht klar zu sehen ist, ob die verwendeten Libraries (siehe \nameref{sec:technologies} auf Seite \pageref{sec:technologies}) auch OWL 2 verstehen. Dies muss in einem kurzen Test gepr\"uft werden und anschliessend gegebenenfals die Ontologie anch OWL 2 gewandelt werden, da die dortige Syntax ein wenig leserlicher ist.
 
 \subsection{Technologien} \label{sec:technologies}
 
@@ -268,46 +268,47 @@ Die Klasse \emph{Word} wird verwendet, um ein einzelnes Wort, welches innerhalb 
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:word,caption={Die Klasse \emph{Word} beschreibt ein einzelnes Wort}]
-<owl:Class rdf:ID="#Word">
+<owl:Class rdf:ID="Word">
 </owl:Class>
  \end{lstlisting}
 \end{figure}
 
 \subsection{Klasse: Translation} \label{sec:class_translation}
 
-Die Klasse \emph{Translation} ist eine Vereinigung aller W\"orter verschiedener Sprachen mit der selben Bedeutung. Dies geschieht durch das Konstrukt \texttt{owl:oneOf} und der Angabe aller Individuen. Durch dieses Konstrukt k\"onnen neue W\"orter einfach und schnell eingepflegt und \"ubersetzt werden und bei einer Abfrage kann jeweils eines aus der Liste gesucht werden.
+Die Klasse \emph{Translation} ist eine Vereinigung aller W\"orter verschiedener Sprachen mit der selben Bedeutung. Dies geschieht durch die Angabe \texttt{owl:minCardinality}, welche aussagt, dass eine \"Ubersetzung mindestens zwei W\"orter in der Range des Properties \emph{is-same} aufweisen muss. Durch dieses Konstrukt k\"onnen neue W\"orter einfach und schnell eingepflegt und als \"Ubersetzung definiert werden ohne die W\"orter selber zu manipulieren, sowie bei einer Abfrage in der Liste gesucht werden.
 
 \subsubsection{Code}  \label{sec:class_translation_code}
 
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:translation,caption={Die Klasse \emph{Translation} beinhaltet alle \"Ubersetzungen eines Wortes}]
-<owl:Class rdf:ID="#Translation">
-  <owl:oneOf rdf:parseType="Collection">
-    <Word rdf:about="#Word_Instance_1" />
-    <Word rdf:about="#Word_Instance_2" />
-    ...
-  </owl:oneOf>
+<owl:Class rdf:ID="Translation">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#is-same" />
+      <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
 </owl:Class>
  \end{lstlisting}
 \end{figure}
 
 \subsection{Klasse: Synonym} \label{sec:class_synonym}
 
-Die Klasse \emph{Synonym} dient zur Verkettung von W\"ortern mit der gleichen Bedeutung. Dies geschieht durch das Konstrukt \texttt{owl:oneOf} und der Angabe aller Individuen. Durch dieses Konstrukt k\"onnen neue W\"orter einfach und schnell eingepflegt und als Synonyme definiert werden, sowie bei einer Abfrage in der Liste gesucht werden.
-
+Die Klasse \emph{Synonym} dient zur Verkettung von W\"ortern mit der gleichen Bedeutung. Dies geschieht durch die Angabe \texttt{owl:minCardinality}, welche aussagt, dass ein Synonym mindestens zwei W\"orter in der Range des Properties \emph{means-same} aufweisen muss. Durch dieses Konstrukt k\"onnen neue W\"orter einfach und schnell eingepflegt und als Synonyme definiert werden ohne die W\"orter selber zu manipulieren, sowie bei einer Abfrage in der Liste gesucht werden.
 
 \subsubsection{Code}  \label{sec:class_synonym_code}
 
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:synonym,caption={Die Klasse \emph{Synonym} beinhaltet alle W\"orter dir etwas \"ahnliches bedeuten}]
-<owl:Class rdf:ID="#Synonym">
-  <owl:oneOf rdf:parseType="Collection">
-    <Word rdf:about="#Word_Instance_1" />
-    <Word rdf:about="#Word_Instance_2" />
-    ...
-  </owl:oneOf>
+<owl:Class rdf:ID="Synonym">
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#means-same" />
+      <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
 </owl:Class>
  \end{lstlisting}
 \end{figure}
@@ -321,7 +322,7 @@ Ein Satz, welcher durch die Klasse \emph{Sentence} definiert wird, ist eine Vere
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:sentence,caption={Die Klasse \emph{Sentence} f\"ugt einzelne W\"orter zu einem Satz zusammen}]
-<owl:Class rdf:ID="#Sentence">
+<owl:Class rdf:ID="Sentence">
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has-word" />
@@ -343,7 +344,7 @@ Die Klasse \emph{Document} ist, \"ahnlich wie \emph{Sentence}, eine Kombination 
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:document,caption={Die Klasse \emph{Document} f\"ugt einzelne S\"atze zu einem Dokument zusammen}]
-<owl:Class rdf:ID="#Document">
+<owl:Class rdf:ID="Document">
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has-sentence" />
@@ -364,7 +365,7 @@ Die Klasse \emph{Paper} ist eine Unterklasse von \emph{Document} und definiert e
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:paper,caption={Die Klasse \emph{Paper} ist ein Dokument einer \emph{Association}, also eines partei/Gesellschaft}]
-<owl:Class rdf:ID="#Paper">
+<owl:Class rdf:ID="Paper">
   <rdfs:subClassOf rdf:resurce="#Document" />
 </owl:Class>
  \end{lstlisting}
@@ -382,8 +383,8 @@ Durch das Property \emph{from-text} (siehe \nameref{sec:res_fromtext} auf Seite 
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:statement,caption={Ein \emph{Statement} beschreibt eine Aussage einer Person}]
-<owl:Class rdf:ID="#Statement">
-    <rdfs:subClassOf rdf:resource="#Document" />
+<owl:Class rdf:ID="Statement">
+  <rdfs:subClassOf rdf:resource="#Document" />
 </owl:Class>
  \end{lstlisting}
 \end{figure}
@@ -397,7 +398,7 @@ Ein \emph{Journal} ist eine Unterklasse von \emph{Document} und definiert einen 
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:journal,caption={Ein \emph{Journal} ist ein Bericht \"uber eine \emph{Association}, welcher von einer \emph{Organization} herausgegeben wurde}]
-<owl:Class rdf:ID="#Journal">
+<owl:Class rdf:ID="Journal">
   <rdfs:subClassOf rdf:resource="#Document" />
 </owl:Class>
  \end{lstlisting}
@@ -412,7 +413,7 @@ Die Klasse \emph{Person} wird verwendet, um irgend eine Person zu definieren. Di
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:person,caption={Die Klasse \emph{Person} definiert alle Personen}]
-<owl:Class rdf:ID="#Person">
+<owl:Class rdf:ID="Person">
 </owl:Class>
  \end{lstlisting}
 \end{figure}
@@ -429,7 +430,7 @@ Die Zuweisung erfolgt durch die Relation \emph{working-as} (siehe \nameref{sec:r
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:profession,caption={Die Klasse \emph{Caption} beschreibt jegliche Berufe}]
-<owl:Class rdf:ID="#Profession">
+<owl:Class rdf:ID="Profession">
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has-workers" />
@@ -452,7 +453,7 @@ Eine Instanz kann nie gleichzeitig eine \emph{Organization} und eine \emph{Assoc
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:organization,caption={Die Klasse \emph{Organization} definiert einen Arbeitgeben, meistens ein Medienhaus}]
-<owl:Class rdf:ID="#Organization">
+<owl:Class rdf:ID="Organization">
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has-employee" />
@@ -476,7 +477,7 @@ Eine Instanz kann nie gleichzeitig eine \emph{Organization} und eine \emph{Assoc
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:association,caption={Eine \emph{Association} ist eine politische Partei oder eine andere Gesellschaft}]
-<owl:Class rdf:ID="#Association">
+<owl:Class rdf:ID="Association">
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has-member" />
@@ -489,7 +490,7 @@ Eine Instanz kann nie gleichzeitig eine \emph{Organization} und eine \emph{Assoc
 \end{figure}
 
 
-% ========== RELATIONS ==========
+% ========== RELATIONS / OBJECT-PROPERTIES ==========
 
 \section{Relationen} \label{sec:reltations}
 
@@ -511,8 +512,8 @@ Die Relationen, resp. Properties, beschreiben die Abh\"angigkeiten wie auch die 
     \textbf{has-subregion} & Definiert die Sub-Associations der aktuellen & \emph{Association} & \emph{Association} & \nameref{sec:rel_hassubregion} auf Seite \pageref{sec:rel_hassubregion} \\ \hline
     \textbf{subregion-of} & Definiert, dass diese Association eine Sub-Association der angegebenen ist & \emph{Association} & \emph{Association} & \nameref{sec:rel_subregionof} auf Seite \pageref{sec:rel_subregionof} \\ \hline
   \end{tabular}
-  \caption{Kurze Beschreibung der Relationen in der Ontologie}
-  \label{tbl:classes}
+  \caption{Kurze Beschreibung der Objekt-Relationen in der Ontologie}
+  \label{tbl:relations}
 \end{table}
 
 \begin{table}[H]
@@ -520,17 +521,20 @@ Die Relationen, resp. Properties, beschreiben die Abh\"angigkeiten wie auch die 
   \begin{tabular}{ | l | p{4cm} | p{3cm} | p{2cm} | p{2cm} | }
     \hline
     \textbf{Relation} & \textbf{Beschreibung} & \textbf{Domain} & \textbf{Range} & \textbf{Details} \\ \hline
+    \textbf{has-workers} & Gibt alle Personen eines Berufes an & \emph{Profession} & \emph{Person} & \nameref{sec:rel_hasworkers} auf Seite \pageref{sec:rel_hasworkers} \\ \hline
     \textbf{has-employee} & Gibt alle Employees der Organization an & \emph{Organization}, \emph{Association} & \emph{Employee} & \nameref{sec:rel_hasemployee} auf Seite \pageref{sec:rel_hasemployee} \\ \hline
     \textbf{employee-of} & Gibt an, bei welchen Organizations der Employee angestellt ist & \emph{Employee} & \emph{Organization}, \emph{Association} & \nameref{sec:rel_employeeof} auf Seite \pageref{sec:rel_employeeof} \\ \hline
     \textbf{has-member} & Definiert alle Mitglieder einer Association & \emph{Association} & \emph{Member} & \nameref{sec:rel_hasmember} auf Seite \pageref{sec:rel_hasmember} \\ \hline
     \textbf{member-of} & Definiert in welcher Association der Member Mitglied ist & \emph{Member} & \emph{Association} & \nameref{sec:rel_memberof} auf Seite \pageref{sec:rel_memberof} \\ \hline
-    \textbf{has-document} & gibt an, welche Associaton oder Organization ein dokument verfasst hat & \emph{Association}, \emph{Organization} & \emph{Document} & \nameref{sec:rel_hasdocument} auf Seite \pageref{sec:rel_hasdocument} \\ \hline
+    \textbf{has-document} & gibt an, welche Association oder Organization ein dokument verfasst hat & \emph{Association}, \emph{Organization} & \emph{Document} & \nameref{sec:rel_hasdocument} auf Seite \pageref{sec:rel_hasdocument} \\ \hline
     \textbf{document-of} & gibt an, zu welcher Association oder Organization ein Dokument geh\"ort & \emph{Document} & \emph{Association}, \emph{Organization} & \nameref{sec:rel_documentof} auf Seite \pageref{sec:rel_documentof} \\ \hline
     \textbf{is-about} & Definiert, dass das aktuelle Dokument etwas \"uber die angegebene Assoiciation aussagt & \emph{Document} & \emph{Association} & \nameref{sec:rel_isabout} auf Seite \pageref{sec:rel_isabout} \\ \hline
     \textbf{mentioned-in} & Gibt an, in welchem Dokument auf die Association referenziert wird & \emph{Association} & \emph{Document} & \nameref{sec:rel_mentionedin} auf Seite \pageref{sec:rel_mentionedin} \\ \hline
+    \textbf{means-same} & Definiert, welche W\"orter das gleiche meinen, also Synonyme sind & \emph{Synonym} & \emph{Word} & \nameref{sec:rel_meanssame} auf Seite \pageref{sec:rel_meanssame} \\ \hline
+    \textbf{is-same} & Gibt an, welche W\"orter die gleiche Bedeutung haben in unterschiedlichen Sprachen & \emph{Translation} & \emph{Word} & \nameref{sec:rel_issame} auf Seite \pageref{sec:rel_issame} \\ \hline
   \end{tabular}
-  \caption{Kurze Beschreibung der Relationen in der Ontologie}
-  \label{tbl:classes}
+  \caption{Fortsetzung: Kurze Beschreibung der Objekt-Relationen in der Ontologie}
+  \label{tbl:relations2}
 \end{table}
 
 \subsubsection{M\"ogliche Eigenschaften} \label{sec:relations_settings}
@@ -570,7 +574,7 @@ Die Relation \emph{refers-to} beschreibt die Beziehungen zwischen den einzelnen 
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:refersto,caption={Die Relation \emph{refers-to} beschreibt die Abh\"angigkeiten unter Dokumenten}]
-<owl:ObjectProperty rdf:ID="#refers-to">
+<owl:ObjectProperty rdf:ID="refers-to">
   <rdf:type rdf:resource="&owl;TransitiveProperty" />
   <rdf:type rdf:resource="&owl;SymmetricProperty" />
   <owl:inverseOf rdf:resource="#refers-to" />
@@ -596,7 +600,7 @@ Die Relation \emph{has-sentence} gibt an, welche \emph{Sentence} Instanzen in ei
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hassentence,caption={Die Relation \emph{has-sentence} gibt an, welches Dokuemnt aus welchen S\"atzen besteht}]
-<owl:ObjectProperty rdf:ID="#has-sentence">
+<owl:ObjectProperty rdf:ID="has-sentence">
   <rdfs:domain rdf:resource="#Document" />
   <rdfs:range rdf:resource="#Sentence" />
 </owl:ObjectProperty>
@@ -620,7 +624,7 @@ Die Relation \emph{sentence-of} gibt an, in welchem \emph{Document} ein \emph{Se
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:sentenceof,caption={Die Relation \emph{sentenceof} gibt an, in welchem Dokument ein Satz vorkommt}]
-<owl:ObjectProperty rdf:ID="#sentence-of">
+<owl:ObjectProperty rdf:ID="sentence-of">
   <rdfs:domain rdf:resource="#Sentence" />
   <rdfs:range rdf:resource="#Document" />
 </owl:ObjectProperty>
@@ -644,7 +648,7 @@ Die Relation \emph{has-word} gibt an, welche \emph{Word} Instanz in der \emph{Se
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hasword,caption={Die Relation \emph{has-word} gibt an, welches Wort in einem Satz vorkommt}]
-<owl:ObjectProperty rdf:ID="#has-word">
+<owl:ObjectProperty rdf:ID="has-word">
   <rdfs:domain rdf:resource="#Sentence" />
   <rdfs:range rdf:resource="#Word" />
 </owl:ObjectProperty>
@@ -668,7 +672,7 @@ Die Relation \emph{word-of} gibt an, in welchen \emph{Sentence} Instanzen ein \e
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:wordof,caption={Die Relation \emph{word-of} gibt an, in welchem Satz das Wort vorkommt}]
-<owl:ObjectProperty rdf:ID="#word-of">
+<owl:ObjectProperty rdf:ID="word-of">
   <rdfs:domain rdf:resource="#Word" />
   <rdfs:range rdf:resource="#Sentence" />
 </owl:ObjectProperty>
@@ -692,7 +696,7 @@ Die Relation \emph{has-writer} definiert alle \emph{Person} Instanzen, welche an
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:haswriter,caption={Die Relation \emph{has-writer} gibt an, welche \emph{Person} an dem \emph{Document} geschrieben hat}]
-<owl:ObjectProperty rdf:ID="#has-writer">
+<owl:ObjectProperty rdf:ID="has-writer">
   <rdfs:domain rdf:resource="#Document" />
   <rdfs:range rdf:resource="#Person" />
 </owl:ObjectProperty>
@@ -716,7 +720,7 @@ Die Relation \emph{writer-of} definiert die Verlinkung einer \emph{Person} mit e
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:writerof,caption={Die Relation \emph{writer-of} gibt an, welche \emph{Person} an welchem \emph{Document} gearbeitet hat}]
-<owl:ObjectProperty rdf:ID="#writer-of">
+<owl:ObjectProperty rdf:ID="writer-of">
   <rdfs:domain rdf:resource="#Person" />
   <rdfs:range rdf:resource="#Document" />
 </owl:ObjectProperty>
@@ -741,7 +745,7 @@ Die Relation \emph{has-subregion} definiert alle \emph{Association} Instanzen, w
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hassubregion,caption={Die Relation \emph{has-subregion} definiert, welche Untersektionen eine \emph{Association} hat}]
-<owl:ObjectProperty rdf:ID="#has-subregion">
+<owl:ObjectProperty rdf:ID="has-subregion">
   <rdfs:domain rdf:resource="#Association" />
   <rdfs:range rdf:resource="#Association" />
 </owl:ObjectProperty>
@@ -765,9 +769,32 @@ Die Relation \emph{subregion-of} definiert die Eltern-Instanz der aktiven \emph{
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:subregionof,caption={Die Relation \emph{subregion-of} definiert die \"ubergeordnete \emph{Association}}]
-<owl:ObjectProperty rdf:ID="#subregion-of">
+<owl:ObjectProperty rdf:ID="subregion-of">
   <rdfs:domain rdf:resource="#Association" />
-  <rdfs:range rdf:resource="#Associaton" />
+  <rdfs:range rdf:resource="#Association" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
+
+
+\subsection{Relation: has-workers} \label{sec:rel_hasworkers}
+
+Die Relation \emph{has-workers} definiert alle \emph{Person}-Instanzen, welche die gegebenen \emph{Profession} ausf\"uhren oder beherschen, also den Beruf einer Person. Eine \emph{Person} kann bei mehreren \emph{Profession}-Instanzen zugewiesen sein.
+
+\subsubsection{Eigenschaften} \label{sec:rel_hasworkers_settings}
+
+\begin{itemize}
+  \item -
+\end{itemize}
+
+\subsubsection{Code} \label{sec:rel_hasworkers_code}
+
+\begin{figure}[H]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:hasworkers,caption={Die Relation \emph{has-workers} gibt an, welche \emph{Person} welche \emph{Profession} beherrscht oder aus\"ubt}]
+<owl:ObjectProperty rdf:ID="has-workers">
+  <rdfs:domain rdf:resource="#Profession" />
+  <rdfs:range rdf:resource="#Person" />
 </owl:ObjectProperty>
  \end{lstlisting}
 \end{figure}
@@ -789,7 +816,7 @@ Die Relation \emph{has-employee} definiert alle \emph{Person} Instanzen, welche 
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hasemployee,caption={Die Relation \emph{has-employee} gibt an, welche \emph{Person} bei der \emph{Organization} oder \emph{Association} angestellt sind}]
-<owl:ObjectProperty rdf:ID="#has-employee">
+<owl:ObjectProperty rdf:ID="has-employee">
   <rdfs:domain>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -822,7 +849,7 @@ Der Arbeitgeber kann entweder eine \emph{Organization} oder aber eine \emph{Asso
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:employeeof,caption={Die Relation \emph{employee-of} gibt an, bei welcher \emph{Organization} oder \emph{Association} die Person angestellt ist}]
-<owl:ObjectProperty rdf:ID="#employee-of">
+<owl:ObjectProperty rdf:ID="employee-of">
   <rdfs:domain rdf:resource="#Person" />
   <rdfs:range>
     <owl:Class>
@@ -853,7 +880,7 @@ Die Relation \emph{working-as} weisst einer \emph{Person} einen oder mehrere Ber
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:workingas,caption={Die Relation \emph{working-as} gibt an, welchen Beruf eine Person aus\"ubt}]
-<owl:ObjectProperty rdf:ID="#working-as">
+<owl:ObjectProperty rdf:ID="working-as">
   <rdfs:domain rdf:resource="#Person" />
   <rdfs:range rdf:resource="#Profession" />
 </owl:ObjectProperty>
@@ -877,7 +904,7 @@ Die Relation \emph{has-member} enth\"allt alle \emph{Person} Instanzen, welche M
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:ahsmember,caption={Die Relation \emph{has-member} enth\"allt alle Mitglieder der \emph{Association}}]
-<owl:ObjectProperty rdf:ID="#has-member">
+<owl:ObjectProperty rdf:ID="has-member">
   <rdfs:domain rdf:resource="#Association" />
   <rdfs:range rdf:resource="#Person" />
 </owl:ObjectProperty>
@@ -901,7 +928,7 @@ Die Relation \emph{member-of} weisst eine \emph{Person} einer \emph{Association}
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:memberof,caption={Die Relation \emph{member-of} gibt alle \emph{Association} an, bei welcher die Person Mitglied ist}]
-<owl:ObjectProperty rdf:ID="#member-of">
+<owl:ObjectProperty rdf:ID="member-of">
   <rdfs:domain rdf:resource="#Person" />
   <rdfs:range rdf:resource="#Association" />
 </owl:ObjectProperty>
@@ -925,7 +952,7 @@ Die Relation \emph{has-document} gibt an, welche \emph{Organization} oder \emph{
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hasdocument,caption={Die Relation \emph{has-document} verkn\"upft eine \emph{Organization} mit einem \emph{Document}}]
-<owl:ObjectProperty rdf:ID="#has-document">
+<owl:ObjectProperty rdf:ID="has-document">
   <rdfs:domain>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -956,7 +983,7 @@ Die Relation \emph{document-of} gibt an, welche \emph{Organization} oder \emph{A
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:documentof,caption={Die Relation \emph{document-of} gibt an, welche \emph{Organization} oder \emph{Association} das \emph{Document} ver\"offentlicht hat}]
-<owl:ObjectProperty rdf:ID="#document-of">
+<owl:ObjectProperty rdf:ID="document-of">
   <rdfs:domain rdf:resource="#Document" />
   <rdfs:range>
     <owl:Class>
@@ -987,7 +1014,7 @@ Die Relation \emph{is-about} beschreibt, welche \emph{Association} Instanzen im 
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:isabout,caption={Die Relation \emph{is-about} gibt an, \"uber welche \emph{Association} ein Dokument ist}]
-<owl:ObjectProperty rdf:ID="#is-about">
+<owl:ObjectProperty rdf:ID="is-about">
   <rdfs:domain rdf:resource="#Document" />
   <rdfs:range rdf:resource="#Association" />
 </owl:ObjectProperty>
@@ -1011,10 +1038,191 @@ Die Relation \emph{mentioned-in} gibt an, in welchen \emph{Document} Instanzen d
 \begin{figure}[H]
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:mentionedin,caption={Die Relation \emph{mentioned-in} gibt alle \emph{Document} an, in welcher eine \emph{Association} erw\"ahnt wird}]
-<owl:ObjectProperty rdf:ID="#mentioned-in">
+<owl:ObjectProperty rdf:ID="mentioned-in">
   <rdfs:domain rdf:resource="#Association" />
   <rdfs:range rdf:resource="#Document" />
 </owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
+
+
+\subsection{Relation: means-same} \label{sec:rel_meanssame}
+
+Die Relation \emph{means-same} wird auf einem \emph{Synonym} verwendet und definiert alle \emph{Word}-Instanzen, welche die gleiche Bedeutung haben.
+
+\subsubsection{Eigenschaften} \label{sec:rel_meanssame_settings}
+
+\begin{itemize}
+  \item Transitiv
+\end{itemize}
+
+\subsubsection{Code} \label{sec:rel_meanssame_code}
+
+\begin{figure}[H]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:meanssame,caption={Die Relation \emph{means-same} definiert auf \emph{Synonym}-Instanzen alle W\"orter}]
+<owl:ObjectProperty rdf:ID="means-same">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <rdfs:domain rdf:resource="#Synonym" />
+  <rdfs:range rdf:resource="#Word" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
+
+
+\subsection{Relation: is-same} \label{sec:rel_issame}
+
+Die Relation \emph{is-same} wird auf einer \emph{Translation} verwendet und definiert alle \emph{Word}-Instanzen, welche in verschiedenen Sprachen die gleiche Aussage haben.
+
+\subsubsection{Eigenschaften} \label{sec:rel_issame_settings}
+
+\begin{itemize}
+  \item Transitiv
+\end{itemize}
+
+\subsubsection{Code} \label{sec:rel_issame_code}
+
+\begin{figure}[H]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:issame,caption={Die Relation \emph{is-same} definiert auf \emph{Translation}-Instanzen alle W\"orter}]
+<owl:ObjectProperty rdf:ID="is-same">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <rdfs:domain rdf:resource="#Translation" />
+  <rdfs:range rdf:resource="#Word" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
+
+% ========== DATA-PROPERTIES ==========
+
+\section{Datenwerte} \label{sec:datatypes}
+
+\emph{Datenwerte}, auch \emph{Datentypen-Properties} genannt, werden verwendet um den einzelnen Klassen Eigenschaften zuzuweisen, respektive die einzelnen Instanzen mit ''Daten'' zu best\"ucken. Die Datentypen werden sowohl bei den \emph{Relationen} wie auch bei den Klasseninternen Properties verwendet und m\"ussen jeweils bei der Instanzierung einer Instanz angegeben werden.
+
+Standardm\"assig sind alle Datentypen verf\"ugbar, welche im XML-Schema\cite{XMLSCHEMA} verf\"ugbar sind. Diese k\"onnen in den Datentypen-Relationen als Variabler oder vordefineirter Wert verwendet werden, doer als Liste aus Werten (Enumeration). Eine Datentyp-Relation besitzt, wie die Objekt-Relation, immer eine \emph{domain} und eine \emph{range}, sodass ein solches an eine Klasse oder Objekt-Relation gebunden werden kann.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ | l | p{4cm} | p{3cm} | p{2cm} | p{2cm} | }
+    \hline
+    \textbf{Relation} & \textbf{Beschreibung} & \textbf{Domain} & \textbf{Range} & \textbf{Details} \\ \hline
+    \textbf{firstName} & Vorname / Rufname der Person & \emph{Person} & \emph{xsd:string} & \nameref{sec:data_firstname} auf Seite \pageref{sec:data_firstname} \\ \hline
+    \textbf{lastName} & Nachname / Familienname der Person & \emph{Person} & \emph{xsd:string} & \nameref{sec:data_lastname} auf Seite \pageref{sec:data_lastname} \\ \hline
+    \textbf{shortName} & Nickname der Person, wenn vorhanden & \emph{Person} & \emph{xsd:string} & \nameref{sec:data_nickname} auf Seite \pageref{sec:data_nickname} \\ \hline
+    \textbf{speaks} & Sprache(n), welche die Person spricht & \emph{Person} & \emph{xsd:language} & \nameref{sec:data_speaks} auf Seite \pageref{sec:data_speaks} \\ \hline
+    \textbf{lang} & Sprache des Wortes / des Dokuments & \emph{Word}, \emph{Document} & \emph{xsd:language} & \nameref{sec:data_lang} auf Seite \pageref{sec:data_lang} \\ \hline
+    \textbf{word} & Das Wort & \emph{Word} & \emph{xsd:string} & \nameref{sec:data_word} auf Seite \pageref{sec:data_word} \\ \hline
+  \end{tabular}
+  \caption{Kurze Beschreibung der Datentypen-Properties in der Ontologie}
+  \label{tbl:datatypes}
+\end{table}
+
+
+\subsection{Datenwert: firstName} \label{sec:data_firstname}
+
+Der Datenwert \emph{firstName} beinhaltet den Vornamen/Rufnamen der Person und ist vom Typ \emph{xsd:string}. Der Vorname unterliegt keinen Restriktionen.
+
+\subsubsection{Code} \label{sec:data_firstname_code}
+
+\begin{figure}[H]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:firstname,caption={Der Datenwert \emph{firstName} gibt den Vornamen einer Person an.}]
+<owl:DatatypeProperty rdf:ID="firstName">
+  <rdfs:domain rdf:resource="#Person"/>
+  <rdf:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+ \end{lstlisting}
+\end{figure}
+
+
+\subsection{Datenwert: lastName} \label{sec:data_lastname}
+
+Der Datenwert \emph{lastName} beinhaltet den Nachnamen/Familiennamen der Person und ist vom Typ \emph{xsd:string}. Der Nachname unterliegt keinen Restriktionen.
+
+\subsubsection{Code} \label{sec:data_lastname_code}
+
+\begin{figure}[H]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:lastname,caption={Der Datenwert \emph{lastName} gibt den Nachnamen einer Person an.}]
+<owl:DatatypeProperty rdf:ID="lastName">
+  <rdfs:domain rdf:resource="#Person"/>
+  <rdf:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+ \end{lstlisting}
+\end{figure}
+
+
+\subsection{Datenwert: shortName} \label{sec:data_shortname}
+
+Der Datenwert \emph{shortName} beinhaltet den Nicknamen der Person und ist vom Typ \emph{xsd:string}. Der Nickname unterliegt keinen Restriktionen.
+
+\subsubsection{Code} \label{sec:data_shortname_code}
+
+\begin{figure}[H]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:shortname,caption={Der Datenwert \emph{shortName} gibt den Nicknamen einer Person an.}]
+<owl:DatatypeProperty rdf:ID="shortName">
+  <rdfs:domain rdf:resource="#Person"/>
+  <rdf:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
+ \end{lstlisting}
+\end{figure}
+
+
+\subsection{Datenwert: speaks} \label{sec:data_speaks}
+
+Der Datenwert \emph{speaks} beinhaltet die Sprache der Person und ist vom Typ \emph{xsd:language}, welches eine Anwendung des RFC-1766 ist, also die zweistellige Angabe einer Sprache.
+
+\subsubsection{Code} \label{sec:data_speaks_code}
+
+\begin{figure}[H]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:speaks,caption={Der Datenwert \emph{speaks} gibt die Sprache einer Person an.}]
+<owl:DatatypeProperty rdf:ID="speaks">
+  <rdfs:domain rdf:resource="#Person"/>
+  <rdf:range rdf:resource="&xsd;language"/>
+</owl:DatatypeProperty>
+ \end{lstlisting}
+\end{figure}
+
+
+\subsection{Datenwert: lang} \label{sec:data_lang}
+
+Der Datenwert \emph{lang} beinhaltet die Sprache von W\"ortern und Dokumenten und ist vom Typ \emph{xsd:language}, welches eine Anwendung des RFC-1766 ist, also die zweistellige Angabe einer Sprache.
+
+\subsubsection{Code} \label{sec:data_lang_code}
+
+\begin{figure}[H]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:lang,caption={Der Datenwert \emph{lang} gibt die Sprache eines Wortes oder Dokumentes an.}]
+<owl:DatatypeProperty rdf:ID="lang">
+  <rdfs:domain>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Class rdf:about="#Word" />
+        <owl:Class rdf:about="#Document" />
+      </owl:unionOf>
+    </owl:Class>
+  </rdfs:domain>
+  <rdf:range rdf:resource="&xsd;language"/>
+</owl:DatatypeProperty>
+ \end{lstlisting}
+\end{figure}
+
+
+\subsection{Datenwert: word} \label{sec:data_word}
+
+Der Datenwert \emph{word} beinhaltet das Wort der \emph{Word}-Instanzen an sich und ist vom Typ \emph{xsd:string}. Das Wort unterliegt keinen Restriktionen.
+
+\subsubsection{Code} \label{sec:data_word_code}
+
+\begin{figure}[H]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:word,caption={Der Datenwert \emph{word} beinhaltet das Word einer \emph{Word}-Instanz.}]
+<owl:DatatypeProperty rdf:ID="word">
+  <rdfs:domain rdf:resource="#Word"/>
+  <rdf:range rdf:resource="&xsd;string"/>
+</owl:DatatypeProperty>
  \end{lstlisting}
 \end{figure}
 
@@ -1073,6 +1281,12 @@ Die Relation \emph{mentioned-in} gibt an, in welchen \emph{Document} Instanzen d
   27. Oktober 2009,
   \url{http://www.w3.org/TR/owl2-primer/}
 
+\bibitem{XMLSCHEMA}
+  W3C,
+  \emph{XML Schema Part 2: Datatypes Second Edition},
+  28. Oktober 2004,
+  \url{http://www.w3.org/TR/xmlschema-2/}
+  
 \bibitem{SPARQL}
   W3C,
   \emph{SPARQL Query Language for RDF},
