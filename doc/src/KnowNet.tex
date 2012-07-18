@@ -16,7 +16,7 @@
 \usepackage{caption}
 \usepackage[noindentafter]{titlesec}
 \usepackage{textcomp}
-\usepackage{graphicx}
+%\usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{subfigure}
 \usepackage{float}
@@ -26,7 +26,7 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{ifthen}
-\usepackage{pst-uml}
+\usepackage{pstricks,pst-uml}
 
 % Algorithms and Pseudocode
 %\usepackage{algorithmic}
@@ -37,36 +37,17 @@
 %%\renewcommand{\theHalgorithm}{\arabic{algorithm}}
 %%\listofalgorithms % Show the List of Algoritms
 
-% ========== UML-Classes Simplify ==========
-%\def\OwlClass(#1){#2}{%
-%  \rput[l](#1){
-%    \rnode{#2}{
-%      \umlClass{#2}{}
-%    }
-%  }%
-%}
-%\def\OwlParent{#1=#2}{%
-%  \ncSE{#2}{#1}
-%  \ncputicon{umlHerit}%
-%}
-%\newcommand{\owlroot}[2] {%
-%  \rput[l](#1){%
-%    \rnode{#2}{%
-%      \umlClass{#2}{}%
-%    }%
-%  }%
-%}
-\newcommand{\owlclass}[3] {%
-  \rput[l](#1){%
-    \rnode{#2}{%
-      \umlClass{#2}{}%
-    }%
-  }%
-  \ifthenelse{\lengthtest{#3 > 0}} {%
-    \ncSE{#3}{#2}%
-    \ncputicon{umlHerit}%
-  }%
-}
+% ========== OWL CLASS SIMPLIFICATION ==========
+\newcommand{\OWLRoot}[2]{%
+\rput[l](#1) {%
+  \rnode{#2} { \umlClass{#2}{} }%
+}}
+\newcommand{\OWLClass}[3]{%
+\rput[l](#1) {%
+  \rnode{#2} { \umlClass{#2}{} }%
+  \ncSE{#3}{#2}%
+  \ncputicon{umlHerit}%
+}}
 
 % ========== CODEBLOCKS FORMATTING ==========
 \usepackage{listings}
@@ -132,7 +113,7 @@
 \author{Lukas Zurschmiede\\Bachelor of Science in Information technology}
 \date{Lommis, 21. Juni 2012}
 \publishers{Lukas Zurschmiede\\Pirateparty Switzerland}
-\titlehead{\includegraphics[scale=0.25]{images/knownet_logo}}
+\titlehead{\includegraphics{images/knownet_logo.eps}}
 \title{KnowNet, eine Ontologie und Suchmaschine f\"ur Dokumente und Statements}
 \subject{Idee f\"ur eine Software\\
 Piratenpartei Schweiz}
@@ -187,53 +168,28 @@ Die Liste ist offen und wird entsprechend angepasst wenn bei der Entwicklung und
 
 Folgende Klassen und Spezialisierungen werden f\"ur die Ontologie gebraucht. In den nachfolgenden Kapiteln werden diese noch genauer beschrieben. Die Verlinkungen zwischen den einzelnen Klassen, also die ObjectProperties, werden im Kapitel \nameref{sec:relations} auf Seite \pageref{sec:relations} beschrieben. In den jeweiligen Detailbeschreibungen der Klassen wird jeweils darauf eingegangen und darauf verwiesen. Die Datenfelder, also die DataProperties, werden in den Detailbeschreibungen der Klassen beschrieben.
 
-\begin{center}
-\begin{pspicture}(10,14)
+\begin{figure}[H]
+\centering
+\begin{pspicture}(10,15)
 
-%\OwlClass(0,1){Thing}
-%\OwlClass(2,2){Word}
-%\OwlClass(2,3){Sentence}
-%\OwlClass(2,4){Translation}
-%\OwlClass(2,5){Synonym}
-%\OwlClass(2,6){Document}
-%\OwlClass(4,7){Paper}
-%\OwlClass(4,8){Statement}
-%\OwlClass(4,9){Journal}
-%\OwlClass(2,10){Person}
-%\OwlClass(2,11){Profession}
-%\OwlClass(2,12){Organization}
-%\OwlClass(2,13){Association}
-
-%\OwlParent{Word=Thing}
-%\OwlParent{Sentence=Thing}
-%\OwlParent{Translation=Thing}
-%\OwlParent{Synonym=Thing}
-%\OwlParent{Document=Thing}
-%\OwlParent{Paper=Document}
-%\OwlParent{Statement=Document}
-%\OwlParent{Journal=Document}
-%\OwlParent{Person=Thing}
-%\OwlParent{Profession=Thing}
-%\OwlParent{Organization=Thing}
-%\OwlParent{Association=Thing}
-
-%\owlroot{0,1}{Thing}
-\owlclass{0,1}{Thing}{}
-\owlclass{2,2}{Word}{Thing}
-\owlclass{2,3}{Sentence}{Thing}
-\owlclass{2,4}{Translation}{Thing}
-\owlclass{2,5}{Synonym}{Thing}
-\owlclass{2,6}{Document}{Thing}
-\owlclass{4,7}{Paper}{Document}
-\owlclass{4,8}{Statement}{Document}
-\owlclass{4,9}{Journal}{Document}
-\owlclass{2,10}{Person}{Thing}
-\owlclass{2,11}{Profession}{Thing}
-\owlclass{2,12}{Organization}{Thing}
-\owlclass{2,13}{Association}{Thing}
+\OWLRoot{0,14.5}{Thing}
+\OWLClass{3,13}{Word}{Thing}
+\OWLClass{3,12}{Sentence}{Thing}
+\OWLClass{3,11}{Translation}{Thing}
+\OWLClass{3,10}{Synonym}{Thing}
+\OWLClass{3,9}{Document}{Thing}
+\OWLClass{6,7.5}{Paper}{Document}
+\OWLClass{6,6.5}{Statement}{Document}
+\OWLClass{6,5.5}{Journal}{Document}
+\OWLClass{3,4}{Person}{Thing}
+\OWLClass{3,3}{Profession}{Thing}
+\OWLClass{3,2}{Organization}{Thing}
+\OWLClass{3,1}{Association}{Thing}
 
 \end{pspicture}
-\end{center}
+\label{owl:main}
+\caption{Die OWL-Klassen im \"Uberblick}
+\end{figure}
 
 
 \begin{table}[H]

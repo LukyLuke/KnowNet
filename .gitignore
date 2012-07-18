@@ -28,3 +28,7 @@ doc/*/*.lol
 doc/*/*.lot
 doc/*/*.out
 doc/*/*.toc
+
+doc/*/*.dvi
+doc/*/*.ps
+
