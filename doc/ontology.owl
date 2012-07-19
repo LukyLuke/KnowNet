@@ -64,7 +64,7 @@
   </owl:Class>
   
   <owl:Class rdf:ID="Paper">
-    <rdfs:subClassOf rdf:resurce="#Document" />
+    <rdfs:subClassOf rdf:resource="#Document" />
   </owl:Class>
   
   <owl:Class rdf:ID="Statement">
