@@ -1,4 +1,4 @@
-\documentclass[draft,
+\documentclass[
     11pt,
     latin1,
     a4paper,
@@ -16,7 +16,7 @@
 \usepackage{caption}
 \usepackage[noindentafter]{titlesec}
 \usepackage{textcomp}
-\usepackage[dvips]{graphicx}
+\usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{subfigure}
 \usepackage{float}
@@ -132,6 +132,32 @@ Piratenpartei Schweiz}
 
 Die Ontologie soll schlussendlich eine einfache M\"oglichkeit bieten, Dinge \"uber eine komplexe Struktur zu erfahren um daraus Schlussfolgerungen und Thesen auf zu stellen, jedoch auch um heraus zu finden, ob denn schon eine der Sektionen eine Meinung oder Aussage \"uber ein gewisses Thema gemacht hat.
 
+\section{Beschreibung} \label{sec:description}
+
+Die Ontologie kann durch folgende Aussagen beschreiben werden:
+
+\begin{itemize} \setlength{\itemsep}{0cm}
+  \item Die Ontologie besteht haupts\"achlich aus Dokumenten, Personen, Organisationen und Vereinen
+  \item Ein Dokument kann ein (Positions-)Papier, ein Statement oder ein Journalistisches Werk sein
+  \item Ein Verein kann Untervereine haben - und somit auch \"Ubergeordnete
+  \item Eine Person kann einem oder mehreren Vereinen angeh\"oren
+  \item Ist eine Person Mitglied eines Vereines, darf sei deren Meinung \"offentlich vertreten
+  \item Eine Person kann einen oder mehrere Berufe aus\"uben
+  \item Eine Person kann in einer oder mehreren Organisationen arbeiten
+  \item Ein Dokument das einem Verein zugeordnet ist, beschreibt deren Ansichten
+  \item Ein Dokument das einer Organisation zugeordnet ist, beschriebt die Ansicht dieser eines Vereins
+  \item Ein Dokument ist immer von einem oder merheren Personen geschrieben
+  \item Ein Dokument besteht aus S\"atzen
+  \item Ein Satz besteht aus W\"ortern
+  \item Ein Wort kann in verschiedenen Sprachen vorkommen (\"Ubersetzungen)
+  \item Ein Wort kann verschiedene Bedeutungen haben (Synonyme)
+  \item Eine Person wird durch den name, Vornamen und den Nickname identifiziert
+  \item Eine Person muss mindestens eine Sprache sprechen, kann aber auch mehrere
+  \item Ein Wort ist immer genau einer Sprache zugeordnet
+  \item Ein Dokument ist immer genau einer Sprache zugeordnet
+  \item Ein Word ist eine Abfolge von Zeichen
+\end{itemize}
+
 \section{Struktur und Aufbau} \label{sec:structure}
 
 Es bietet sich an, \emph{KnowNet} durch eine Ontologie ab zu bilden. Ontologien die auf dem OWL-Standard\cite{W3COWL} basieren, bieten die M\"oglichkeit, mittels einer in den Grundz\"ugen einfachen Sprache eine Wissensdatenbank komplex verkn\"upft zu speichern und managen. OWL ist eine Erweiterung von RDF/S und ist, wie RDF auch, durch die zwei Syntaxen \emph{Turtle} respektive \emph{N3} und \emph{XML} definiert. Obwohl \emph{XML} im Vergleich zu \emph{Turtle} einiges mehr ''drum herum'' hat, ist es dennoch einfacher zu erstellen und auch zu pflegen als \emph{Turtle}. Auch kann die Ontologie in dieser Syntax durch andere Programme einfacher gelesen werden und ist auch einfacher wartbar, da Syntaxfehler durch gute Editoren schneller erkannt werden respektive das ganze in enem Browser betrachtet werden kann.
@@ -156,32 +182,6 @@ Die Liste ist offen und wird entsprechend angepasst wenn bei der Entwicklung und
 \chapter{Aufbau der Ontologie} \label{sec:ontology}
 
 % ========== CLASSES ==========
-
-\section{Beschreibung} \label{sec:description}
-
-Die Ontologie kann durch folgende Aussagen beschreiben werden:
-
-\begin{itemize}
-  \item Die Ontologie besteht haupts\"achlich aus Dokumenten, Personen, Organisationen und Vereinen
-  \item Ein Dokument kann ein (Positions-)Papier, ein Statement oder ein Journalistisches Werk sein
-  \item Ein Verein kann Untervereine haben - und somit auch \"Ubergeordnete
-  \item Eine Person kann einem oder mehreren Vereinen angeh\"oren
-  \item Ist eine Person Mitglied eines Vereines, darf sei deren Meinung \"offentlich vertreten
-  \item Eine Person kann einen oder mehrere Berufe aus\"uben
-  \item Eine Person kann in einer oder mehreren Organisationen arbeiten
-  \item Ein Dokument das einem Verein zugeordnet ist, beschreibt deren Ansichten
-  \item Ein Dokument das einer Organisation zugeordnet ist, beschriebt die Ansicht dieser eines Vereins
-  \item Ein Dokument ist immer von einem oder merheren Personen geschrieben
-  \item Ein Dokument besteht aus S\"atzen
-  \item Ein Satz besteht aus W\"ortern
-  \item Ein Wort kann in verschiedenen Sprachen vorkommen (\"Ubersetzungen)
-  \item Ein Wort kann verschiedene Bedeutungen haben (Synonyme)
-  \item Eine Person wird durch den name, Vornamen und den Nickname identifiziert
-  \item Eine Person muss mindestens eine Sprache sprechen, kann aber auch mehrere
-  \item Ein Wort ist immer genau einer Sprache zugeordnet
-  \item Ein Dokument ist immer genau einer Sprache zugeordnet
-  \item Ein Word ist eine Abfolge von Zeichen
-\end{itemize}
 
 \section{Klassen} \label{sec:class}
 
@@ -236,7 +236,7 @@ Folgende Klassen und Spezialisierungen werden f\"ur die Ontologie gebraucht. In 
 
 \subsection{Klasse: Word} \label{sec:class_word}
 
-Die Klasse \emph{Word} wird verwendet, um ein einzelnes Wort, welches innerhalb eines Dokumentes gefunden werden soll, zu definieren. Einzelne W\"orter k\"onnen mit der Relation \emph{wordcombo} (siehe \nameref{sec:rel_wordcombo} Seite \pageref{sec:rel_wordcombo}) zu Wortkombinationen zusammengesetzt werden. Durch das Datenfeld \emph{language} wird die Sprache des jeweiligen Wortes in iso639-1 (zwei Zeichen) definiert. Um \"Ubersetzungen miteinander zu verkn\"upfen, wird die Klasse \emph{Translation} (siehe \nameref{sec:class_translation} Seite \pageref{sec:class_translation}) verwendet. Durch die Relation \emph{wordtype} wird die Art des Wortes definiert, also ob es sich um ein Nomen, ein Adjektiv oder ein Verb handelt.
+Die Klasse \emph{Word} wird verwendet, um ein einzelnes Wort, welches innerhalb eines Dokumentes gefunden werden soll, zu definieren. Bei zusammengesetzten W\"ortern kann mit der Relation \emph{contains-word} (siehe \nameref{sec:rel_containsword} Seite \pageref{sec:rel_containsword}) angegeben werden, welche einzelnen W\"orter in diesem Wort vorkommen. Durch das Datenfeld \emph{language} wird die Sprache des jeweiligen Wortes in iso639-1 (zwei Zeichen) definiert. Um \"Ubersetzungen miteinander zu verkn\"upfen, wird die Klasse \emph{Translation} (siehe \nameref{sec:class_translation} Seite \pageref{sec:class_translation}) verwendet. Durch die Relation \emph{wordtype} wird die Art des Wortes definiert, also ob es sich um ein Nomen, ein Adjektiv oder ein Verb handelt.
 
 \subsubsection{Code}  \label{sec:class_word_code}
 
@@ -481,7 +481,7 @@ Die Relationen, resp. Properties, beschreiben die Abh\"angigkeiten wie auch die 
     \textbf{sentence-of} & Gibt an, in welchem Dokuemnt dieser Satz vorhanden ist & \emph{Sentence} & \emph{Document} & \nameref{sec:rel_sentenceof} auf Seite \pageref{sec:rel_sentenceof} \\ \hline
     \textbf{has-word} & Gibt an, aus welchen W\"ortern ein Satz besteht & \emph{Sentence} & \emph{Word} & \nameref{sec:rel_hasword} auf Seite \pageref{sec:rel_hasword} \\ \hline
     \textbf{word-of} & Gibt an, in welchem Satz ein Wort vorhanden ist & \emph{Word} & \emph{Sentence} & \nameref{sec:rel_wordof} auf Seite \pageref{sec:rel_wordof} \\ \hline
-    \textbf{combined-in} & Gibt an, dass ein Wort mit einem anderen verkn\"upft werden kann & \emph{Word} & \emph{Word} & \nameref{sec:rel_wordcombo} auf Seite \pageref{sec:rel_wordcombo} \\ \hline
+    \textbf{contains-word} & Gibt bei einem zusammengesetzte Wort alle einzelnen W\"orter an & \emph{Word} & \emph{Word} & \nameref{sec:rel_containsword} auf Seite \pageref{sec:rel_containsword} \\ \hline
     \textbf{has-writer} & Definiert einen oder mehrere Autoren eines Dokuments & \emph{Document} & \emph{Person} & \nameref{sec:rel_haswriter} auf Seite \pageref{sec:rel_haswriter} \\ \hline
     \textbf{writer-of} & Definiert die Dokumente, an welchen eine Person mitgearbeitet hat & \emph{Person} & \emph{Document} & \nameref{sec:rel_writerof} auf Seite \pageref{sec:rel_writerof} \\ \hline
     \textbf{has-subregion} & Definiert die Sub-Associations der aktuellen & \emph{Association} & \emph{Association} & \nameref{sec:rel_hassubregion} auf Seite \pageref{sec:rel_hassubregion} \\ \hline
@@ -538,7 +538,7 @@ Die Relation \emph{refers-to} beschreibt die Beziehungen zwischen den einzelnen 
 
 \subsubsection{Eigenschaften} \label{sec:rel_refersto_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item Symmetrisch
   \item inverseOf \emph{refers-to}
@@ -566,7 +566,7 @@ Die Relation \emph{has-sentence} gibt an, welche \emph{Sentence} Instanzen in ei
 
 \subsubsection{Eigenschaften} \label{sec:rel_hassentence_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item inverseOf \emph{sentence-of}
 \end{itemize}
 
@@ -576,6 +576,7 @@ Die Relation \emph{has-sentence} gibt an, welche \emph{Sentence} Instanzen in ei
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hassentence,caption={Die Relation \emph{has-sentence} gibt an, welches Dokuemnt aus welchen S\"atzen besteht}]
 <owl:ObjectProperty rdf:ID="has-sentence">
+  <owl:inverseOf rdf:resource="#sentence-of" />
   <rdfs:domain rdf:resource="#Document" />
   <rdfs:range rdf:resource="#Sentence" />
 </owl:ObjectProperty>
@@ -589,7 +590,7 @@ Die Relation \emph{sentence-of} gibt an, in welchem \emph{Document} ein \emph{Se
 
 \subsubsection{Eigenschaften} \label{sec:rel_sentenceof_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{has-sentence}
 \end{itemize}
@@ -600,6 +601,8 @@ Die Relation \emph{sentence-of} gibt an, in welchem \emph{Document} ein \emph{Se
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:sentenceof,caption={Die Relation \emph{sentenceof} gibt an, in welchem Dokument ein Satz vorkommt}]
 <owl:ObjectProperty rdf:ID="sentence-of">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#has-sentence" />
   <rdfs:domain rdf:resource="#Sentence" />
   <rdfs:range rdf:resource="#Document" />
 </owl:ObjectProperty>
@@ -613,7 +616,7 @@ Die Relation \emph{has-word} gibt an, welche \emph{Word} Instanz in der \emph{Se
 
 \subsubsection{Eigenschaften} \label{sec:rel_hasword_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{word-of}
 \end{itemize}
@@ -624,6 +627,8 @@ Die Relation \emph{has-word} gibt an, welche \emph{Word} Instanz in der \emph{Se
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hasword,caption={Die Relation \emph{has-word} gibt an, welches Wort in einem Satz vorkommt}]
 <owl:ObjectProperty rdf:ID="has-word">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#word-of" />
   <rdfs:domain rdf:resource="#Sentence" />
   <rdfs:range rdf:resource="#Word" />
 </owl:ObjectProperty>
@@ -637,7 +642,7 @@ Die Relation \emph{word-of} gibt an, in welchen \emph{Sentence} Instanzen ein \e
 
 \subsubsection{Eigenschaften} \label{sec:rel_wordof_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{has-word}
 \end{itemize}
@@ -648,8 +653,40 @@ Die Relation \emph{word-of} gibt an, in welchen \emph{Sentence} Instanzen ein \e
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:wordof,caption={Die Relation \emph{word-of} gibt an, in welchem Satz das Wort vorkommt}]
 <owl:ObjectProperty rdf:ID="word-of">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#has-word" />
   <rdfs:domain rdf:resource="#Word" />
   <rdfs:range rdf:resource="#Sentence" />
+</owl:ObjectProperty>
+ \end{lstlisting}
+\end{figure}
+
+
+\subsection{Relation: contains-word} \label{sec:rel_containsword}
+
+Die Relation \emph{contains-word} gibt bei einem zusammengesetzten Wort alle \emph{Word}-Instanzen an, welche in diesem Wort verwendnet werden. So kann zum Beispiel definiert werden, dass das Wort "`Hausboot"' aus den zwei W\"ortern "`Haus"' und "`Boot"' besteht, selber aber auch ein Wort ist.
+
+\subsubsection{Eigenschaften} \label{sec:rel_containsword_settings}
+
+\begin{itemize} \setlength{\itemsep}{0cm}
+  \item Transitiv
+\end{itemize}
+
+\subsubsection{Code} \label{sec:rel_containsword_code}
+
+\begin{figure}[H]
+ \lstset{language=XML}
+ \begin{lstlisting}[label=owl:containsword,caption={Die Relation \emph{contsins-word} gibt an, aus welchen W\"ortern das Wort besteht}]
+<owl:ObjectProperty rdf:ID="contains-word">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <rdfs:domain rdf:resource="#Word" />
+  <rdfs:range>
+    <owl:Class>
+      <owl:someOf rdf:parseType="Collection">
+        <owl:Class rdf:about="#Word" />
+      </owl:someOf>
+    </owl:Class>
+  </rdfs:range>
 </owl:ObjectProperty>
  \end{lstlisting}
 \end{figure}
@@ -661,7 +698,7 @@ Die Relation \emph{has-writer} definiert alle \emph{Person} Instanzen, welche an
 
 \subsubsection{Eigenschaften} \label{sec:rel_haswriter_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{writer-of}
 \end{itemize}
@@ -672,6 +709,8 @@ Die Relation \emph{has-writer} definiert alle \emph{Person} Instanzen, welche an
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:haswriter,caption={Die Relation \emph{has-writer} gibt an, welche \emph{Person} an dem \emph{Document} geschrieben hat}]
 <owl:ObjectProperty rdf:ID="has-writer">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#writer-of" />
   <rdfs:domain rdf:resource="#Document" />
   <rdfs:range rdf:resource="#Person" />
 </owl:ObjectProperty>
@@ -685,7 +724,7 @@ Die Relation \emph{writer-of} definiert die Verlinkung einer \emph{Person} mit e
 
 \subsubsection{Eigenschaften} \label{sec:rel_writerof_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{has-writer}
 \end{itemize}
@@ -696,6 +735,8 @@ Die Relation \emph{writer-of} definiert die Verlinkung einer \emph{Person} mit e
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:writerof,caption={Die Relation \emph{writer-of} gibt an, welche \emph{Person} an welchem \emph{Document} gearbeitet hat}]
 <owl:ObjectProperty rdf:ID="writer-of">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#has-writer" />
   <rdfs:domain rdf:resource="#Person" />
   <rdfs:range rdf:resource="#Document" />
 </owl:ObjectProperty>
@@ -709,7 +750,7 @@ Die Relation \emph{has-subregion} definiert alle \emph{Association} Instanzen, w
 
 \subsubsection{Eigenschaften} \label{sec:rel_hassubregion_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item Inverse Funktional
   \item inverseOf \emph{subregion-of}
@@ -721,6 +762,9 @@ Die Relation \emph{has-subregion} definiert alle \emph{Association} Instanzen, w
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hassubregion,caption={Die Relation \emph{has-subregion} definiert, welche Untersektionen eine \emph{Association} hat}]
 <owl:ObjectProperty rdf:ID="has-subregion">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <rdf:type rdf:resource="&owl;InverseFunctionalProperty" />
+  <owl:inverseOf rdf:resource="#subregion-of" />
   <rdfs:domain rdf:resource="#Association" />
   <rdfs:range rdf:resource="#Association" />
 </owl:ObjectProperty>
@@ -734,7 +778,7 @@ Die Relation \emph{subregion-of} definiert die Eltern-Instanz der aktiven \emph{
 
 \subsubsection{Eigenschaften} \label{sec:rel_subregionof_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{has-subregion}
 \end{itemize}
@@ -745,6 +789,8 @@ Die Relation \emph{subregion-of} definiert die Eltern-Instanz der aktiven \emph{
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:subregionof,caption={Die Relation \emph{subregion-of} definiert die \"ubergeordnete \emph{Association}}]
 <owl:ObjectProperty rdf:ID="subregion-of">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#has-subregion" />
   <rdfs:domain rdf:resource="#Association" />
   <rdfs:range rdf:resource="#Association" />
 </owl:ObjectProperty>
@@ -758,7 +804,7 @@ Die Relation \emph{has-workers} definiert alle \emph{Person}-Instanzen, welche d
 
 \subsubsection{Eigenschaften} \label{sec:rel_hasworkers_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item keine
 \end{itemize}
 
@@ -781,7 +827,7 @@ Die Relation \emph{has-employee} definiert alle \emph{Person} Instanzen, welche 
 
 \subsubsection{Eigenschaften} \label{sec:rel_hasemployee_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{employee-of}
 \end{itemize}
@@ -792,6 +838,8 @@ Die Relation \emph{has-employee} definiert alle \emph{Person} Instanzen, welche 
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hasemployee,caption={Die Relation \emph{has-employee} gibt an, welche \emph{Person} bei der \emph{Organization} oder \emph{Association} angestellt sind}]
 <owl:ObjectProperty rdf:ID="has-employee">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#employee-of" />
   <rdfs:domain>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -814,7 +862,7 @@ Der Arbeitgeber kann entweder eine \emph{Organization} oder aber eine \emph{Asso
 
 \subsubsection{Eigenschaften} \label{sec:rel_employeeof_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{has-employee}
 \end{itemize}
@@ -825,6 +873,8 @@ Der Arbeitgeber kann entweder eine \emph{Organization} oder aber eine \emph{Asso
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:employeeof,caption={Die Relation \emph{employee-of} gibt an, bei welcher \emph{Organization} oder \emph{Association} die Person angestellt ist}]
 <owl:ObjectProperty rdf:ID="employee-of">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#has-employee" />
   <rdfs:domain rdf:resource="#Person" />
   <rdfs:range>
     <owl:Class>
@@ -845,7 +895,7 @@ Die Relation \emph{working-as} weisst einer \emph{Person} einen oder mehrere Ber
 
 \subsubsection{Eigenschaften} \label{sec:rel_workingas_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{working-as}
 \end{itemize}
@@ -856,6 +906,8 @@ Die Relation \emph{working-as} weisst einer \emph{Person} einen oder mehrere Ber
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:workingas,caption={Die Relation \emph{working-as} gibt an, welchen Beruf eine Person aus\"ubt}]
 <owl:ObjectProperty rdf:ID="working-as">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#working-as" />
   <rdfs:domain rdf:resource="#Person" />
   <rdfs:range rdf:resource="#Profession" />
 </owl:ObjectProperty>
@@ -869,7 +921,7 @@ Die Relation \emph{has-member} enth\"allt alle \emph{Person} Instanzen, welche M
 
 \subsubsection{Eigenschaften} \label{sec:rel_hasmember_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{member-of}
 \end{itemize}
@@ -880,6 +932,8 @@ Die Relation \emph{has-member} enth\"allt alle \emph{Person} Instanzen, welche M
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:ahsmember,caption={Die Relation \emph{has-member} enth\"allt alle Mitglieder der \emph{Association}}]
 <owl:ObjectProperty rdf:ID="has-member">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#member-of" />
   <rdfs:domain rdf:resource="#Association" />
   <rdfs:range rdf:resource="#Person" />
 </owl:ObjectProperty>
@@ -893,7 +947,7 @@ Die Relation \emph{member-of} weisst eine \emph{Person} einer \emph{Association}
 
 \subsubsection{Eigenschaften} \label{sec:rel_memberof_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{has-member}
 \end{itemize}
@@ -904,6 +958,8 @@ Die Relation \emph{member-of} weisst eine \emph{Person} einer \emph{Association}
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:memberof,caption={Die Relation \emph{member-of} gibt alle \emph{Association} an, bei welcher die Person Mitglied ist}]
 <owl:ObjectProperty rdf:ID="member-of">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#has-member" />
   <rdfs:domain rdf:resource="#Person" />
   <rdfs:range rdf:resource="#Association" />
 </owl:ObjectProperty>
@@ -917,7 +973,7 @@ Die Relation \emph{has-document} gibt an, welche \emph{Organization} oder \emph{
 
 \subsubsection{Eigenschaften} \label{sec:rel_hasdocument_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{document-of}
 \end{itemize}
@@ -928,6 +984,8 @@ Die Relation \emph{has-document} gibt an, welche \emph{Organization} oder \emph{
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hasdocument,caption={Die Relation \emph{has-document} verkn\"upft eine \emph{Organization} mit einem \emph{Document}}]
 <owl:ObjectProperty rdf:ID="has-document">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#document-of" />
   <rdfs:domain>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -948,7 +1006,7 @@ Die Relation \emph{document-of} gibt an, welche \emph{Organization} oder \emph{A
 
 \subsubsection{Eigenschaften} \label{sec:rel_documentof_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{has-document}
 \end{itemize}
@@ -959,6 +1017,8 @@ Die Relation \emph{document-of} gibt an, welche \emph{Organization} oder \emph{A
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:documentof,caption={Die Relation \emph{document-of} gibt an, welche \emph{Organization} oder \emph{Association} das \emph{Document} ver\"offentlicht hat}]
 <owl:ObjectProperty rdf:ID="document-of">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#has-document" />
   <rdfs:domain rdf:resource="#Document" />
   <rdfs:range>
     <owl:Class>
@@ -979,7 +1039,7 @@ Die Relation \emph{is-about} beschreibt, welche \emph{Association} Instanzen im 
 
 \subsubsection{Eigenschaften} \label{sec:rel_isabout_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{mentioned-in}
 \end{itemize}
@@ -990,6 +1050,8 @@ Die Relation \emph{is-about} beschreibt, welche \emph{Association} Instanzen im 
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:isabout,caption={Die Relation \emph{is-about} gibt an, \"uber welche \emph{Association} ein Dokument ist}]
 <owl:ObjectProperty rdf:ID="is-about">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#mentioned-in" />
   <rdfs:domain rdf:resource="#Document" />
   <rdfs:range rdf:resource="#Association" />
 </owl:ObjectProperty>
@@ -1003,7 +1065,7 @@ Die Relation \emph{mentioned-in} gibt an, in welchen \emph{Document} Instanzen d
 
 \subsubsection{Eigenschaften} \label{sec:rel_mentionedin_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{is-about}
 \end{itemize}
@@ -1014,6 +1076,8 @@ Die Relation \emph{mentioned-in} gibt an, in welchen \emph{Document} Instanzen d
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:mentionedin,caption={Die Relation \emph{mentioned-in} gibt alle \emph{Document} an, in welcher eine \emph{Association} erw\"ahnt wird}]
 <owl:ObjectProperty rdf:ID="mentioned-in">
+  <rdf:type rdf:resource="&owl;TransitiveProperty" />
+  <owl:inverseOf rdf:resource="#is-about" />
   <rdfs:domain rdf:resource="#Association" />
   <rdfs:range rdf:resource="#Document" />
 </owl:ObjectProperty>
@@ -1027,7 +1091,7 @@ Die Relation \emph{means-same} wird auf einem \emph{Synonym} verwendet und defin
 
 \subsubsection{Eigenschaften} \label{sec:rel_meanssame_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
 \end{itemize}
 
@@ -1051,7 +1115,7 @@ Die Relation \emph{is-same} wird auf einer \emph{Translation} verwendet und defi
 
 \subsubsection{Eigenschaften} \label{sec:rel_issame_settings}
 
-\begin{itemize} \setlength{\itemsep}{2pt}
+\begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
 \end{itemize}
 
@@ -1237,6 +1301,10 @@ Der Datenwert \emph{word} beinhaltet das Wort der \emph{Word}-Instanzen an sich 
 \listoftables
 \addcontentsline {toc}{chapter}{Codeverzeichnis}
 \lstlistoflistings
+
+%% ========== Indexverzeichnis ==========
+\newpage
+\printindex
 
 %% ========== Literaturverzeichniss ==========
 \newpage
