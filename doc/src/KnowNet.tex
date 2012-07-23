@@ -128,41 +128,42 @@ Piratenpartei Schweiz}
 
 \section{Die Idee \emph{KnowNet}}
 
-\emph{KnowNet} - Knowledge Network - ist prim\"ar eine Ontologie, welche Dokumente von und \"uber ein politische Partei sammelt und entsprechend aufbereitet anbietet. Die Idee dahinter ist, dass man durch eine einfache, eventuell neuartige Suchoberfl\"ache, Aussagen und Meinungen aber auch Dokumente von einer Partei, respektive \"uber eine Partei finden kann. Eine Partei kann Unterparteien (Sektionen) beinhalten, welche somit bei einem lokalen Thema die Ontologie abfragen k\"onnen, ob zu diesem Thema schon ein Statement oder Dokument vorhanden ist oder ob eine andere Sektion schon etwas dar\"uber gesagt hat, aber auch, ob es eventuell andere Organisatinen wie Medienh\"auser gibt, welche der Partei eine Aussage diesbez\"uglich unterstellt haben.
+\emph{KnowNet} - Knowledge Network - ist prim\"ar eine Ontologie, welche Dokumente von und \"uber eine politische Partei sammelt und entsprechend aufbereitet anbietet. Die Idee dahinter ist, dass man durch eine einfache, eventuell neuartige Suchoberfl\"ache, Aussagen und Meinungen aber auch Dokumente von einer Partei, respektive \"uber eine Partei finden kann. Eine Partei kann Unterparteien (Sektionen) aufweisen, welche somit bei einem lokalen Thema die Ontologie abfragen k\"onnen, ob zu diesem Thema schon ein Statement oder Dokument vorhanden ist respektive ob eine andere Sektion schon etwas dar\"uber gesagt hat, aber auch, ob es eventuell andere Organisatinen wie Medienh\"auser gibt, welche der Partei eine Aussage diesbez\"uglich unterstellt haben.
 
 Die Ontologie soll schlussendlich eine einfache M\"oglichkeit bieten, Dinge \"uber eine komplexe Struktur zu erfahren um daraus Schlussfolgerungen und Thesen auf zu stellen, jedoch auch um heraus zu finden, ob denn schon eine der Sektionen eine Meinung oder Aussage \"uber ein gewisses Thema gemacht hat.
 
-\section{Beschreibung} \label{sec:description}
+\section{Fakten \"uber die Ontologie} \label{sec:facts}
 
 Die Ontologie kann durch folgende Aussagen beschreiben werden:
 
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Die Ontologie besteht haupts\"achlich aus Dokumenten, Personen, Organisationen und Vereinen
-  \item Ein Dokument kann ein (Positions-)Papier, ein Statement oder ein Journalistisches Werk sein
-  \item Ein Verein kann Untervereine haben - und somit auch \"Ubergeordnete
-  \item Eine Person kann einem oder mehreren Vereinen angeh\"oren
-  \item Ist eine Person Mitglied eines Vereines, darf sei deren Meinung \"offentlich vertreten
-  \item Eine Person kann einen oder mehrere Berufe aus\"uben
-  \item Eine Person kann in einer oder mehreren Organisationen arbeiten
-  \item Ein Dokument das einem Verein zugeordnet ist, beschreibt deren Ansichten
-  \item Ein Dokument das einer Organisation zugeordnet ist, beschriebt die Ansicht dieser eines Vereins
-  \item Ein Dokument ist immer von einem oder merheren Personen geschrieben
-  \item Ein Dokument besteht aus S\"atzen
-  \item Ein Satz besteht aus W\"ortern
-  \item Ein Wort kann in verschiedenen Sprachen vorkommen (\"Ubersetzungen)
-  \item Ein Wort kann verschiedene Bedeutungen haben (Synonyme)
-  \item Eine Person wird durch den name, Vornamen und den Nickname identifiziert
-  \item Eine Person muss mindestens eine Sprache sprechen, kann aber auch mehrere
-  \item Ein Wort ist immer genau einer Sprache zugeordnet
-  \item Ein Dokument ist immer genau einer Sprache zugeordnet
-  \item Ein Word ist eine Abfolge von Zeichen
+  \item Die Ontologie besteht haupts\"achlich aus Dokumenten, Personen, Organisationen und Vereinen;
+  \item Ein Dokument kann ein (Positions-)Papier, ein Statement oder ein Journalistisches Werk sein;
+  \item Ein Verein kann Untervereine haben - und somit auch \"Ubergeordnete;
+  \item Eine Person kann einem oder mehreren Vereinen angeh\"oren;
+  \item Ist eine Person Mitglied eines Vereines, kann Sie deren Meinung \"offentlich vertreten;
+  \item Eine Person kann einen oder mehrere Berufe aus\"uben;
+  \item Eine Person kann in einer oder mehreren Organisationen arbeiten;
+  \item Ein Dokument das einem Verein zugeordnet ist, beschreibt deren Ansichten;
+  \item Ein Dokument das einer Organisation zugeordnet ist, beschriebt die Ansicht dieser \"uber einen Vereins;
+  \item Ein Dokument ist von mindestens einer Person geschrieben;
+  \item Ein Dokument besteht aus S\"atzen;
+  \item Ein Satz besteht aus W\"ortern;
+  \item Ein Word ist eine Abfolge von Zeichen;
+  \item Ein Wort kann aus mehreren anderen W\"ortern zusammengesetzt sein;
+  \item Ein Wort kann in verschiedenen Sprachen vorkommen (\"Ubersetzungen);
+  \item Ein Wort kann verschiedene Bedeutungen haben (Synonyme);
+  \item Eine Person wird durch den Namen, Vornamen und den Nickname identifiziert;
+  \item Eine Person muss mindestens eine Sprache sprechen;
+  \item Ein Wort ist immer genau einer Sprache zugeordnet;
+  \item Ein Dokument ist immer genau einer Sprache zugeordnet;
 \end{itemize}
 
 \section{Struktur und Aufbau} \label{sec:structure}
 
-Es bietet sich an, \emph{KnowNet} durch eine Ontologie ab zu bilden. Ontologien die auf dem OWL-Standard\cite{W3COWL} basieren, bieten die M\"oglichkeit, mittels einer in den Grundz\"ugen einfachen Sprache eine Wissensdatenbank komplex verkn\"upft zu speichern und managen. OWL ist eine Erweiterung von RDF/S und ist, wie RDF auch, durch die zwei Syntaxen \emph{Turtle} respektive \emph{N3} und \emph{XML} definiert. Obwohl \emph{XML} im Vergleich zu \emph{Turtle} einiges mehr ''drum herum'' hat, ist es dennoch einfacher zu erstellen und auch zu pflegen als \emph{Turtle}. Auch kann die Ontologie in dieser Syntax durch andere Programme einfacher gelesen werden und ist auch einfacher wartbar, da Syntaxfehler durch gute Editoren schneller erkannt werden respektive das ganze in enem Browser betrachtet werden kann.
+Es bietet sich an, \emph{KnowNet} durch eine Ontologie ab zu bilden. Ontologien die auf dem OWL-Standard\cite{W3COWL} basieren, bieten die M\"oglichkeit, mittels einer in den Grundz\"ugen einfachen Sprache eine Wissensdatenbank komplex verkn\"upft zu speichern und verwalten. OWL ist eine Erweiterung von RDF/S und ist, wie RDF auch, durch die zwei Syntaxen, \emph{Turtle} respektive \emph{N3} und \emph{XML}, definiert. Obwohl \emph{XML} im Vergleich zu \emph{Turtle} einiges mehr "'drum herum"` hat, ist es dennoch einfacher zu erstellen und auch zu pflegen als \emph{Turtle}. Auch kann die Ontologie in dieser Syntax durch andere Programme einfacher gelesen werden und ist auch einfacher wartbar, da Syntaxfehler durch gute Editoren schneller erkannt werden respektive das ganze in enem Browser betrachtet werden kann.
 
-OWL ist zur Zeit in Version 1 und in Version 2 definiert. Der OWL 2 Standard\cite{W3COWL2} ist komplett R\"uckw\"artskompatibel zu OWL 1, enth\"allt jedoch Erweiterungen, welche in der Ursprungsversion schlicht gefehlt haben. Einige der Neuerungen sind rein syntaktischer Natur, andere sind Funktionen und Features, welche bislang gefehlt haben. Die Ontologie f\"ur \emph{KnowNet} wird noch mit OWL 1 implementiert, da nicht klar zu sehen ist, ob die verwendeten Libraries (siehe \nameref{sec:technologies} auf Seite \pageref{sec:technologies}) auch OWL 2 verstehen. Dies muss in einem kurzen Test gepr\"uft werden und anschliessend gegebenenfals die Ontologie anch OWL 2 gewandelt werden, da die dortige Syntax ein wenig leserlicher ist.
+OWL ist zur Zeit in Version 1 und in Version 2 definiert. Der OWL 2 Standard\cite{W3COWL2} ist komplett R\"uckw\"artskompatibel zu OWL 1, enth\"allt jedoch Erweiterungen, welche in der Ursprungsversion schlicht gefehlt haben. Einige der Neuerungen sind rein syntaktischer Natur, andere sind Funktionen und Features, welche bislang gefehlt haben. Die Ontologie f\"ur \emph{KnowNet} wird noch mit OWL 1 implementiert, da nicht klar zu sehen ist, ob die verwendeten Libraries (siehe \nameref{sec:technologies} auf Seite \pageref{sec:technologies}) auch OWL 2 verstehen. Dies muss in einem kurzen Test gepr\"uft werden und anschliessend gegebenenfals die Ontologie nach OWL 2 gewandelt werden, wenn dies denn ben\"otigt wird.
 
 \subsection{Technologien} \label{sec:technologies}
 
@@ -170,9 +171,9 @@ Es werden Folgende Technologien und Standards verwendet:
 
 \begin{description}
   \item[Ontologie] OWL 1, Subsprache OWL DL (Description Logic), als Ontologiebeschreibungssprache
-  \item[Abfrage] SPARQL\cite{SPARQL} zur Abfrage
-  \item[Programmierung] C/C++ mit Qt4\cite{QT}
-  \item[Eventuell] HTML 5, Javascript als Client oder zur Abfrage mittels REST
+  \item[Abfragen] SPARQL\cite{SPARQL} zur Ontologie, JSON evtl. auch XML als Client-Server Kommunikation
+  \item[Programmierung] C/C++ mit Qt4\cite{QT} (je nach Erscheinungsdatum auch schon Qt5)
+  \item[Eventuell] HTML 5, Javascript als Client oder zur Abfrage mittels REST/JSON/XML
   \item[Libraries] Redland RDF Libraries\cite{LIBRDF}
   \item[Datenbank] PostgreSQL und MySQL Serverseitig, SQLite zum Entwickeln und eventuell auf dem Client wenn notwendig
 \end{description}
@@ -185,7 +186,7 @@ Die Liste ist offen und wird entsprechend angepasst wenn bei der Entwicklung und
 
 \section{Klassen} \label{sec:class}
 
-Folgende Klassen und Spezialisierungen werden f\"ur die Ontologie gebraucht. In den nachfolgenden Kapiteln werden diese noch genauer beschrieben. Die Verlinkungen zwischen den einzelnen Klassen, also die ObjectProperties, werden im Kapitel \nameref{sec:relations} auf Seite \pageref{sec:relations} beschrieben. In den jeweiligen Detailbeschreibungen der Klassen wird jeweils darauf eingegangen und darauf verwiesen. Die Datenfelder, also die DataProperties, werden in den Detailbeschreibungen der Klassen beschrieben.
+Folgende Klassen und Spezialisierungen werden f\"ur die Ontologie gebraucht. In den nachfolgenden Kapiteln werden diese noch genauer beschrieben. Die Verlinkungen zwischen den einzelnen Klassen, also die ObjectProperties, werden im Kapitel \nameref{sec:relations} auf Seite \pageref{sec:relations} beschrieben. In den jeweiligen Detailbeschreibungen der Klassen wird jeweils darauf eingegangen und darauf verwiesen. Die Datenfelder, also die DataProperties, werden in den Detailbeschreibungen der Klassen jedoch auch im Kapitel \nameref{sec:datatypes} auf Seite \pageref{sec:datatypes} beschrieben.
 
 \begin{figure}[H]
 \centering
@@ -207,7 +208,7 @@ Folgende Klassen und Spezialisierungen werden f\"ur die Ontologie gebraucht. In 
 
 \end{pspicture}
 \label{owl:main}
-\caption{Die OWL-Klassen im \"Uberblick}
+\caption{Die OWL-Klassen und deren Abh\"angigkeiten im \"Uberblick}
 \end{figure}
 
 
@@ -216,27 +217,29 @@ Folgende Klassen und Spezialisierungen werden f\"ur die Ontologie gebraucht. In 
   \begin{tabular}{ | l | p{4cm} | l | l| }
     \hline
     \textbf{Class} & \textbf{Beschreibung} & \textbf{SubClass of} & \textbf{Details} \\ \hline
-    \textbf{Word} & Beschreibt ein einzelnes Wort in einer Sprache, es kann auch aus mehreren w\"ortern zusammengesetzt sein; Anhand einer ID kann ein Link zu einer anderen Sprache oder einenmSynonym hergestellt werden; & Thing & \nameref{sec:class_word} auf Seite \pageref{sec:class_word} \\ \hline
-    \textbf{Translation} & Gruppiert die gleichen W\"orter aus verschiedenen Sprachen & Thing & \nameref{sec:class_translation} auf Seite \pageref{sec:class_translation} \\ \hline
-    \textbf{Synonym} & Gruppiert unterschiedliche W\"orter der gleichen Sprache mit der gleichen Bedeutung & Thing & \nameref{sec:class_synonym} auf Seite \pageref{sec:class_synonym} \\ \hline
-    \textbf{Sentence} & Ein Satz besteht aus verschiedenen W\"ortern & Thing & \nameref{sec:class_sentence} auf Seite \pageref{sec:class_sentence} \\ \hline
-    \textbf{Document} & Ein Dokument ist eine Sammlung von S\"atzen inkl. einigen weiteren Attributen & Thing & \nameref{sec:class_document} auf Seite \pageref{sec:class_document} \\ \hline
-    \textbf{Paper} & Ein Positionspapier oder eine andere Dokumentation einer Partei & Document & \nameref{sec:class_paper} auf Seite \pageref{sec:class_paper} \\ \hline
-    \textbf{Statement} & Eine Aussage, welche ein Mitglied einer Partei gemacht hat und welche so vertreten wird & Document & \nameref{sec:class_statement} auf Seite \pageref{sec:class_statement} \\ \hline
-    \textbf{Journal} & Ein Zeitungsbericht & Document & \nameref{sec:class_journal} auf Seite \pageref{sec:class_journal} \\ \hline
-    \textbf{Person} & Eine Person im Allgemeinen & Thing & \nameref{sec:class_person} auf Seite \pageref{sec:class_person} \\ \hline
-    \textbf{Profession} & Beschreibt einen Beruf, welcher eine Person aus\"uben kann & Person & \nameref{sec:class_profession} auf Seite \pageref{sec:class_profession} \\ \hline
-    \textbf{Organization} & Eine Organisation/Medienhaus welches Zeitungen etc. herstellt, Arbeitgeber eines Journalisten & Thing & \nameref{sec:class_organization} auf Seite \pageref{sec:class_organization} \\ \hline
-    \textbf{Association} & Eine (politische) Partei, welche Mitglieder und Angestellte hat & Thing & \nameref{sec:class_association} auf Seite \pageref{sec:class_association} \\ \hline
+    \textbf{Word} & Beschreibt ein einzelnes Wort in einer Sprache; Es kann aus mehreren W\"ortern zusammengesetzt sein sowie \"Ubersetzungen und Synonyme aufweisen; & Thing & \nameref{sec:class_word}, Seite \pageref{sec:class_word} \\ \hline
+    \textbf{Translation} & Gruppiert die gleichen W\"orter aus verschiedenen Sprachen & Thing & \nameref{sec:class_translation}, Seite \pageref{sec:class_translation} \\ \hline
+    \textbf{Synonym} & Gruppiert unterschiedliche W\"orter der gleichen Sprache mit der gleichen Bedeutung & Thing & \nameref{sec:class_synonym}, Seite \pageref{sec:class_synonym} \\ \hline
+    \textbf{Sentence} & Ein Satz besteht aus verschiedenen W\"ortern & Thing & \nameref{sec:class_sentence}, Seite \pageref{sec:class_sentence} \\ \hline
+    \textbf{Document} & Ein Dokument besteht aus verschiedenen S\"atzen & Thing & \nameref{sec:class_document}, Seite \pageref{sec:class_document} \\ \hline
+    \textbf{Paper} & Ein Positionspapier/Dokument einer Partei & Document & \nameref{sec:class_paper}, Seite \pageref{sec:class_paper} \\ \hline
+    \textbf{Statement} & Eine Aussage eines Parteimitgliedes & Document & \nameref{sec:class_statement}, Seite \pageref{sec:class_statement} \\ \hline
+    \textbf{Journal} & Ein Zeitungsbericht \"uber eine Partei & Document & \nameref{sec:class_journal}, Seite \pageref{sec:class_journal} \\ \hline
+    \textbf{Person} & Eine Person im Allgemeinen & Thing & \nameref{sec:class_person}, Seite \pageref{sec:class_person} \\ \hline
+    \textbf{Profession} & Beschreibt einen Beruf, welchen eine Person aus\"uben kann & Person & \nameref{sec:class_profession}, Seite \pageref{sec:class_profession} \\ \hline
+    \textbf{Organization} & Eine Organisation welche Journalistische Werke herstellt/verbreitet & Thing & \nameref{sec:class_organization}, Seite \pageref{sec:class_organization} \\ \hline
+    \textbf{Association} & Eine (politische) Partei, welche Mitglieder und Angestellte haben kann & Thing & \nameref{sec:class_association}, Seite \pageref{sec:class_association} \\ \hline
   \end{tabular}
-  \caption{Kurze Beschreibung der Klassen in der Ontologie}
+  \caption{\"Ubersicht und kurze Beschreibung \"uber alle Klassen der Ontologie}
   \label{tbl:classes}
 \end{table}
 
 
 \subsection{Klasse: Word} \label{sec:class_word}
 
-Die Klasse \emph{Word} wird verwendet, um ein einzelnes Wort, welches innerhalb eines Dokumentes gefunden werden soll, zu definieren. Bei zusammengesetzten W\"ortern kann mit der Relation \emph{contains-word} (siehe \nameref{sec:rel_containsword} Seite \pageref{sec:rel_containsword}) angegeben werden, welche einzelnen W\"orter in diesem Wort vorkommen. Durch das Datenfeld \emph{language} wird die Sprache des jeweiligen Wortes in iso639-1 (zwei Zeichen) definiert. Um \"Ubersetzungen miteinander zu verkn\"upfen, wird die Klasse \emph{Translation} (siehe \nameref{sec:class_translation} Seite \pageref{sec:class_translation}) verwendet. Durch die Relation \emph{wordtype} wird die Art des Wortes definiert, also ob es sich um ein Nomen, ein Adjektiv oder ein Verb handelt.
+Die Klasse \emph{Word} wird verwendet, um ein einzelnes Wort, welches innerhalb eines Dokumentes gefunden werden soll, zu definieren. Bei zusammengesetzten W\"ortern kann mit der Relation \emph{contains-word} (siehe \nameref{sec:rel_containsword} Seite \pageref{sec:rel_containsword}) angegeben werden, welche einzelnen W\"orter in diesem Wort vereint sind. Durch das Datenfeld \emph{lang} (siehe \nameref{sec:data_lang} Seite \pageref{sec:data_lang}) wird die Sprache des jeweiligen Wortes in iso639-1 (zwei Zeichen) definiert. Um \"Ubersetzungen miteinander zu verkn\"upfen, wird die Klasse \emph{Translation} (siehe \nameref{sec:class_translation} Seite \pageref{sec:class_translation}) verwendet.
+
+Durch die Relation \emph{wordtype} (siehe \nameref{sec:data_wordtype} Seite \pageref{sec:data_wordtype}) wird die Art des Wortes definiert, also ob es sich um ein Nomen, ein Adjektiv oder ein Verb handelt. Dadurch kann bei der Suche explizit nach Eigenschaften oder Aktionen gesucht werden, welche ein Dokument beschreibt.
 
 \subsubsection{Code}  \label{sec:class_word_code}
 
@@ -248,9 +251,10 @@ Die Klasse \emph{Word} wird verwendet, um ein einzelnes Wort, welches innerhalb 
  \end{lstlisting}
 \end{figure}
 
+
 \subsection{Klasse: Translation} \label{sec:class_translation}
 
-Die Klasse \emph{Translation} ist eine Vereinigung aller W\"orter verschiedener Sprachen mit der selben Bedeutung. Dies geschieht durch die Angabe \texttt{owl:minCardinality}, welche aussagt, dass eine \"Ubersetzung mindestens zwei W\"orter in der Range des Properties \emph{is-same} aufweisen muss. Durch dieses Konstrukt k\"onnen neue W\"orter einfach und schnell eingepflegt und als \"Ubersetzung definiert werden ohne die W\"orter selber zu manipulieren, sowie bei einer Abfrage in der Liste gesucht werden.
+Die Klasse \emph{Translation} ist eine Vereinigung aller W\"orter in verschiedenen Sprachen mit der selben Bedeutung. Dies geschieht durch die Angabe \texttt{owl:minCardinality}, welche aussagt, dass eine \"Ubersetzung mindestens zwei W\"orter in der Range des Properties \emph{is-same} (siehe \nameref{sec:rel_issame} Seite \pageref{sec:rel_issame}) aufweisen muss. Durch dieses Konstrukt k\"onnen neue W\"orter einfach und schnell eingepflegt und als \"Ubersetzung definiert werden ohne die W\"orter selber zu manipulieren, sowie bei einer Abfrage in der Liste gesucht werden.
 
 \subsubsection{Code}  \label{sec:class_translation_code}
 
@@ -268,9 +272,10 @@ Die Klasse \emph{Translation} ist eine Vereinigung aller W\"orter verschiedener 
  \end{lstlisting}
 \end{figure}
 
+
 \subsection{Klasse: Synonym} \label{sec:class_synonym}
 
-Die Klasse \emph{Synonym} dient zur Verkettung von W\"ortern mit der gleichen Bedeutung. Dies geschieht durch die Angabe \texttt{owl:minCardinality}, welche aussagt, dass ein Synonym mindestens zwei W\"orter in der Range des Properties \emph{means-same} aufweisen muss. Durch dieses Konstrukt k\"onnen neue W\"orter einfach und schnell eingepflegt und als Synonyme definiert werden ohne die W\"orter selber zu manipulieren, sowie bei einer Abfrage in der Liste gesucht werden.
+Die Klasse \emph{Synonym} dient zur Verkn\"upfung mehrerer W\"ortern mit der gleichen Bedeutung. Dies geschieht durch die Angabe \texttt{owl:minCardinality}, welche aussagt, dass ein Synonym mindestens zwei W\"orter in der Range des Properties \emph{means-same} (siehe \nameref{sec:rel_meanssame} Seite \pageref{sec:rel_meanssame}) aufweisen muss. Durch dieses Konstrukt k\"onnen neue W\"orter einfach und schnell eingepflegt und als Synonyme von anderen definiert werden, ohne die W\"orter selber zu manipulieren, sowie bei einer Abfrage in der Liste gesucht werden.
 
 \subsubsection{Code}  \label{sec:class_synonym_code}
 
@@ -288,15 +293,16 @@ Die Klasse \emph{Synonym} dient zur Verkettung von W\"ortern mit der gleichen Be
  \end{lstlisting}
 \end{figure}
 
+
 \subsection{Klasse: Sentence} \label{sec:class_sentence}
 
-Ein Satz, welcher durch die Klasse \emph{Sentence} definiert wird, ist eine Vereinigung von W\"ortern zu einer Gruppe von solchen. Die Reihenfolge der W\"orter ist hierbei egal, es geht nur um das Zusammenspiel und den Zusammenhang einzelner W\"orter. Dieses Konstrukt wird bei der Instanz im Property \emph{has-word} (siehe \nameref{sec:rel_hasword} Seite \pageref{sec:rel_hasword}) durch eine anonyme Klasse mit \texttt{owl:unionOf} definiert.
+Ein Satz, welcher durch die Klasse \emph{Sentence} definiert wird, ist eine Vereinigung von W\"ortern zu einer Gruppe von solchen. Die Reihenfolge der W\"orter ist dabei egal, es geht nur um das Zusammenspiel und den Zusammenhang einzelner W\"orter und dessen Bedeutung. Dieses Konstrukt wird bei der Instanz durch das Property \emph{has-word} (siehe \nameref{sec:rel_hasword} Seite \pageref{sec:rel_hasword}) mittels einer anonyme Klasse mit \texttt{owl:unionOf} definiert.
 
 \subsubsection{Code}  \label{sec:class_sentence_code}
 
 \begin{figure}[H]
  \lstset{language=XML}
- \begin{lstlisting}[label=owl:sentence,caption={Die Klasse \emph{Sentence} f\"ugt einzelne W\"orter zu einem Satz zusammen}]
+ \begin{lstlisting}[label=owl:sentence,caption={Die Klasse \emph{Sentence} f\"ugt einzelne \emph{Word}-Instanzen zu einem Satz zusammen}]
 <owl:Class rdf:ID="Sentence">
   <rdfs:subClassOf>
     <owl:Restriction>
@@ -308,13 +314,15 @@ Ein Satz, welcher durch die Klasse \emph{Sentence} definiert wird, ist eine Vere
  \end{lstlisting}
 \end{figure}
 
+
 \subsection{Klasse: Document} \label{sec:class_document}
 
-Die Klasse \emph{Document} ist, \"ahnlich wie \emph{Sentence}, eine Kombination von verschiedenen S\"atzen. Die Reihenfolge dieser spielt keine Rolle, es geht rein um den Logischen Zusammenhang der einzelnen S\"atze und somit der verschiedenen W\"orter.
+Die Klasse \emph{Document} ist, \"ahnlich wie \emph{Sentence}, eine Kombination von verschiedenen S\"atzen. Die Reihenfolge dieser spielt keine Rolle, es geht rein um den logischen Zusammenhang der einzelnen S\"atze und somit der verschiedenen W\"orter.
 
-\textit{Anmerkung:} Eventuell macht es hier Sinn, ein Dokument noch durch Kapitel zu strukturieren. Dies kann durch die Relation ''ein Dokument aus Dokumenten'' gemacht werden.
+ToDo:
+\textbb{Anmerkung:} Eventuell macht es Sinn, ein Dokument noch durch Kapitel zu strukturieren. Dies k\"onnte durch eine Relation "'ein Dokument aus Dokumenten"` sowie der Angabe eines Satzes als \"Uberschrift erreicht werden. Die Frage ist nur, inwieweit sich diese Komplexit\"atssteigerung rechtfertigen w\"urde.
 
-\subsubsection{Code}  \label{sec:class_sentence_code}
+\subsubsection{Code} \label{sec:class_sentence_code}
 
 \begin{figure}[H]
  \lstset{language=XML}
@@ -335,6 +343,8 @@ Die Klasse \emph{Document} ist, \"ahnlich wie \emph{Sentence}, eine Kombination 
 
 Die Klasse \emph{Paper} ist eine Unterklasse von \emph{Document} und definiert ein Dokument, welches im Zusammenhang zu einem Verein, also der Klasse \emph{Association} steht. Durch diese Unterklasse kann besser nach Dokumenten gesucht werden, welche von einer bestimmten politischen Partei oder einer Sektion von dieser, verfasst wurden. Ein Dokument, welches durch diese Klasse implementiert ist, beschreibt in den meisten F\"allen ein Positionspapier oder \"ahnliches.
 
+Neuigkeiten, Stellungnahmen, Pressetexte, Communiques etc. sollten als \emph{Statement} definiert werden und nicht als \emp{Paper}.
+
 \subsubsection{Code} \label{sec:class_paper_code}
 
 \begin{figure}[H]
@@ -349,9 +359,9 @@ Die Klasse \emph{Paper} ist eine Unterklasse von \emph{Document} und definiert e
 
 \subsection{Klasse: Statement} \label{sec:class_statement}
 
-Die Klasse \emph{Statement} ist eine Unterklasse von \emph{Document} und wird verwendet, um eine Aussage/Statement einer Person zu definieren. Bei einem Statement muss bei der Suche unterschieden werden, ob dieses von einer Person aus der Klasse \emph{Association} stammt, oder von einer beliebigen anderen Person. Ein Statement von einer beliebigen Person kann genutzt werden, um sich ein Bild von Aussen zu machen, w\"ahrend eines von einer Person aus \emph{Association} genutzt werden kann, um sich ein Bild von innen zu machen.
+Die Klasse \emph{Statement} ist eine Unterklasse von \emph{Document} und wird verwendet, um eine Aussage/Statement einer Person, Communiques und Pressetexte oder einfache Stellungnahmen, etc. zu deklarieren. Bei einem Statement muss bei der Suche unterschieden werden, ob dieses von einer Person aus der Klasse \emph{Association} stammt, oder von einer beliebigen anderen Person. Ein Statement von einer beliebigen Person kann zum Beispiel genutzt werden, um sich ein Bild \"uber eine Partei von Aussen zu machen, w\"ahrend eines von einer Person aus \emph{Association} genutzt werden kann, um sich ein Bild von innen zu machen.
 
-Durch das Property \emph{from-text} (siehe \nameref{sec:res_fromtext} auf Seite \pageref{sec:res_fromtext}) kann ein Statement einem beliebigen anderen \emph{Document} zugeordnet werden.
+Durch das Property \emph{from-text} (siehe \nameref{sec:res_fromtext} auf Seite \pageref{sec:res_fromtext}) kann ein Statement einem beliebigen anderen \emph{Document} zugeordnet werden. Dadurch kann ein Statement nicht nur als "'Aussage"` per se definiert werden, sondern auch als "'Zitat"` in anderen Dokumenten und Pressetexten markiert werden. Dadurch kann zum Beispiel die Attraktivit\"at und die Verbreitung gewisser Stellungnahmen gemesssen werden.
 
 \subsubsection{Code} \label{sec:class_statement_code}
 
@@ -364,9 +374,12 @@ Durch das Property \emph{from-text} (siehe \nameref{sec:res_fromtext} auf Seite 
  \end{lstlisting}
 \end{figure}
 
+
 \subsection{Klasse: Journal} \label{sec:class_journal}
 
-Ein \emph{Journal} ist eine Unterklasse von \emph{Document} und definiert einen Text, welcher von einem \emph{Writer} oder \emph{Blogger} geschrieben und Ver\"offentlicht worden ist. Er stellt nicht eine Meinung der \emph{Association} dar, sondern diejenige eines Aussenstehenden. Ist der Author ebenfalls Mitglied der Klasse \emph{Member}, kann der Text als pers\"onliche Meinung und somit indirekt als Parteimeinung gedeutet werden.
+Ein \emph{Journal} ist eine Unterklasse von \emph{Document} und definiert einen Text, welcher von einem \emph{Journalist} geschrieben und von einer \emph{Organization} Ver\"offentlicht worden ist. Er stellt nicht die Meinung einer \emph{Association} dar, sondern diejenige eines Aussenstehenden. Ist der Author ebenfalls Mitglied der Klasse \emph{Member}, kann der Text jedoch als pers\"onliche Meinung und somit indirekt als Parteimeinung gedeutet werden.
+
+Die texte der Klasse \emph{Journal} k\"onnen haupts\"achlich f\"ur ein Meinungsbild \"uber eine Partei hergenommen werden, bei welchem die Meinung von Aussen und nicht diejenige der Mitglieder z\"ahlt.
 
 \subsubsection{Code} \label{sec:class_journal_code}
 
@@ -378,6 +391,7 @@ Ein \emph{Journal} ist eine Unterklasse von \emph{Document} und definiert einen 
 </owl:Class>
  \end{lstlisting}
 \end{figure}
+
 
 \subsection{Klasse: Person} \label{sec:class_person}
 
@@ -396,7 +410,7 @@ Die Klasse \emph{Person} wird verwendet, um irgend eine Person zu definieren. Di
 
 \subsection{Klasse: Profession} \label{sec:class_profession}
 
-Die Klasse \emph{Profession} wird verwendet, um einer \emph{Person} einen Beruf/Anstellung zuzuweisen. Dadurch kann man gegebenenfalls gewissen Berufsgruppen gewissen Meinungen zuweisen.
+Die Klasse \emph{Profession} wird verwendet, um einer \emph{Person} einen Beruf/Anstellung zuzuweisen. Dadurch kann man eventuell gewissen Berufsgruppen gewisse Meinungen zuweisen.
 
 Die Zuweisung erfolgt durch die Relation \emph{working-as} (siehe \nameref{sec:rel_workingas} auf Seite \pageref{sec:rel_workingas}).
 
@@ -419,7 +433,7 @@ Die Zuweisung erfolgt durch die Relation \emph{working-as} (siehe \nameref{sec:r
 
 \subsection{Klasse: Organization} \label{sec:class_organization}
 
-Die Klasse \emph{Organization} definiert den Arbeitgeber von einer \emph{Person}. Durch diese Zuweisung k\"onnen Aussagen und Meinungen, welche eine Zeitung von der Partei hat, eruiert werden. Eine \emph{Organization} kann mehrere Angestellte haben, welche nicht zwingendermassen nur bei der einen Organisation angestellt sind. Idealerweise besitzt die \emph{Person} ebenfalls das Attribut \emph{working-as} mit enem Verweis auf einen Beruf.
+Die Klasse \emph{Organization} definiert die Arbeitgeber von \emph{Person}-Instanzen aber auch die Herausgeber von \emph{Journal}-Instanzen. Durch diese Zuweisung k\"onnen Aussagen und Meinungen, welche eine Zeitung von der Partei hat, eruiert werden. Eine \emph{Organization} kann mehrere Angestellte haben, welche nicht zwingendermassen nur bei der einen Organisation angestellt sind. Idealerweise besitzt die \emph{Person} ebenfalls das Attribut \emph{working-as} mit enem Verweis auf einen Beruf.
 
 Eine Instanz kann nie gleichzeitig eine \emph{Organization} und eine \emph{Association} sein, diese zwei Klassen schliessen sich gegenseitig aus.
 
@@ -467,26 +481,26 @@ Eine Instanz kann nie gleichzeitig eine \emph{Organization} und eine \emph{Assoc
 
 % ========== RELATIONS / OBJECT-PROPERTIES ==========
 
-\section{Relationen} \label{sec:reltations}
+\section{Relationen} \label{sec:relations}
 
-Die Relationen, resp. Properties, beschreiben die Abh\"angigkeiten wie auch die Verkn\"upfungen unter den Klassen. Relationen, welche klassenspezifisch sind, also direkt gebraucht werden um eine Klasse zu beschreiben, sind als anonyme Unterklassen bereits in diesen definiert worden. Hier werden nur diejenigen Relationen beschrieben, welche verwendet werden zur direkten dynamischen und individuellen Verkn\"upfung verschiedener Instanzen.
+Die Relationen, resp. Properties, beschreiben die Abh\"angigkeiten wie auch die Verkn\"upfungen unter den Klassen. Relationen, welche klassenspezifisch sind, also direkt gebraucht werden um eine Klasse zu beschreiben, sind als anonyme Unterklassen bereits in diesen definiert worden. Hier werden nur diejenigen beschrieben, welche verwendet werden zur direkten dynamischen und individuellen Verkn\"upfung verschiedener Instanzen.
 
 \begin{table}[H]
   \centering
   \begin{tabular}{ | l | p{4cm} | p{3cm} | p{2cm} | p{2cm} | }
     \hline
     \textbf{Relation} & \textbf{Beschreibung} & \textbf{Domain} & \textbf{Range} & \textbf{Details} \\ \hline
-    \textbf{refers-to} & Beziehung zwischen einzenlnen Dokumenten & \emph{Document} & \emph{Document} & \nameref{sec:rel_refersto} auf Seite \pageref{sec:rel_refersto} \\ \hline
-    \textbf{has-sentence} & Gibt an, aus welchen S\"atzen ein Dokument besteht & \emph{Document} & \emph{Sentence} & \nameref{sec:rel_hassentence} auf Seite \pageref{sec:rel_hassentence} \\ \hline
-    \textbf{sentence-of} & Gibt an, in welchem Dokuemnt dieser Satz vorhanden ist & \emph{Sentence} & \emph{Document} & \nameref{sec:rel_sentenceof} auf Seite \pageref{sec:rel_sentenceof} \\ \hline
-    \textbf{has-word} & Gibt an, aus welchen W\"ortern ein Satz besteht & \emph{Sentence} & \emph{Word} & \nameref{sec:rel_hasword} auf Seite \pageref{sec:rel_hasword} \\ \hline
-    \textbf{word-of} & Gibt an, in welchem Satz ein Wort vorhanden ist & \emph{Word} & \emph{Sentence} & \nameref{sec:rel_wordof} auf Seite \pageref{sec:rel_wordof} \\ \hline
-    \textbf{contains-word} & Gibt bei einem zusammengesetzte Wort alle einzelnen W\"orter an & \emph{Word} & \emph{Word} & \nameref{sec:rel_containsword} auf Seite \pageref{sec:rel_containsword} \\ \hline
-    \textbf{has-writer} & Definiert einen oder mehrere Autoren eines Dokuments & \emph{Document} & \emph{Person} & \nameref{sec:rel_haswriter} auf Seite \pageref{sec:rel_haswriter} \\ \hline
-    \textbf{writer-of} & Definiert die Dokumente, an welchen eine Person mitgearbeitet hat & \emph{Person} & \emph{Document} & \nameref{sec:rel_writerof} auf Seite \pageref{sec:rel_writerof} \\ \hline
-    \textbf{has-subregion} & Definiert die Sub-Associations der aktuellen & \emph{Association} & \emph{Association} & \nameref{sec:rel_hassubregion} auf Seite \pageref{sec:rel_hassubregion} \\ \hline
-    \textbf{subregion-of} & Definiert, dass diese Association eine Sub-Association der angegebenen ist & \emph{Association} & \emph{Association} & \nameref{sec:rel_subregionof} auf Seite \pageref{sec:rel_subregionof} \\ \hline
-    \textbf{has-workers} & Gibt alle Personen eines Berufes an & \emph{Profession} & \emph{Person} & \nameref{sec:rel_hasworkers} auf Seite \pageref{sec:rel_hasworkers} \\ \hline
+    \textbf{refers-to} & Beziehung zwischen einzelnen Dokumenten & \emph{Document} & \emph{Document} & \nameref{sec:rel_refersto}, Seite \pageref{sec:rel_refersto} \\ \hline
+    \textbf{has-sentence} & Gibt an, aus welchen S\"atzen ein Dokument besteht & \emph{Document} & \emph{Sentence} & \nameref{sec:rel_hassentence}, Seite \pageref{sec:rel_hassentence} \\ \hline
+    \textbf{sentence-of} & Gibt an, in welchem Dokument dieser Satz vorkommt & \emph{Sentence} & \emph{Document} & \nameref{sec:rel_sentenceof}, Seite \pageref{sec:rel_sentenceof} \\ \hline
+    \textbf{has-word} & Gibt an, aus welchen W\"ortern ein Satz besteht & \emph{Sentence} & \emph{Word} & \nameref{sec:rel_hasword}, Seite \pageref{sec:rel_hasword} \\ \hline
+    \textbf{word-of} & Gibt an, in welchem Satz ein Wort vorkommt & \emph{Word} & \emph{Sentence} & \nameref{sec:rel_wordof}, Seite \pageref{sec:rel_wordof} \\ \hline
+    \textbf{contains-word} & Gibt bei einem zusammengesetzte Wort alle einzelnen W\"orter an & \emph{Word} & \emph{Word} & \nameref{sec:rel_containsword}, Seite \pageref{sec:rel_containsword} \\ \hline
+    \textbf{has-writer} & Definiert einen oder mehrere Autoren eines Dokuments & \emph{Document} & \emph{Person} & \nameref{sec:rel_haswriter}, Seite \pageref{sec:rel_haswriter} \\ \hline
+    \textbf{writer-of} & Definiert die Dokumente, an welchen eine Person mitgearbeitet hat & \emph{Person} & \emph{Document} & \nameref{sec:rel_writerof}, Seite \pageref{sec:rel_writerof} \\ \hline
+    \textbf{has-subregion} & Definiert die Untersektionen eines Vereins & \emph{Association} & \emph{Association} & \nameref{sec:rel_hassubregion}, Seite \pageref{sec:rel_hassubregion} \\ \hline
+    \textbf{subregion-of} & Definiert, dass dies eine Subsektion einer anderen ist & \emph{Association} & \emph{Association} & \nameref{sec:rel_subregionof}, Seite \pageref{sec:rel_subregionof} \\ \hline
+    \textbf{has-workers} & Definiert die Personen eines Berufes & \emph{Profession} & \emph{Person} & \nameref{sec:rel_hasworkers}, Seite \pageref{sec:rel_hasworkers} \\ \hline
   \end{tabular}
   \caption{Kurze Beschreibung der Objekt-Relationen in der Ontologie}
   \label{tbl:relations}
@@ -497,16 +511,16 @@ Die Relationen, resp. Properties, beschreiben die Abh\"angigkeiten wie auch die 
   \begin{tabular}{ | l | p{4cm} | p{3cm} | p{2cm} | p{2cm} | }
     \hline
     \textbf{Relation} & \textbf{Beschreibung} & \textbf{Domain} & \textbf{Range} & \textbf{Details} \\ \hline
-    \textbf{has-employee} & Gibt alle Employees der Organization an & \emph{Organization}, \emph{Association} & \emph{Employee} & \nameref{sec:rel_hasemployee} auf Seite \pageref{sec:rel_hasemployee} \\ \hline
-    \textbf{employee-of} & Gibt an, bei welchen Organizations der Employee angestellt ist & \emph{Employee} & \emph{Organization}, \emph{Association} & \nameref{sec:rel_employeeof} auf Seite \pageref{sec:rel_employeeof} \\ \hline
-    \textbf{has-member} & Definiert alle Mitglieder einer Association & \emph{Association} & \emph{Member} & \nameref{sec:rel_hasmember} auf Seite \pageref{sec:rel_hasmember} \\ \hline
-    \textbf{member-of} & Definiert in welcher Association der Member Mitglied ist & \emph{Member} & \emph{Association} & \nameref{sec:rel_memberof} auf Seite \pageref{sec:rel_memberof} \\ \hline
-    \textbf{has-document} & gibt an, welche Association oder Organization ein dokument verfasst hat & \emph{Association}, \emph{Organization} & \emph{Document} & \nameref{sec:rel_hasdocument} auf Seite \pageref{sec:rel_hasdocument} \\ \hline
-    \textbf{document-of} & gibt an, zu welcher Association oder Organization ein Dokument geh\"ort & \emph{Document} & \emph{Association}, \emph{Organization} & \nameref{sec:rel_documentof} auf Seite \pageref{sec:rel_documentof} \\ \hline
-    \textbf{is-about} & Definiert, dass das aktuelle Dokument etwas \"uber die angegebene Assoiciation aussagt & \emph{Document} & \emph{Association} & \nameref{sec:rel_isabout} auf Seite \pageref{sec:rel_isabout} \\ \hline
-    \textbf{mentioned-in} & Gibt an, in welchem Dokument auf die Association referenziert wird & \emph{Association} & \emph{Document} & \nameref{sec:rel_mentionedin} auf Seite \pageref{sec:rel_mentionedin} \\ \hline
-    \textbf{means-same} & Definiert, welche W\"orter das gleiche meinen, also Synonyme sind & \emph{Synonym} & \emph{Word} & \nameref{sec:rel_meanssame} auf Seite \pageref{sec:rel_meanssame} \\ \hline
-    \textbf{is-same} & Gibt an, welche W\"orter die gleiche Bedeutung haben in unterschiedlichen Sprachen & \emph{Translation} & \emph{Word} & \nameref{sec:rel_issame} auf Seite \pageref{sec:rel_issame} \\ \hline
+    \textbf{has-employee} & Gibt alle Personen einer Organization an & \emph{Organization}, \emph{Association} & \emph{Employee} & \nameref{sec:rel_hasemployee}, Seite \pageref{sec:rel_hasemployee} \\ \hline
+    \textbf{employee-of} & Gibt an, bei welchen Organizations die Person angestellt ist & \emph{Employee} & \emph{Organization}, \emph{Association} & \nameref{sec:rel_employeeof}, Seite \pageref{sec:rel_employeeof} \\ \hline
+    \textbf{has-member} & Definiert alle Mitglieder eines Vereines & \emph{Association} & \emph{Member} & \nameref{sec:rel_hasmember}, Seite \pageref{sec:rel_hasmember} \\ \hline
+    \textbf{member-of} & Gibt an, in welchem Verein die Person Mitglied ist & \emph{Member} & \emph{Association} & \nameref{sec:rel_memberof}, Seite \pageref{sec:rel_memberof} \\ \hline
+    \textbf{has-document} & Gibt an, welcher Verein oder Organisation ein Dokument verfasst hat & \emph{Association}, \emph{Organization} & \emph{Document} & \nameref{sec:rel_hasdocument}, Seite \pageref{sec:rel_hasdocument} \\ \hline
+    \textbf{document-of} & Gibt an, zu welchem Verein oder Organisation ein Dokument geh\"ort & \emph{Document} & \emph{Association}, \emph{Organization} & \nameref{sec:rel_documentof}, Seite \pageref{sec:rel_documentof} \\ \hline
+    \textbf{is-about} & Definiert, dass das aktuelle Dokument etwas \"uber den angegebenen Verein aussagt & \emph{Document} & \emph{Association} & \nameref{sec:rel_isabout}, Seite \pageref{sec:rel_isabout} \\ \hline
+    \textbf{mentioned-in} & Gibt an, in welchem Dokument etwas \"uber den Verein gesagt wird & \emph{Association} & \emph{Document} & \nameref{sec:rel_mentionedin}, Seite \pageref{sec:rel_mentionedin} \\ \hline
+    \textbf{means-same} & Definiert, welche W\"orter das gleiche meinen, also Synonyme sind & \emph{Synonym} & \emph{Word} & \nameref{sec:rel_meanssame}, Seite \pageref{sec:rel_meanssame} \\ \hline
+    \textbf{is-same} & Gibt an, welche W\"orter die gleiche Bedeutung haben in unterschiedlichen Sprachen & \emph{Translation} & \emph{Word} & \nameref{sec:rel_issame}, Seite \pageref{sec:rel_issame} \\ \hline
   \end{tabular}
   \caption{Fortsetzung: Kurze Beschreibung der Objekt-Relationen in der Ontologie}
   \label{tbl:relations2}
@@ -517,30 +531,30 @@ Die Relationen, resp. Properties, beschreiben die Abh\"angigkeiten wie auch die 
 Relationen k\"onnen folgende Charakteristiken aufweisen:
 
 \begin{description}
-  \item[Funktional] Eine funktionale Relation \texttt{P} impliziert: \\
+  \item[Funktional]: \index{Relation;funktional}Eine funktionale Relation \texttt{P} impliziert: \\
     wenn \texttt{P(u, v)} und \texttt{P(u, w)} dann \texttt{v == w}
-  \item[Invers Funktional] Eine inverse funktionale Relation \texttt{P} impliziert: \\
+  \item[Invers Funktional]: \index{Relation;inverse funktional}Eine inverse funktionale Relation \texttt{P} impliziert: \\
     wenn \texttt{P(v, u)} und \texttt{P(w, u)} dann \texttt{v == w}
-  \item[Transitiv] Wenn eine Relation \texttt{P} \emph{transitiv} definiert ist f\"ur \texttt{u, v, w}: \\
+  \item[Transitiv]: \index{Relation;transitiv}Wenn eine Relation \texttt{P} transitiv definiert ist f\"ur \texttt{u, v, w}: \\
     wenn \texttt{P(u, v)} und \texttt{P(v, w)} impliziert \texttt{P(u, w)}
-  \item[Symmetrisch] Wenn eine Relation \texttt{P} symmetrisch definiert ist: \\
+  \item[Symmetrisch]: \index{Relation;Symmetrisch}Wenn eine Relation \texttt{P} symmetrisch definiert ist: \\
     wenn \texttt{P(u, v)} dann \texttt{P(v, u)}
-  \item[InverseOf] Wenn bei der Relation \texttt{P1} eine Inverse Relation \texttt{P2} definiert ist:\\
+  \item[InverseOf]: \index{Relation;InverseOf}Wenn bei der Relation \texttt{P1} eine Inverse Relation \texttt{P2} definiert ist:\\
     wenn \texttt{P1(u, v)} dann \texttt{P2(v, u)}
 \end{description}
 
-\textbf{Wichtig}: Die Eigenschaften \emph{Reflexiv}, \emph{Irreflexiv} und \emph{Asymmetrisch} aus der OWL-2 Definition werden nicht verwendet.
+\textbf{Wichtig}: Die Eigenschaften \index{Relation;Reflexiv}Reflexiv, \index{Relation;Irreflexiv}Irreflexiv und \index{Relation;Asymmetrisch}Asymmetrisch aus der OWL-2 Definition werden nicht verwendet.
 
 
 \subsection{Relation: refers-to} \label{sec:rel_refersto}
 
-Die Relation \emph{refers-to} beschreibt die Beziehungen zwischen den einzelnen Dokumenten. Wird zum Beispiel in einem Blog, was ja als \emph{Document} interpertiert ist, auf einen Artikel uas einer Zeitung verwiesen, so kann dies durch diese Relation definiert werden. Die Relation ist sowohl \emph{symmetrisch} als auch \emph{transitiv} und das inverse von sich selbst.
+Die Relation \emph{refers-to} beschreibt die Beziehungen zwischen den einzelnen Dokumenten. Wird zum Beispiel in einem Blog, was ja als \emph{Document} implementiert ist, auf einen Artikel aus einer Zeitung verwiesen, so kann dies durch diese Relation gemacht werden.
 
 \subsubsection{Eigenschaften} \label{sec:rel_refersto_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn wenn ein Dokument auf ein anderes verweist, heisst das nicht, dass dieses auch eine Referenz zur\"uck hat, oder dass das verweisende Dokument auf andere Dokumente verweisen will, auf welche das verwiesene Dokument verweist: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Transitiv
-  \item Symmetrisch
   \item inverseOf \emph{refers-to}
 \end{itemize}
 
@@ -550,8 +564,6 @@ Die Relation \emph{refers-to} beschreibt die Beziehungen zwischen den einzelnen 
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:refersto,caption={Die Relation \emph{refers-to} beschreibt die Abh\"angigkeiten unter Dokumenten}]
 <owl:ObjectProperty rdf:ID="refers-to">
-  <rdf:type rdf:resource="&owl;TransitiveProperty" />
-  <rdf:type rdf:resource="&owl;SymmetricProperty" />
   <owl:inverseOf rdf:resource="#refers-to" />
   <rdfs:domain rdf:resource="#Document" />
   <rdfs:range rdf:resource="#Document" />
@@ -565,6 +577,8 @@ Die Relation \emph{refers-to} beschreibt die Beziehungen zwischen den einzelnen 
 Die Relation \emph{has-sentence} gibt an, welche \emph{Sentence} Instanzen in einem \emph{Document} vorkommen.
 
 \subsubsection{Eigenschaften} \label{sec:rel_hassentence_settings}
+
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn ein Satz, also ein \emph{Sentence}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
 
 \begin{itemize} \setlength{\itemsep}{0cm}
   \item inverseOf \emph{sentence-of}
@@ -590,8 +604,9 @@ Die Relation \emph{sentence-of} gibt an, in welchem \emph{Document} ein \emph{Se
 
 \subsubsection{Eigenschaften} \label{sec:rel_sentenceof_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn ein Dokument, also ein \emph{Document}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Transitiv
   \item inverseOf \emph{has-sentence}
 \end{itemize}
 
@@ -601,7 +616,6 @@ Die Relation \emph{sentence-of} gibt an, in welchem \emph{Document} ein \emph{Se
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:sentenceof,caption={Die Relation \emph{sentenceof} gibt an, in welchem Dokument ein Satz vorkommt}]
 <owl:ObjectProperty rdf:ID="sentence-of">
-  <rdf:type rdf:resource="&owl;TransitiveProperty" />
   <owl:inverseOf rdf:resource="#has-sentence" />
   <rdfs:domain rdf:resource="#Sentence" />
   <rdfs:range rdf:resource="#Document" />
@@ -616,8 +630,9 @@ Die Relation \emph{has-word} gibt an, welche \emph{Word} Instanz in der \emph{Se
 
 \subsubsection{Eigenschaften} \label{sec:rel_hasword_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn ein Wort, also ein \emph{Word}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Transitiv
   \item inverseOf \emph{word-of}
 \end{itemize}
 
@@ -627,7 +642,6 @@ Die Relation \emph{has-word} gibt an, welche \emph{Word} Instanz in der \emph{Se
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hasword,caption={Die Relation \emph{has-word} gibt an, welches Wort in einem Satz vorkommt}]
 <owl:ObjectProperty rdf:ID="has-word">
-  <rdf:type rdf:resource="&owl;TransitiveProperty" />
   <owl:inverseOf rdf:resource="#word-of" />
   <rdfs:domain rdf:resource="#Sentence" />
   <rdfs:range rdf:resource="#Word" />
@@ -642,8 +656,9 @@ Die Relation \emph{word-of} gibt an, in welchen \emph{Sentence} Instanzen ein \e
 
 \subsubsection{Eigenschaften} \label{sec:rel_wordof_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn ein Satz, also ein \emph{Sentence}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Transitiv
   \item inverseOf \emph{has-word}
 \end{itemize}
 
@@ -653,7 +668,6 @@ Die Relation \emph{word-of} gibt an, in welchen \emph{Sentence} Instanzen ein \e
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:wordof,caption={Die Relation \emph{word-of} gibt an, in welchem Satz das Wort vorkommt}]
 <owl:ObjectProperty rdf:ID="word-of">
-  <rdf:type rdf:resource="&owl;TransitiveProperty" />
   <owl:inverseOf rdf:resource="#has-word" />
   <rdfs:domain rdf:resource="#Word" />
   <rdfs:range rdf:resource="#Sentence" />
@@ -667,6 +681,8 @@ Die Relation \emph{word-of} gibt an, in welchen \emph{Sentence} Instanzen ein \e
 Die Relation \emph{contains-word} gibt bei einem zusammengesetzten Wort alle \emph{Word}-Instanzen an, welche in diesem Wort verwendnet werden. So kann zum Beispiel definiert werden, dass das Wort "`Hausboot"' aus den zwei W\"ortern "`Haus"' und "`Boot"' besteht, selber aber auch ein Wort ist.
 
 \subsubsection{Eigenschaften} \label{sec:rel_containsword_settings}
+
+Die Relation ist weder Funktional noch Symmetrisch daf\"ur Transitiv, denn wenn ein Wort in einem Wort vorkommt heisst das, dass dieses alle Eigenschaften des referenzierten Wortes \"ubernehmen soll: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(v, u)} respektive dass \texttt{v == x} ist, jedoch dass \texttt{P(u, w)}. So ist zum Beispiel ein Wort auch Teil eines anderen Wortes, wenn dieses aus mehreren zusammengesetzten W\"ortern besteht, wie zum Beispiel \textit{Hausboot-Fabrik}.
 
 \begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
@@ -698,8 +714,9 @@ Die Relation \emph{has-writer} definiert alle \emph{Person} Instanzen, welche an
 
 \subsubsection{Eigenschaften} \label{sec:rel_haswriter_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn ein Autor, also eine \emph{Person}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Transitiv
   \item inverseOf \emph{writer-of}
 \end{itemize}
 
@@ -709,7 +726,6 @@ Die Relation \emph{has-writer} definiert alle \emph{Person} Instanzen, welche an
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:haswriter,caption={Die Relation \emph{has-writer} gibt an, welche \emph{Person} an dem \emph{Document} geschrieben hat}]
 <owl:ObjectProperty rdf:ID="has-writer">
-  <rdf:type rdf:resource="&owl;TransitiveProperty" />
   <owl:inverseOf rdf:resource="#writer-of" />
   <rdfs:domain rdf:resource="#Document" />
   <rdfs:range rdf:resource="#Person" />
@@ -724,8 +740,9 @@ Die Relation \emph{writer-of} definiert die Verlinkung einer \emph{Person} mit e
 
 \subsubsection{Eigenschaften} \label{sec:rel_writerof_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn ein Dokument, also ein \emph{Document}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Transitiv
   \item inverseOf \emph{has-writer}
 \end{itemize}
 
@@ -735,7 +752,6 @@ Die Relation \emph{writer-of} definiert die Verlinkung einer \emph{Person} mit e
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:writerof,caption={Die Relation \emph{writer-of} gibt an, welche \emph{Person} an welchem \emph{Document} gearbeitet hat}]
 <owl:ObjectProperty rdf:ID="writer-of">
-  <rdf:type rdf:resource="&owl;TransitiveProperty" />
   <owl:inverseOf rdf:resource="#has-writer" />
   <rdfs:domain rdf:resource="#Person" />
   <rdfs:range rdf:resource="#Document" />
@@ -749,6 +765,8 @@ Die Relation \emph{writer-of} definiert die Verlinkung einer \emph{Person} mit e
 Die Relation \emph{has-subregion} definiert alle \emph{Association} Instanzen, welche unterhalb der aktiven angelegt sind. Instanzen von \emph{Association} k\"onnen in einer Baumstruktur angeordnet werden. Diese Property definiert die Verlinkung von Oben nach Unten.
 
 \subsubsection{Eigenschaften} \label{sec:rel_hassubregion_settings}
+
+Die Relation ist weder Funktional noch Symmetrisch, daf\"ur Transitiv und invers Funktional: \texttt{P(u, v) \& P(u, x) \& P(v, w) \& P(z, w)} heisst, dass \texttt{P(u, w)} und auch dass \texttt{v == z}, nicht aber dass \texttt{v == x}. Eine Subsektion einer Sektion ist somit auch Subsektion der Elternsektion der Sektion und durch die inverse Funktionalit\"at wird auch definiert, dass eine Sektion immer nur eine elternsektin aufweisen kann, aber mehrere Untersektionen.
 
 \begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
@@ -778,6 +796,8 @@ Die Relation \emph{subregion-of} definiert die Eltern-Instanz der aktiven \emph{
 
 \subsubsection{Eigenschaften} \label{sec:rel_subregionof_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch, daf\"ur Transitiv: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(v, u)} respektive dass \texttt{v == x} ist, jedoch dass \texttt{P(u, w)}. Eine Subsektion einer Sektion ist somit auch Subsektion der Elternsektion der Sektion und durch die inverse Funktionalit\"at wird auch definiert, dass eine Sektion immer nur eine elternsektin aufweisen kann, aber mehrere Untersektionen.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
   \item inverseOf \emph{has-subregion}
@@ -804,6 +824,8 @@ Die Relation \emph{has-workers} definiert alle \emph{Person}-Instanzen, welche d
 
 \subsubsection{Eigenschaften} \label{sec:rel_hasworkers_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn eine Person, also eine \emph{Person}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
   \item keine
 \end{itemize}
@@ -827,8 +849,9 @@ Die Relation \emph{has-employee} definiert alle \emph{Person} Instanzen, welche 
 
 \subsubsection{Eigenschaften} \label{sec:rel_hasemployee_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn eine Person, also eine \emph{Person}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Transitiv
   \item inverseOf \emph{employee-of}
 \end{itemize}
 
@@ -838,7 +861,6 @@ Die Relation \emph{has-employee} definiert alle \emph{Person} Instanzen, welche 
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hasemployee,caption={Die Relation \emph{has-employee} gibt an, welche \emph{Person} bei der \emph{Organization} oder \emph{Association} angestellt sind}]
 <owl:ObjectProperty rdf:ID="has-employee">
-  <rdf:type rdf:resource="&owl;TransitiveProperty" />
   <owl:inverseOf rdf:resource="#employee-of" />
   <rdfs:domain>
     <owl:Class>
@@ -861,6 +883,8 @@ Die Relation \emph{employee-of} weisst einer \emph{Person} einen Arbeitgeber zu.
 Der Arbeitgeber kann entweder eine \emph{Organization} oder aber eine \emph{Association} sein. Eine Person kann mehrere Arbeitgeber aufweisen.
 
 \subsubsection{Eigenschaften} \label{sec:rel_employeeof_settings}
+
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn eine Organisation oder ein Verein, also eine \emph{Organization} oder \emph{Association}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
 
 \begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
@@ -895,8 +919,9 @@ Die Relation \emph{working-as} weisst einer \emph{Person} einen oder mehrere Ber
 
 \subsubsection{Eigenschaften} \label{sec:rel_workingas_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn ein Beruf, also eine \emph{Profession}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Transitiv
   \item inverseOf \emph{working-as}
 \end{itemize}
 
@@ -906,7 +931,6 @@ Die Relation \emph{working-as} weisst einer \emph{Person} einen oder mehrere Ber
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:workingas,caption={Die Relation \emph{working-as} gibt an, welchen Beruf eine Person aus\"ubt}]
 <owl:ObjectProperty rdf:ID="working-as">
-  <rdf:type rdf:resource="&owl;TransitiveProperty" />
   <owl:inverseOf rdf:resource="#working-as" />
   <rdfs:domain rdf:resource="#Person" />
   <rdfs:range rdf:resource="#Profession" />
@@ -921,8 +945,9 @@ Die Relation \emph{has-member} enth\"allt alle \emph{Person} Instanzen, welche M
 
 \subsubsection{Eigenschaften} \label{sec:rel_hasmember_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn eine Person, also eine \emph{Person}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Transitiv
   \item inverseOf \emph{member-of}
 \end{itemize}
 
@@ -932,7 +957,6 @@ Die Relation \emph{has-member} enth\"allt alle \emph{Person} Instanzen, welche M
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:ahsmember,caption={Die Relation \emph{has-member} enth\"allt alle Mitglieder der \emph{Association}}]
 <owl:ObjectProperty rdf:ID="has-member">
-  <rdf:type rdf:resource="&owl;TransitiveProperty" />
   <owl:inverseOf rdf:resource="#member-of" />
   <rdfs:domain rdf:resource="#Association" />
   <rdfs:range rdf:resource="#Person" />
@@ -947,8 +971,9 @@ Die Relation \emph{member-of} weisst eine \emph{Person} einer \emph{Association}
 
 \subsubsection{Eigenschaften} \label{sec:rel_memberof_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn ein Verein, also eine \emph{Association}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Transitiv
   \item inverseOf \emph{has-member}
 \end{itemize}
 
@@ -958,7 +983,6 @@ Die Relation \emph{member-of} weisst eine \emph{Person} einer \emph{Association}
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:memberof,caption={Die Relation \emph{member-of} gibt alle \emph{Association} an, bei welcher die Person Mitglied ist}]
 <owl:ObjectProperty rdf:ID="member-of">
-  <rdf:type rdf:resource="&owl;TransitiveProperty" />
   <owl:inverseOf rdf:resource="#has-member" />
   <rdfs:domain rdf:resource="#Person" />
   <rdfs:range rdf:resource="#Association" />
@@ -973,8 +997,9 @@ Die Relation \emph{has-document} gibt an, welche \emph{Organization} oder \emph{
 
 \subsubsection{Eigenschaften} \label{sec:rel_hasdocument_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn ein Dokument, also ein \emph{Document}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Transitiv
   \item inverseOf \emph{document-of}
 \end{itemize}
 
@@ -984,7 +1009,6 @@ Die Relation \emph{has-document} gibt an, welche \emph{Organization} oder \emph{
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:hasdocument,caption={Die Relation \emph{has-document} verkn\"upft eine \emph{Organization} mit einem \emph{Document}}]
 <owl:ObjectProperty rdf:ID="has-document">
-  <rdf:type rdf:resource="&owl;TransitiveProperty" />
   <owl:inverseOf rdf:resource="#document-of" />
   <rdfs:domain>
     <owl:Class>
@@ -1002,12 +1026,13 @@ Die Relation \emph{has-document} gibt an, welche \emph{Organization} oder \emph{
 
 \subsection{Relation: document-of} \label{sec:rel_documentof}
 
-Die Relation \emph{document-of} gibt an, welche \emph{Organization} oder \emph{Association} der ''Eigent\"umer'' eines Dokumentes ist. Es wird also definiert, wer ein Dokuemnt ver\"offentlicht hat. Das Property beinhaltet demnach in der Domain eine Instanz eines \emph{Document} und in der Range entweder eine \emph{Organization} oder eine \emph{Association}. Da in der Range unterschiedliche Typen vorkommen k\"onnen, m\"ussen diese in der Klassendefinition (siehe \nameref{sec:class_organization} und \nameref{sec:class_association}) explizit als Unterschiedliche Klassen definiert werden.
+Die Relation \emph{document-of} gibt an, welche \emph{Organization} oder \emph{Association} der "'Eigent\"umer"` eines Dokumentes ist. Es wird also definiert, wer ein Dokuemnt ver\"offentlicht hat. Das Property beinhaltet demnach in der Domain eine Instanz eines \emph{Document} und in der Range entweder eine \emph{Organization} oder eine \emph{Association}. Da in der Range unterschiedliche Typen vorkommen k\"onnen, m\"ussen diese in der Klassendefinition (siehe \nameref{sec:class_organization} und \nameref{sec:class_association}) explizit als Unterschiedliche Klassen definiert werden.
 
 \subsubsection{Eigenschaften} \label{sec:rel_documentof_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn eine Organisation oder ein Verein, also eine \emph{Organization} oder eine \emph{Association}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Transitiv
   \item inverseOf \emph{has-document}
 \end{itemize}
 
@@ -1017,7 +1042,6 @@ Die Relation \emph{document-of} gibt an, welche \emph{Organization} oder \emph{A
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:documentof,caption={Die Relation \emph{document-of} gibt an, welche \emph{Organization} oder \emph{Association} das \emph{Document} ver\"offentlicht hat}]
 <owl:ObjectProperty rdf:ID="document-of">
-  <rdf:type rdf:resource="&owl;TransitiveProperty" />
   <owl:inverseOf rdf:resource="#has-document" />
   <rdfs:domain rdf:resource="#Document" />
   <rdfs:range>
@@ -1039,8 +1063,9 @@ Die Relation \emph{is-about} beschreibt, welche \emph{Association} Instanzen im 
 
 \subsubsection{Eigenschaften} \label{sec:rel_isabout_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn ein Verein, also eine \emph{Association}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Transitiv
   \item inverseOf \emph{mentioned-in}
 \end{itemize}
 
@@ -1050,7 +1075,6 @@ Die Relation \emph{is-about} beschreibt, welche \emph{Association} Instanzen im 
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:isabout,caption={Die Relation \emph{is-about} gibt an, \"uber welche \emph{Association} ein Dokument ist}]
 <owl:ObjectProperty rdf:ID="is-about">
-  <rdf:type rdf:resource="&owl;TransitiveProperty" />
   <owl:inverseOf rdf:resource="#mentioned-in" />
   <rdfs:domain rdf:resource="#Document" />
   <rdfs:range rdf:resource="#Association" />
@@ -1065,8 +1089,9 @@ Die Relation \emph{mentioned-in} gibt an, in welchen \emph{Document} Instanzen d
 
 \subsubsection{Eigenschaften} \label{sec:rel_mentionedin_settings}
 
+Die Relation ist weder Funktional, noch Symmetrisch noch Transitiv, denn ein Dokument, also ein \emph{Document}, kann diese Eigenschaft nicht aufweisen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(u, w)} oder gar \texttt{P(v, u)} respektive dass \texttt{v == x} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
-  \item Transitiv
   \item inverseOf \emph{is-about}
 \end{itemize}
 
@@ -1076,7 +1101,6 @@ Die Relation \emph{mentioned-in} gibt an, in welchen \emph{Document} Instanzen d
  \lstset{language=XML}
  \begin{lstlisting}[label=owl:mentionedin,caption={Die Relation \emph{mentioned-in} gibt alle \emph{Document} an, in welcher eine \emph{Association} erw\"ahnt wird}]
 <owl:ObjectProperty rdf:ID="mentioned-in">
-  <rdf:type rdf:resource="&owl;TransitiveProperty" />
   <owl:inverseOf rdf:resource="#is-about" />
   <rdfs:domain rdf:resource="#Association" />
   <rdfs:range rdf:resource="#Document" />
@@ -1090,6 +1114,8 @@ Die Relation \emph{mentioned-in} gibt an, in welchen \emph{Document} Instanzen d
 Die Relation \emph{means-same} wird auf einem \emph{Synonym} verwendet und definiert alle \emph{Word}-Instanzen, welche die gleiche Bedeutung haben.
 
 \subsubsection{Eigenschaften} \label{sec:rel_meanssame_settings}
+
+Die Relation ist weder Funktional noch Symmetrisch, daf\"ur Transitiv, denn die Bedeutung eines Wortes, also eines \emph{Word}, kann durchaus in verschiedenen \emph{Synonym}-INstanzen vorkommen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(v, u)} respektive dass \texttt{v == x} ist, daf\"ur aber, dass \texttt{P(u, w)} ist.
 
 \begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
@@ -1115,6 +1141,8 @@ Die Relation \emph{is-same} wird auf einer \emph{Translation} verwendet und defi
 
 \subsubsection{Eigenschaften} \label{sec:rel_issame_settings}
 
+Die Relation ist weder Funktional noch Symmetrisch, daf\"ur Transitiv, denn die Bedeutung eines Wortes, also eines \emph{Word}, kann durchaus in verschiedenen \emph{Synonym}-INstanzen vorkommen: \texttt{P(u, v) \& P(u, x) \& P(v, w)} heisst nicht dass \texttt{P(v, u)} respektive dass \texttt{v == x} ist, daf\"ur aber, dass \texttt{P(u, w)} ist.
+
 \begin{itemize} \setlength{\itemsep}{0cm}
   \item Transitiv
 \end{itemize}
@@ -1136,7 +1164,7 @@ Die Relation \emph{is-same} wird auf einer \emph{Translation} verwendet und defi
 
 \section{Datenwerte} \label{sec:datatypes}
 
-\emph{Datenwerte}, auch \emph{Datentypen-Properties} genannt, werden verwendet um den einzelnen Klassen Eigenschaften zuzuweisen, respektive die einzelnen Instanzen mit ''Daten'' zu best\"ucken. Die Datentypen werden sowohl bei den \emph{Relationen} wie auch bei den Klasseninternen Properties verwendet und m\"ussen jeweils bei der Instanzierung einer Instanz angegeben werden.
+\emph{Datenwerte}, auch \emph{Datentypen-Properties} genannt, werden verwendet um den einzelnen Klassen Eigenschaften zuzuweisen, respektive die einzelnen Instanzen mit "'Daten"` zu best\"ucken. Die Datentypen werden sowohl bei den \emph{Relationen} wie auch bei den Klasseninternen Properties verwendet und m\"ussen jeweils bei der Instanzierung einer Instanz angegeben werden.
 
 Standardm\"assig sind alle Datentypen verf\"ugbar, welche im XML-Schema\cite{XMLSCHEMA} verf\"ugbar sind. Diese k\"onnen in den Datentypen-Relationen als Variabler oder vordefineirter Wert verwendet werden, doer als Liste aus Werten (Enumeration). Eine Datentyp-Relation besitzt, wie die Objekt-Relation, immer eine \emph{domain} und eine \emph{range}, sodass ein solches an eine Klasse oder Objekt-Relation gebunden werden kann.
 
